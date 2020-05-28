@@ -40,7 +40,7 @@ int		specifier_options(char *subtext, void *arg);
 /*                      Flag handling functions                               */
 /*----------------------------------------------------------------------------*/
 /*                                                    -->      flag_options.c */
-char	flag_options(char *f, char specifier);
+char	*flag_options(char *f, char specifier);
 void	fix_incompatible_flags(char *flags);
 /*                                                    -->     type_and_flag.c */
 void	solve_plus_flag_with_types(char *flags, char specifier);
@@ -53,5 +53,12 @@ void	solve_spaceflag_with_types(char *flags, char specifier);
 /*                     Width treatment functions                              */
 /*----------------------------------------------------------------------------*/
 /*                                                        --> width_options.c */
+char	*width_options(char *f);
+/*----------------------------------------------------------------------------*/
+/*                 Funcoes para tratamento de precisão                        */
+/*                     precision treatment functions                          */
+/*----------------------------------------------------------------------------*/
+/*                                                        --> width_options.c */
+char	*precision_options(char *f)
 
 #endif

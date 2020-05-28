@@ -13,7 +13,7 @@
 
 #include "ft_printf.h"
 
-char	flag_options(char *f, char specifier)
+char	*flag_options(char *f, char specifier)
 {
 	char	flags;
 
@@ -33,7 +33,7 @@ char	flag_options(char *f, char specifier)
 	solve_hash_flag_with_types(&flags, specifier);
 	solve_zero_flag_with_types(&flags, specifier);
 	solve_spaceflag_with_types(&flags, specifier);
-	return (flags);
+	return (f);
 }
 
 void	fix_incompatible_flags(char *flags)

@@ -16,10 +16,12 @@ int		specifier_options(char *subtext, void *arg)
 {
 	size_t	i;
 	size_t	j;
+	char	*jump;
 	char	specifier[20];
 
 	i = 1;
 	j = 0;
+	jump = 0;
 	ft_strlcpy(specifier,"diuoxXfFeEgGaAcspn%", 20);
 	while (subtext[i])
 	{
@@ -27,7 +29,9 @@ int		specifier_options(char *subtext, void *arg)
 			j++;
 		if (specifier[j])
 		{
-			flag_options(ft_substr(subtext, 1, i), specifier[j]);
+			jump = flag_options(ft_substr(subtext, 1, i), specifier[j]);
+			jump = width_options(jump);
+			jump = precision_options(jump);
 			return(i);
 		}
 		j = 0;
@@ -36,48 +40,32 @@ int		specifier_options(char *subtext, void *arg)
 	return(0);
 }
 
-char	width_options(char flags , char *f)
+char	*width_options(char *f)
 {
-	char *width;
-
-	width = NULL;
-	while (*f == '+' || *f == '-' || *f == '#' || *f == '0' || *f == ' ')
-		f++;
-	while (ft_isdigit(*f))
+	char	*buffer;
+	int		i;
+	buffer = NULL;
+	i = 0;
+	while ((*f >= '0' && *f <= '9') || *f == '*')
 	{
-		if (width != NULL)
-		{
-			free(width);
-			width = NULL;
-		}
-		width = width_buffer(width, *f);
+		buffer = add_buffer(*f, buffer, i);
 		f++;
+		i++;
 	}
-	printf("%s\n", f);
-	return (0);
+	return (f);
 }
 
-void	*width_buffer(char *width, char c)
+char	*precision_options(char *f)
 {
-	char *temp;
-	int size;
-
-	size = 0;
-	if (!width && c)
+	char	*buffer;
+	int		i;
+	buffer = NULL;
+	i = 0;
+	while ((*f >= '0' && *f <= '9') || *f == '*' || *f == '.')
 	{
-	 	width = calloc(2, sizeof(char));
-		*width = c;
-		return (width);
+		buffer = add_buffer(*f, buffer, i);
+		f++;
+		i++;
 	}
-	else if (!width && !c)
-		return (NULL);
-	size = ft_strlen(width);
-	temp = calloc(size, sizeof(char));
-	ft_strlcpy(temp, width, size)
-	temp[size + 1] = c;
-	free (width);
-	return (temp);
+	return (f);
 }
-
-
-

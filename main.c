@@ -24,7 +24,7 @@ int main ()
 	printf("Float:\t%.10f\n", pnumero);
 	printf("Double:\t%.10f\n", dnumero);*/
 //	tabela_de_tipos();
-	ft_printf("salem--%#+- 0kk35321121\n", 150);
+	ft_printf("salem--%#+-10d 0kk35321121\n", 150);
 /*	   printf("salem--%#+- 0kk35321121\n", 150);
 	   printf("salem--% 10u kk35321121\n", 150);
 	   printf("salem--% 10o kk35321121\n", 150);

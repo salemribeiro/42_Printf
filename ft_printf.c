@@ -48,6 +48,17 @@ char	*mensage_buffer(char c)
 	return (buffer);
 }
 
+void	big_buffer(char *flags, char *width, char *precision)
+{
+	static char *s_flags;
+	static char *s_width;
+	static char *s_precision;
+
+	flags ? s_flags = flags : flags = s_flags;
+	width ? s_width = width : width = s_width;
+	precision ? s_precision = precision : precision = s_precision;
+}
+
 char	*add_buffer(char c, char *buffer, int size)
 {
 	int i;

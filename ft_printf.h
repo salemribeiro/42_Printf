@@ -1,5 +1,6 @@
 /* ************************************************************************** */
 /*                                                                            */
+/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
@@ -49,16 +50,11 @@ void	solve_hash_flag_with_types(char *flags, char specifier);
 void	solve_zero_flag_with_types(char *flags, char specifier);
 void	solve_spaceflag_with_types(char *flags, char specifier);
 /*----------------------------------------------------------------------------*/
-/*                 Funcoes para tratamento de largura                         */
+/*                 Funcoes para tratamento de largura e precisao              */
 /*                     Width treatment functions                              */
 /*----------------------------------------------------------------------------*/
-/*                                                        --> width_options.c */
+/*                                          --> width_and_precision_options.c */
 char	*width_options(char *f);
-/*----------------------------------------------------------------------------*/
-/*                 Funcoes para tratamento de precisão                        */
-/*                     precision treatment functions                          */
-/*----------------------------------------------------------------------------*/
-/*                                                        --> width_options.c */
-char	*precision_options(char *f)
+char	*precision_options(char *f, char specifier);
 
 #endif

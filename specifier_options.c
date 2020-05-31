@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int		specifier_options(char *subtext, void *arg)
+int		specifier_options(char *subtext)
 {
 	size_t	i;
 	size_t	j;
@@ -32,6 +32,7 @@ int		specifier_options(char *subtext, void *arg)
 			jump = flag_options(ft_substr(subtext, 1, i), specifier[j]);
 			jump = width_options(jump);
 			jump = precision_options(jump, specifier[i]);
+			jump = length_options(jump);
 			return(i);
 		}
 		j = 0;
@@ -39,5 +40,6 @@ int		specifier_options(char *subtext, void *arg)
 	}
 	return(0);
 }
+
 
 

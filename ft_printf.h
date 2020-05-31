@@ -33,7 +33,7 @@ void	tabela_de_tipos();
 int		ft_printf(const char *format, ...);
 char	*mensage_buffer(char c);
 char	*add_buffer(char c, char *buffer, int size);
-void	big_buffer(char *flags, char *width, char *precision)
+void	big_hub(char *flags, char **width, char **precision, char **length);
 
 /*
 **-------------------------------------------------------i----------------------
@@ -43,24 +43,31 @@ void	big_buffer(char *flags, char *width, char *precision)
 ** --> specifier_options.c <--
 */
 
-int		specifier_options(char *subtext, void *arg);
+int		specifier_options(char *subtext);
+
 /*
 ** --> flag_options.c <--
 */
+
 char	*flag_options(char *f, char specifier);
 void	fix_incompatible_flags(char *flags);
+
 /*
 ** --> type_and_flag.c <--
 */
+
 void	solve_plus_flag_with_types(char *flags, char specifier);
 void	solve_minusflag_with_types(char *flags, char specifier);
 void	solve_hash_flag_with_types(char *flags, char specifier);
 void	solve_zero_flag_with_types(char *flags, char specifier);
 void	solve_spaceflag_with_types(char *flags, char specifier);
+
 /*
 ** --> width_and_precision_options.c <--
 */
+
 char	*width_options(char *f);
 char	*precision_options(char *f, char specifier);
+char	*length_options(char *f);
 
 #endif

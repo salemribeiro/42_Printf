@@ -24,9 +24,9 @@ int main ()
 	printf("Float:\t%+010.10f\n", pnumero);
 	printf("Double:\t%+010.10f\n", dnumero);*/
 //	tabela_de_tipos();
-	ft_printf("salem--%+010d 0kk35321121\n", 150);
-	   printf("salem--%+010d kk35321121\n", 150);
-	   printf("salem--%+010u kk35321121\n", 150);
+	ft_printf("salem--%+-012.100lld 0kk35321121\n", 150);
+	   printf("salem--%+0.20d kk35321121\n", 150);
+/*	   printf("salem--%+010u kk35321121\n", 150);
 	   printf("salem--%+010o kk35321121\n", 150);
 	   printf("salem--%+010x kk35321121\n", 150);
 	   printf("salem--%+010X kk35321121\n", 150);
@@ -42,6 +42,7 @@ int main ()
 	   printf("salem--%+010s kk35321121\n", "salem");
 	   printf("salem--%+010p kk35321121\n", "salem");
 	   printf("salem--%+010-%+010 kk35321121\n");
+*/
 	return (0);
 }
 

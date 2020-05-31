@@ -15,8 +15,10 @@
 char	*flag_options(char *f, char specifier)
 {
 	char	flags;
+	char	*p_null;
 
 	flags = 0;
+	p_null = NULL;
 	while (*f == '+' || *f == '-' || *f == '#' || *f == '0' || *f == ' ')
 	{
 		(*f == '+') ? flags = flags | 1 : flags;
@@ -32,6 +34,7 @@ char	*flag_options(char *f, char specifier)
 	solve_hash_flag_with_types(&flags, specifier);
 	solve_zero_flag_with_types(&flags, specifier);
 	solve_spaceflag_with_types(&flags, specifier);
+	big_hub(&flags, &p_null, &p_null, &p_null);
 	return (f);
 }
 

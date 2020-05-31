@@ -18,41 +18,49 @@ char	*width_options(char *f)
 	char	*p_null;
 	char	flags;
 	int		i;
+	char	width;
 
 	buffer = NULL;
 	p_null = NULL;
 	flags = '\0';
 	i = 0;
-	while ((*f >= '0' && *f <= '9') || *f == '*')
+	width = -1;
+	while (ft_isdigit(*f) || *f == '*')
 	{
 		buffer = add_buffer(*f, buffer, i);
 		f++;
 		i++;
 	}
-	big_hub(&flags, &buffer, &p_null, &p_null);
+	if (ft_isdigit(*buffer))
+		width = ft_atoi(buffer);
+	big_hub(&flags, &width, &flags, &flags);
 	return (f);
 }
 
 char	*precision_options(char *f, char specifier)
 {
-	char	*buffer;
-	char	*p_null;
-	char	flags;
-	int		i;
+	char		*buffer;
+	char		c_null;
+	char		precision;
+	int			i;
 
 	buffer = NULL;
-	p_null = NULL;
-	flags = '\0';
 	i = 0;
+	precision = -1;
 	if (specifier != 'c' &&  specifier != 'p')
 	{
-		while ((*f >= '0' && *f <= '9') || *f == '*' || *f == '.')
+		while (ft_isdigit(*f) || *f == '*' || *f == '.')
 		{
-			buffer = add_buffer(*f, buffer, i);
+			if (*f != '.')
+			{
+				buffer = add_buffer(*f, buffer, i);
+				i++;
+			}
 			f++;
-			i++;
 		}
-		big_hub(&flags, &p_null, &buffer, &p_null);
+		if (ft_isdigit(*buffer))
+			precision = ft_atoi(buffer);
+		big_hub(&c_null, &c_null, &precision, &c_null);
 		return (f);
 	}
 	else
@@ -61,15 +69,15 @@ char	*precision_options(char *f, char specifier)
 
 char	*length_options(char *f)
 {
-	char	*buffer;
-	char	*p_null;
-	char	flags;
-	int		i;
+	char		*buffer;
+	char		c_null;
+	short int	length;
+	int			i;
 
 	buffer = NULL;
-	p_null = NULL;
-	flags = 0;
+	c_null = 0;
 	i = 0;
+	length = 0;
 	if (*f)
 	{
 		while (*f == 'h' || *f == 'l' || *f == 'j' ||
@@ -79,7 +87,12 @@ char	*length_options(char *f)
 			f++;
 			i++;
 		}
-		big_hub(&flags, &p_null, &p_null, &buffer);
+		length = (short int*)buffer;
+		if (length != 76 && length != 104 && length != 106 &&
+			length != 108 && length != 116 && length != 122 &&
+			length != 26728 && length == 27756)
+			length = 0;
+	big_hub(&c_null, &c_null, &c_null, &length);
 		return (f);
 	}
 	else

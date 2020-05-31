@@ -23,26 +23,9 @@ int main ()
 	printf("Frase:\t%+010.10s\n", frase);
 	printf("Float:\t%+010.10f\n", pnumero);
 	printf("Double:\t%+010.10f\n", dnumero);*/
-//	tabela_de_tipos();
-	ft_printf("salem--%+-012.100lld 0kk35321121\n", 150);
+	tabela_de_tipos();
+	ft_printf("salem--%+-0123.*lld 0kk35321121\n", 150);
 	   printf("salem--%+0.20d kk35321121\n", 150);
-/*	   printf("salem--%+010u kk35321121\n", 150);
-	   printf("salem--%+010o kk35321121\n", 150);
-	   printf("salem--%+010x kk35321121\n", 150);
-	   printf("salem--%+010X kk35321121\n", 150);
-	   printf("salem--%+010f kk35321121\n", 150.0f);
-	   printf("salem--%+010F kk35321121\n", 150.0f);
-	   printf("salem--%+010e kk35321121\n", 150.0f);
-	   printf("salem--%+010E kk35321121\n", 150.0f);
-	   printf("salem--%+010g kk35321121\n", 150.0f);
-	   printf("salem--%+010G kk35321121\n", 150.0f);
-	   printf("salem--%+010a kk35321121\n", 150.0f);
-	   printf("salem--%+010A kk35321121\n", 150.0f);
-	   printf("salem--%+010c kk35321121\n", 'a');
-	   printf("salem--%+010s kk35321121\n", "salem");
-	   printf("salem--%+010p kk35321121\n", "salem");
-	   printf("salem--%+010-%+010 kk35321121\n");
-*/
 	return (0);
 }
 

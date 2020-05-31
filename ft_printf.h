@@ -33,7 +33,7 @@ void	tabela_de_tipos();
 int		ft_printf(const char *format, ...);
 char	*mensage_buffer(char c);
 char	*add_buffer(char c, char *buffer, int size);
-void	big_hub(char *flags, char **width, char **precision, char **length);
+void	big_hub(char *flags, int *width, int *precision, short int *length);
 
 /*
 **-------------------------------------------------------i----------------------

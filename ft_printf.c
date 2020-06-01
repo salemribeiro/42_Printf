@@ -17,15 +17,15 @@ int		ft_printf(const char *format, ...)
 	va_list	item;
 	char	*mensage;
 	int		i;
-	char flags;
-	char  width;
-	char  precision;
-	char *length;
+	int		flags;
+	int		width;
+	int		precision;
+	int		length;
 
 	flags = 0;
 	width = 0;
 	precision = 0;
-	length = NULL;
+	length = 0;
 
 	va_start(item, format);
 	mensage = NULL;
@@ -40,7 +40,7 @@ int		ft_printf(const char *format, ...)
 	}
 	mensage =  mensage_buffer('\0');
 	big_hub(&flags, &width, &precision, &length);
-	printf("FLAGS: %d | WIDTH: %d | PRECISION: %d | LENGTH: %s\n", flags, width, precision, length);
+	printf("FLAGS: %d | WIDTH: %d | PRECISION: %d | LENGTH: %d\n", flags, width, precision, length);
 	free (mensage);
 	va_end(item);
 	return (0);
@@ -58,12 +58,12 @@ char	*mensage_buffer(char c)
 	return (buffer);
 }
 
-void	big_hub(char *flags, int *width, int *precision, short int *length)
+void	big_hub(int *flags, int *width, int *precision, int *length)
 {
-	static char			s_flags;
-	static int			s_width;
-	static int			s_precision;
-	static short int	*s_length;
+	static int	s_flags;
+	static int	s_width;
+	static int	s_precision;
+	static int	s_length;
 
 	if (*flags == 0 && *width == 0 && *precision == 0 && *length == 0)
 	{

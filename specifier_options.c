@@ -31,7 +31,7 @@ int		specifier_options(char *subtext)
 		{
 			jump = flag_options(ft_substr(subtext, 1, i), specifier[j]);
 			jump = width_options(jump);
-			jump = precision_options(jump, specifier[i]);
+			jump = precision_options(jump, specifier[j]);
 			jump = length_options(jump);
 			return(i);
 		}

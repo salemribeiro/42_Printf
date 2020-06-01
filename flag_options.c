@@ -14,8 +14,8 @@
 
 char	*flag_options(char *f, char specifier)
 {
-	char	flags;
-	char	*c_null;
+	int		flags;
+	int		c_null;
 
 	flags = 0;
 	c_null = 0;
@@ -38,9 +38,9 @@ char	*flag_options(char *f, char specifier)
 	return (f);
 }
 
-void	fix_incompatible_flags(char *flags)
+void	fix_incompatible_flags(int *flags)
 {
-	char temp;
+	int temp;
 	temp = *flags;
 	temp = (temp | 23) ^ 23;
 	if (temp == 8)
@@ -52,4 +52,4 @@ void	fix_incompatible_flags(char *flags)
 		if (temp == 16)
 			*flags = *flags ^ 16;
 	}
-}
+

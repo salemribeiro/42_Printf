@@ -15,14 +15,12 @@
 char	*width_options(char *f)
 {
 	char	*buffer;
-	char	*p_null;
-	char	flags;
+	int		c_null;
 	int		i;
-	char	width;
+	int		width;
 
 	buffer = NULL;
-	p_null = NULL;
-	flags = '\0';
+	c_null = 0;
 	i = 0;
 	width = -1;
 	while (ft_isdigit(*f) || *f == '*')
@@ -31,70 +29,68 @@ char	*width_options(char *f)
 		f++;
 		i++;
 	}
-	if (ft_isdigit(*buffer))
-		width = ft_atoi(buffer);
-	big_hub(&flags, &width, &flags, &flags);
+	if (buffer)
+	{
+		if (ft_isdigit(*buffer))
+			width = ft_atoi(buffer);
+		big_hub(&c_null, &width, &c_null, &c_null);
+	}
 	return (f);
 }
 
 char	*precision_options(char *f, char specifier)
 {
-	char		*buffer;
-	char		c_null;
-	char		precision;
-	int			i;
+	char	*buffer;
+	int		c_null;
+	int		precision;
+	int		i;
 
 	buffer = NULL;
 	i = 0;
 	precision = -1;
-	if (specifier != 'c' &&  specifier != 'p')
+	c_null = 0;
+	while (ft_isdigit(*f) || *f == '*' || *f == '.')
 	{
-		while (ft_isdigit(*f) || *f == '*' || *f == '.')
+		if (*f != '.')
 		{
-			if (*f != '.')
-			{
-				buffer = add_buffer(*f, buffer, i);
-				i++;
-			}
-			f++;
+			buffer = add_buffer(*f, buffer, i);
+			i++;
 		}
-		if (ft_isdigit(*buffer))
-			precision = ft_atoi(buffer);
-		big_hub(&c_null, &c_null, &precision, &c_null);
-		return (f);
+		f++;
 	}
-	else
-		return (buffer);
+	if (specifier == 'c' ||  specifier == 'p' || specifier == 'd' ||
+		specifier == 'i')
+		return (f);
+	if (ft_isdigit(*buffer))
+		precision = ft_atoi(buffer);
+	big_hub(&c_null, &c_null, &precision, &c_null);
+	return (f);
 }
 
 char	*length_options(char *f)
 {
-	char		*buffer;
-	char		c_null;
-	short int	length;
-	int			i;
+	char	*buffer;
+	int		c_null;
+	int		l;
+	int		i;
 
 	buffer = NULL;
 	c_null = 0;
 	i = 0;
-	length = 0;
 	if (*f)
 	{
 		while (*f == 'h' || *f == 'l' || *f == 'j' ||
 			*f == 'z' || *f == 't' || *f =='L')
 		{
 			buffer = add_buffer(*f, buffer, i);
+			l = (int)*((short int*)buffer);
 			f++;
 			i++;
 		}
-		length = (short int*)buffer;
-		if (length != 76 && length != 104 && length != 106 &&
-			length != 108 && length != 116 && length != 122 &&
-			length != 26728 && length == 27756)
-			length = 0;
-	big_hub(&c_null, &c_null, &c_null, &length);
-		return (f);
+		if (l == 76 || l == 104 || l == 106 ||l == 108 || l == 116 ||
+		l == 122 || l == 26728 || l == 27756)
+			l = (int)*((short int*)buffer);
+		big_hub(&c_null, &c_null, &c_null, &l);
 	}
-	else
-		return (buffer);
+		return (f);
 }

@@ -12,12 +12,12 @@
 
 #include "ft_printf.h"
 
-void	solve_plus_flag_with_types(char *flags, char specifier)
+void	solve_plus_flag_with_types(int *flags, char specifier)
 {
-	char forbiden[9];
-	char temp;
-	char valid;
-	int i;
+	char	forbiden[9];
+	int		temp;
+	int		valid;
+	int		i;
 
 	ft_strlcpy(forbiden, "uoxXcspn", 9);
 	temp = (*flags | 30) ^ 30;
@@ -33,9 +33,9 @@ void	solve_plus_flag_with_types(char *flags, char specifier)
 		*flags = *flags ^ 1;
 }
 
-void	solve_minusflag_with_types(char *flags, char specifier)
+void	solve_minusflag_with_types(int *flags, char specifier)
 {
-	char temp;
+	int temp;
 	int i;
 
 	temp = (*flags | 29)  ^ 29;
@@ -43,12 +43,12 @@ void	solve_minusflag_with_types(char *flags, char specifier)
 		*flags = *flags ^ 2;
 }
 
-void	solve_hash_flag_with_types(char *flags, char specifier)
+void	solve_hash_flag_with_types(int *flags, char specifier)
 {
-	char forbiden[8];
-	char temp;
-	char valid;
-	int i;
+	char	forbiden[8];
+	int		temp;
+	char	valid;
+	int		i;
 
 	ft_strlcpy(forbiden, "diucspn", 8);
 	temp = (*flags | 27) ^ 27;
@@ -64,12 +64,12 @@ void	solve_hash_flag_with_types(char *flags, char specifier)
 		*flags = *flags ^ 4;
 }
 
-void	solve_zero_flag_with_types(char *flags, char specifier)
+void	solve_zero_flag_with_types(int *flags, char specifier)
 {
-	char forbiden[5];
-	char temp;
-	char valid;
-	int i;
+	char	forbiden[5];
+	int		temp;
+	char	valid;
+	int		i;
 
 	ft_strlcpy(forbiden, "cspn", 5);
 	temp = (*flags | 23) ^ 23;
@@ -85,12 +85,12 @@ void	solve_zero_flag_with_types(char *flags, char specifier)
 		*flags = *flags ^ 8;
 }
 
-void	solve_spaceflag_with_types(char *flags, char specifier)
+void	solve_spaceflag_with_types(int *flags, char specifier)
 {
-	char forbiden[9];
-	char temp;
-	char valid;
-	int i;
+	char	forbiden[9];
+	int		temp;
+	char	valid;
+	int		i;
 
 	ft_strlcpy(forbiden, "uoxXcspn", 9);
 	temp = (*flags | 15) ^ 15;

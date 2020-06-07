@@ -19,15 +19,15 @@ int			ft_printf(const char *format, ...)
 	char			*text;
 
 	va_start(item, format);
-	while(search_percent((char*)format))
+	text = search_percent((char*)format);
+	while(*text)
 	{
 		options = big_hub(-1, -1);
 		if (options.width == -1)
 			options = big_hub(va_arg(item, int), 2);
 		if (options.precision == -1)
 			options = big_hub(va_arg(item, int), 3);
-		//ESPAÇO PARA O TRATAMENTO DE ARGUMENTO
-		options = big_hub(0, 0);
+		text = search_percent(text);
 	}
 /*	printf("Flag: %d | ",m_options[0]);
 	printf("Width: %d | ", m_options[1]);
@@ -38,7 +38,7 @@ int			ft_printf(const char *format, ...)
 	return (0);
 }
 
-char		search_percent(char *text)
+char			*search_percent(char *text)
 {
 	static int	i;
 
@@ -49,11 +49,11 @@ char		search_percent(char *text)
 		else
 		{
 			i += specifier_options((char*)&text[i]);
-			return (text[i]);
+			return (&text[i]);
 		}
 		i++;
 	}
-	return (text[i]);
+	return (text[i - 1]);
 }
 
 char		*mensage_buffer(char c)
@@ -76,7 +76,6 @@ struct hub_op	big_hub(int value, char field)
 		s_options.width = 0;
 		s_options.precision = 0;
 		s_options.length = 0;
-		s_options.specifier = 0;
 	}
 	else if (field == 1)
 		s_options.flags = value;

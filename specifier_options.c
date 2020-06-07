@@ -33,7 +33,8 @@ int		specifier_options(char *subtext)
 			jump = width_options(jump);
 			jump = precision_options(jump, specifier[j]);
 			jump = length_options(jump);
-			return(i);
+			big_hub (specifier[j], 5);
+			return(i + 1);
 		}
 		j = 0;
 		i++;

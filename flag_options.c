@@ -15,10 +15,8 @@
 char	*flag_options(char *f, char specifier)
 {
 	int		flags;
-	int		c_null;
 
 	flags = 0;
-	c_null = 0;
 	while (*f == '+' || *f == '-' || *f == '#' || *f == '0' || *f == ' ')
 	{
 		(*f == '+') ? flags = flags | 1 : flags;
@@ -34,7 +32,7 @@ char	*flag_options(char *f, char specifier)
 	solve_hash_flag_with_types(&flags, specifier);
 	solve_zero_flag_with_types(&flags, specifier);
 	solve_spaceflag_with_types(&flags, specifier);
-	big_hub(&flags, &c_null, &c_null, &c_null);
+	big_hub(flags, 1);
 	return (f);
 }
 
@@ -52,4 +50,4 @@ void	fix_incompatible_flags(int *flags)
 		if (temp == 16)
 			*flags = *flags ^ 16;
 	}
-
+}

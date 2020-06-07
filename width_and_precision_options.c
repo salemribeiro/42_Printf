@@ -15,12 +15,10 @@
 char	*width_options(char *f)
 {
 	char	*buffer;
-	int		c_null;
 	int		i;
 	int		width;
 
 	buffer = NULL;
-	c_null = 0;
 	i = 0;
 	width = -1;
 	while (ft_isdigit(*f) || *f == '*')
@@ -33,7 +31,7 @@ char	*width_options(char *f)
 	{
 		if (ft_isdigit(*buffer))
 			width = ft_atoi(buffer);
-		big_hub(&c_null, &width, &c_null, &c_null);
+		big_hub(width, 2);
 	}
 	return (f);
 }
@@ -41,14 +39,12 @@ char	*width_options(char *f)
 char	*precision_options(char *f, char specifier)
 {
 	char	*buffer;
-	int		c_null;
 	int		precision;
 	int		i;
 
 	buffer = NULL;
 	i = 0;
 	precision = -1;
-	c_null = 0;
 	while (ft_isdigit(*f) || *f == '*' || *f == '.')
 	{
 		if (*f != '.')
@@ -63,19 +59,17 @@ char	*precision_options(char *f, char specifier)
 		return (f);
 	if (ft_isdigit(*buffer))
 		precision = ft_atoi(buffer);
-	big_hub(&c_null, &c_null, &precision, &c_null);
+	big_hub(precision, 3);
 	return (f);
 }
 
 char	*length_options(char *f)
 {
 	char	*buffer;
-	int		c_null;
 	int		l;
 	int		i;
 
 	buffer = NULL;
-	c_null = 0;
 	i = 0;
 	if (*f)
 	{
@@ -87,10 +81,10 @@ char	*length_options(char *f)
 			f++;
 			i++;
 		}
-		if (l == 76 || l == 104 || l == 106 ||l == 108 || l == 116 ||
-		l == 122 || l == 26728 || l == 27756)
+		if (l == 0x4C || l == 0x68 || l == 0x6A || l == 0x6C || l == 0x74 ||
+		l == 0x7A || l == 0x6868 || l == 0x6C6C)
 			l = (int)*((short int*)buffer);
-		big_hub(&c_null, &c_null, &c_null, &l);
+		big_hub(l, 4);
 	}
 		return (f);
 }

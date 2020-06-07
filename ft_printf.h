@@ -21,6 +21,15 @@
 # include <stdio.h> //remover a linha ao concluir o projeto
 # include "libft/libft.h"
 
+struct hub_op
+{
+	char	flags;
+	int		width;
+	int		precision;
+	int		length;
+	char	specifier;
+};
+
 void	tabela_de_tipos();
 /*
 ** ----------------------------------------------------------------------------
@@ -30,13 +39,14 @@ void	tabela_de_tipos();
 ** --> ft_printf.c <--
 */
 
-int		ft_printf(const char *format, ...);
-char	*mensage_buffer(char c);
-char	*add_buffer(char c, char *buffer, int size);
-void	big_hub(int *flags, int *width, int *precision, int *length);
+int				ft_printf(const char *format, ...);
+char			search_percent(char *text);
+char			*mensage_buffer(char c);
+char			*add_buffer(char c, char *buffer, int size);
+struct hub_op	big_hub(int value, char field);
 
 /*
-**-------------------------------------------------------i----------------------
+**-----------------------------------------------------------------------------
 **     Funcoes para tratamento de especificadores flags, largura e precisao
 **         Functions for treatment of specifiers, width and precision
 **-----------------------------------------------------------------------------

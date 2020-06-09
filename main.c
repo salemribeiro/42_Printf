@@ -18,7 +18,7 @@ int main ()
 	float	pnumero = 15.2253336;
 
 	tabela_de_tipos();
-	ft_printf("salem--%-+#0*.*lf 0kk3532%-+#099.66d 1121\n", 150,23,30);
+	ft_printf("salem--%-+#0*.*ld 0kk3532%-+#099.66d 1121\n", 150,23,30);
 //	printf("salem--%-+#0ld 0kk35321121\n",150);
 	return (0);
 }

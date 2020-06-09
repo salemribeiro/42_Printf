@@ -26,6 +26,7 @@ int			ft_printf(const char *format, ...)
 			options = big_hub(va_arg(item, int), 2);
 		if (options.precision == -1)
 			options = big_hub(va_arg(item, int), 3);
+		mensage_arg_solve(va_arg(item, void*), options.specifier);
 		//ESPAÇO PARA O TRATAMENTO DE ARGUMENTO
 		options = big_hub(0, 0);
 	}
@@ -36,6 +37,31 @@ int			ft_printf(const char *format, ...)
 	printf("specifier: %c | ", m_options[4]);*/
 	va_end(item);
 	return (0);
+}
+
+void	mensage_arg_solve(void *value, char specifier)
+{
+	if (specifier == 'd' || specifier == 'i')
+		store_int(value);
+	else if (specifier == 'f' || specifier == 'F')
+		store_float((float*)value);
+}
+//Tratamento dos argumentos
+void	store_int (void *value)
+{
+	char *valor = (char*)value;
+	struct hub_op	options;
+	char *text;
+
+	text = ft_itoa(valor);
+}
+
+void	store_float (float *value)
+{
+	struct hub_op	options;
+	char *text;
+
+	text = ft_itoa(*value);
 }
 
 char		search_percent(char *text)

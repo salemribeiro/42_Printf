@@ -80,4 +80,17 @@ char	*width_options(char *f);
 char	*precision_options(char *f, char specifier);
 char	*length_options(char *f);
 
+
+/*
+**-----------------------------------------------------------------------------
+**            Funcoes para tratamento de argumentos
+**            Functions for treatment of arguments
+**-----------------------------------------------------------------------------
+** --> argument_options.c <--
+*/
+
+void	mensage_arg_solve(void *value, char specifier);
+void	store_int (void *value);
+void	store_float (float *value);
+
 #endif

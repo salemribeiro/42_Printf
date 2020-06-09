@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/04/29 22:58:33 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/06/08 23:52:49 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,6 @@ char	*precision_options(char *f, char specifier)
 		}
 		f++;
 	}
-	if (specifier == 'c' ||  specifier == 'p' || specifier == 'd' ||
-		specifier == 'i')
-		return (f);
 	if (ft_isdigit(*buffer))
 		precision = ft_atoi(buffer);
 	big_hub(precision, 3);

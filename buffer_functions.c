@@ -12,15 +12,9 @@
 
 #include "ft_printf.h"
 
-char		*mensage_buffer(char c)
-{
-	static char	*buffer;
-	static int	i;
-
-	buffer = add_buffer(c, buffer, i);
-	i++;
-	return (buffer);
-}
+/*
+** Funcao atua para unir os caracteres e envialos como retorno
+*/
 
 char	*add_buffer(char c, char *buffer, int size)
 {
@@ -41,6 +35,25 @@ char	*add_buffer(char c, char *buffer, int size)
 	temp[i] = c;
 	return (temp);
 }
+
+/*
+** Funcao responsavel por armazenar o buffer de mensagem
+*/
+
+char		*mensage_buffer(char c)
+{
+	static char	*buffer;
+	static int	i;
+
+	buffer = add_buffer(c, buffer, i);
+	i++;
+	return (buffer);
+}
+
+/*
+** Funcao responsavel por armazenar dados de tratamento dos parametros
+** enviados em args
+*/
 
 struct hub_op	big_hub(int value, char field)
 {

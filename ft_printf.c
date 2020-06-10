@@ -12,6 +12,11 @@
 
 #include "ft_printf.h"
 
+/*
+** Funcao responsavel por imprimir em tela tipos de dados diferentes dando a
+** eles uma grande gama de opcoes de formatacao.
+*/
+
 int			ft_printf(const char *format, ...)
 {
 	va_list			item;
@@ -27,12 +32,18 @@ int			ft_printf(const char *format, ...)
 		if (options.precision == -1)
 			options = big_hub(va_arg(item, int), 3);
 		mensage_arg_solve(va_arg(item, void*), options.specifier);
-		printf("%s", mensage_buffer('\0'));
 		options = big_hub(0, 0);
 	}
+	printf("%s", mensage_buffer('\0'));
 	va_end(item);
 	return (0);
 }
+
+/*
+** Funcao responsavel por encontrar um valor inserido na string, faz isso
+** buscando o caractere percent e depois desencadeando toda uma cadeia de
+** funcoes que permitem tratar todos as opcoes para impressao dos valores
+*/
 
 char		search_percent(char *text)
 {

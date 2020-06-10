@@ -12,6 +12,10 @@
 
 #include "ft_printf.h"
 
+/*
+** Funcao responsavel verificar e catalogar os parametros de width
+*/
+
 char	*width_options(char *f)
 {
 	char	*buffer;
@@ -36,6 +40,10 @@ char	*width_options(char *f)
 	return (f);
 }
 
+/*
+** Funcao responsavel verificar e catalogar os parametros de precision
+*/
+
 char	*precision_options(char *f, char specifier)
 {
 	char	*buffer;
@@ -54,11 +62,18 @@ char	*precision_options(char *f, char specifier)
 		}
 		f++;
 	}
-	if (ft_isdigit(*buffer))
-		precision = ft_atoi(buffer);
-	big_hub(precision, 3);
+	if (buffer)
+	{
+		if (ft_isdigit(*buffer))
+			precision = ft_atoi(buffer);
+		big_hub(precision, 3);
+	}
 	return (f);
 }
+
+/*
+** Funcao responsavel verificar e catalogar os parametros de length
+*/
 
 char	*length_options(char *f)
 {

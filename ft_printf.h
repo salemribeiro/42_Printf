@@ -44,6 +44,7 @@ char			search_percent(char *text);
 char			*mensage_buffer(char c);
 char			*add_buffer(char c, char *buffer, int size);
 struct hub_op	big_hub(int value, char field);
+void	send_buffer(char *text);
 
 /*
 **-----------------------------------------------------------------------------

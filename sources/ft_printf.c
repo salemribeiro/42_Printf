@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:03:41 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/09 00:01:45 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/06/14 12:14:36 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int			ft_printf(const char *format, ...)
 			options = big_hub(va_arg(item, int), 2);
 		if (options.precision == -1)
 			options = big_hub(va_arg(item, int), 3);
-		mensage_arg_solve(va_arg(item, void*), options.specifier);
+		message_arg_solve(va_arg(item, void*), options.specifier);
 		options = big_hub(0, 0);
 	}
-	printf("%s", mensage_buffer('\0'));
+	printf("%s", message_buffer('\0'));
 	va_end(item);
 	return (0);
 }
@@ -52,7 +52,7 @@ char		search_percent(char *text)
 	while (text[i])
 	{
 		if (text[i] != '%')
-			mensage_buffer(text[i]);
+			message_buffer(text[i]);
 		else
 		{
 			i += specifier_options((char*)&text[i]);

@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:47:21 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/08 23:47:26 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/06/14 12:15:45 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ char	*add_buffer(char c, char *buffer, int size)
 }
 
 /*
-** Funcao responsavel por armazenar o buffer de mensagem
+** Funcao responsavel por armazenar o buffer de messagem
 */
 
-char		*mensage_buffer(char c)
+char		*message_buffer(char c)
 {
 	static char	*buffer;
 	static int	i;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mesage_arg_solve.c                                 :+:      :+:    :+:   */
+/*   message_arg_solve.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/08 23:58:37 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/06/14 17:30:28 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** para sua função de tratamento correspondente
 */
 
-void	mensage_arg_solve(void *value, char specifier)
+void	message_arg_solve(void *value, char specifier)
 {
 	if (specifier == 'd' || specifier == 'i')
 		store_int(value);
@@ -29,16 +29,44 @@ void	mensage_arg_solve(void *value, char specifier)
 
 void	store_int (void *value)
 {
-	int		number;
-	char	*text;
+	struct hub_op	s_opt;
+	char			*text;
+	char			c;
 
-	number = (int)value;
-	text = ft_itoa(number);
+	s_opt = big_hub(-1, -1);
+	if ((s_opt.flag & 8) == 8)
+	text = resize_result(ft_itoa((int)value), ;
+	
 	send_buffer(text);
 }
 
+char	*resize_result(char *result, char c, int size)
+{
+	int		i;
+	int		t_size;
+	char	*temp;
+
+	i = 0;
+	t_size = ft_strlen(result);
+	if (t_size < size)
+		return(result);
+	temp = (char*)calloc(size, t_size);
+	while (i < size)
+	{
+		temp[i] = c;
+		i++;
+	}
+	ft_strlcpy(&temp[i], result, t_size);
+	free(result);
+	return (temp);
+}
+
+
+
+
+
 /*
-** Envio de valores para o buffer de mensagem
+** Envio de valores para o buffer de messagem
 */
 
 void	send_buffer(char *text)
@@ -48,7 +76,8 @@ void	send_buffer(char *text)
 	i = 0;
 	while (text[i])
 	{
-		mensage_buffer(text[i]);
+		message_buffer(text[i]);
 		i++;
 	}
 }
+

@@ -91,5 +91,6 @@ char			*length_options(char *f);
 
 void			message_arg_solve(void *value, char specifier);
 void			store_int (void *value);
+char			*resize_result(char *result, char c, int size);
 
 #endif

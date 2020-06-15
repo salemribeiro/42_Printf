@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/14 17:30:28 by salem            ###   ########.fr       */
+/*   Updated: 2020/06/14 19:32:09 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ void	store_int (void *value)
 	char			c;
 
 	s_opt = big_hub(-1, -1);
-	if ((s_opt.flag & 8) == 8)
-	text = resize_result(ft_itoa((int)value), ;
-	
+	text = ft_itoa((int)value);
 	send_buffer(text);
+
 }
 
 char	*resize_result(char *result, char c, int size)

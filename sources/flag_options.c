@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/04/29 22:58:33 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/06/28 20:41:27 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*flag_options(char *f, char specifier)
 	flags = 0;
 	while (*f == '+' || *f == '-' || *f == '#' || *f == '0' || *f == ' ')
 	{
-		(*f == '+') ? flags = flags | 1 : flags;
-		(*f == '-') ? flags = flags | 2 : flags;
-		(*f == '#') ? flags = flags | 4 : flags;
-		(*f == '0') ? flags = flags | 8 : flags;
-		(*f == ' ') ? flags = flags | 16 : flags;
+		(*f == '+') ? flags = flags | PLUS : flags;
+		(*f == '-') ? flags = flags | MINUS : flags;
+		(*f == '#') ? flags = flags | HASH : flags;
+		(*f == '0') ? flags = flags | ZERO : flags;
+		(*f == ' ') ? flags = flags | SPACE : flags;
 		f++;
 	}
 	fix_incompatible_flags(&flags);

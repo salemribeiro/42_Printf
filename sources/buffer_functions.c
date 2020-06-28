@@ -6,14 +6,14 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:47:21 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/14 12:15:45 by salem            ###   ########.fr       */
+/*   Updated: 2020/06/28 15:21:22 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** Funcao atua para unir os caracteres e envialos como retorno
+** Funcao atua para unir os caracteres e enviar como retorno
 */
 
 char	*add_buffer(char c, char *buffer, int size)
@@ -42,8 +42,8 @@ char	*add_buffer(char c, char *buffer, int size)
 
 char		*message_buffer(char c)
 {
-	static char	*buffer;
 	static int	i;
+	static char	*buffer;
 
 	buffer = add_buffer(c, buffer, i);
 	i++;

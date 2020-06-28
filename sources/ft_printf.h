@@ -20,6 +20,17 @@
 # include <stdarg.h>
 # include "libft.h"
 
+#define PLUS	1
+#define MINUS	2
+#define HASH	4
+#define ZERO	8
+#define SPACE	16
+
+#define FORBIDEN	"diuoxXfFeEgGaAcspn%"
+#define FORBIDEN1	"uoxXcspn"
+#define FORBIDEN2	"diucspn"
+#define FORBIDEN3	"cdpn"
+
 struct hub_op
 {
 	char	flags;
@@ -90,6 +101,7 @@ char			*length_options(char *f);
 
 void			message_arg_solve(void *value, char specifier);
 void			store_int (void *value);
+char			*put_zero(char *source, int total);
 char			*resize_result(char *result, char c, int size);
 
 /*

@@ -6,10 +6,11 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/14 12:18:02 by salem            ###   ########.fr       */
+/*   Updated: 2020/06/27 22:00:23 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h> //remover a linha ao concluir o projeto
 #include "ft_printf.h"
 
 int main ()

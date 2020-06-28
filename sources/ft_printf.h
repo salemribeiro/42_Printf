@@ -18,7 +18,6 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdarg.h>
-# include <stdio.h> //remover a linha ao concluir o projeto
 # include "libft.h"
 
 struct hub_op
@@ -93,4 +92,12 @@ void			message_arg_solve(void *value, char specifier);
 void			store_int (void *value);
 char			*resize_result(char *result, char c, int size);
 
+/*
+**-----------------------------------------------------------------------------
+**            Funcoes resposaveis por impressao na tela
+**                 Functions for print on screen
+**-----------------------------------------------------------------------------
+** --> print_functions.c <--
+*/
+int		ft_printstr(char *text);
 #endif

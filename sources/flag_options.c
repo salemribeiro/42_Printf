@@ -38,16 +38,16 @@ char	*flag_options(char *f, char specifier)
 
 void	fix_incompatible_flags(int *flags)
 {
-	int temp;
-	temp = *flags;
-	temp = (temp | 23) ^ 23;
-	if (temp == 8)
+	int tmp;
+	tmp = *flags;
+	tmp = tmp & ZERO ;
+	if (tmp == 8)
 		*flags = *flags ^ 8;
 	else
 	{
-		temp = *flags;
-		temp = (temp | 15) ^ 15;
-		if (temp == 16)
+		tmp = *flags;
+		tmp = tmp & SPACE;
+		if (tmp == 16)
 			*flags = *flags ^ 16;
 	}
 }

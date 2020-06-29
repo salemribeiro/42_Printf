@@ -36,8 +36,23 @@ void	store_int (void *value)
 	s_opt = big_hub(-1, -1);
 	text = ft_itoa((int)value);
 	send_buffer(text);
+char	*put_zero(char *source, int total)
+{
+	int		i;
+	int		size;
+	char	*tmp;
+	char	text[total + 1];
 
+	i = 0;
+	size = total - ft_strlen(source);
+	while (i < size)
+		text[i++] = '0';
+	text[i] = '\0';
+	tmp = ft_strjoin(text, source);
+	free (text);
+	return (tmp);
 }
+
 
 char	*resize_result(char *result, char c, int size)
 {
@@ -59,10 +74,6 @@ char	*resize_result(char *result, char c, int size)
 	free(result);
 	return (temp);
 }
-
-
-
-
 
 /*
 ** Envio de valores para o buffer de messagem

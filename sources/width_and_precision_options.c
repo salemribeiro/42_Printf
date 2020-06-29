@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/08 23:52:49 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/06/28 15:12:36 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 char	*width_options(char *f)
 {
-	char	*buffer;
 	int		i;
 	int		width;
+	char	*buffer;
 
-	buffer = NULL;
 	i = 0;
 	width = -1;
+	buffer = NULL;
 	while (ft_isdigit(*f) || *f == '*')
 	{
 		buffer = add_buffer(*f, buffer, i);
@@ -46,12 +46,12 @@ char	*width_options(char *f)
 
 char	*precision_options(char *f, char specifier)
 {
+	int		i;
 	char	*buffer;
 	int		precision;
-	int		i;
 
-	buffer = NULL;
 	i = 0;
+	buffer = NULL;
 	precision = -1;
 	while (ft_isdigit(*f) || *f == '*' || *f == '.')
 	{
@@ -77,12 +77,12 @@ char	*precision_options(char *f, char specifier)
 
 char	*length_options(char *f)
 {
-	char	*buffer;
-	int		l;
 	int		i;
+	int		l;
+	char	*buffer;
 
-	buffer = NULL;
 	i = 0;
+	buffer = NULL;
 	if (*f)
 	{
 		while (*f == 'h' || *f == 'l' || *f == 'j' ||

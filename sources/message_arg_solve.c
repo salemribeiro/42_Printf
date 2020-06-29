@@ -6,14 +6,14 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/14 19:32:09 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/06/28 17:52:58 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** Funcao ficara responsavel por verificar e enviar os dados recebidos via args
+** Funcao responsavel por verificar e enviar os dados recebidos via args
 ** para sua função de tratamento correspondente
 */
 
@@ -35,7 +35,13 @@ void	store_int (void *value)
 
 	s_opt = big_hub(-1, -1);
 	text = ft_itoa((int)value);
+	if (s_opt.precision > 0 && ft_strlen(text))
+		text = put_zero(text, s_opt.precision);
+	if ((s_opt.flags & PLUS) == PLUS)
+		text = ft_strjoin("+", text);
 	send_buffer(text);
+}
+
 char	*put_zero(char *source, int total)
 {
 	int		i;
@@ -58,21 +64,21 @@ char	*resize_result(char *result, char c, int size)
 {
 	int		i;
 	int		t_size;
-	char	*temp;
+	char	*tmp;
 
 	i = 0;
 	t_size = ft_strlen(result);
 	if (t_size < size)
 		return(result);
-	temp = (char*)calloc(size, t_size);
+	tmp = (char*)calloc(size, t_size);
 	while (i < size)
 	{
-		temp[i] = c;
+		tmp[i] = c;
 		i++;
 	}
-	ft_strlcpy(&temp[i], result, t_size);
+	ft_strlcpy(&tmp[i], result, t_size);
 	free(result);
-	return (temp);
+	return (tmp);
 }
 
 /*

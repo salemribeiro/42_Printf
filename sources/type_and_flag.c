@@ -6,15 +6,11 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/28 00:05:57 by salem            ###   ########.fr       */
+/*   Updated: 2020/06/28 15:08:08 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-#define FORBIDEN1 "uoxXcspn\0"
-#define FORBIDEN2 "diucspn\0"
-#define FORBIDEN3 "cdpn\0"
 
 void	solve_plus_flag_with_types(int *flags, char specifier)
 {

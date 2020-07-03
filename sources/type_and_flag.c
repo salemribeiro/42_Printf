@@ -6,94 +6,93 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/28 15:08:08 by salem            ###   ########.fr       */
+/*   Updated: 2020/06/29 22:39:23 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	solve_plus_flag_with_types(int *flags, char specifier)
+void	solve_plus(int *flags, char specifier)
 {
 	int		i;
-	int		tmp;
 	int		valid;
+	int		tmp;
 
 	i = 0;
 	valid = 0;
-	tmp = (*flags | 30) ^ 30;
+	tmp = *flags & PLUS;
 	while (FORBIDEN1[i])
 	{
 		if (FORBIDEN1[i] == specifier)
 			valid = 1;
 		i++;
 	}
-	if (tmp == 1 && valid == 1)
-		*flags = *flags ^ 1;
+	if (tmp == PLUS && valid == 1)
+		*flags = *flags ^ PLUS;
 }
 
-void	solve_minusflag_with_types(int *flags, char specifier)
+void	solve_minus(int *flags, char specifier)
 {
 	int tmp;
-	int i;
 
-	tmp = (*flags | 29)  ^ 29;
-	if (tmp == 2 && specifier == 'n')
-		*flags = *flags ^ 2;
+	tmp = *flags & MINUS;
+	if (tmp == MINUS && specifier == 'n')
+		*flags = *flags ^ MINUS;
 }
 
-void	solve_hash_flag_with_types(int *flags, char specifier)
+void	solve_hash(int *flags, char specifier)
 {
 	int		i;
-	int		tmp;
 	char	valid;
+	int		tmp;
 
 	i = 0;
 	valid = 0;
-	tmp = (*flags | 27) ^ 27;
+	tmp = *flags & HASH;
 	while (FORBIDEN2[i])
 	{
 		if (FORBIDEN2[i] == specifier)
 			valid = 1;
 		i++;
 	}
-	if (tmp == 4 && valid == 1)
-		*flags = *flags ^ 4;
+	if (tmp == HASH && valid == 1)
+		*flags = *flags ^ HASH;
 }
 
-void	solve_zero_flag_with_types(int *flags, char specifier)
+void	solve_zero(int *flags, char specifier)
 {
 	int		i;
-	int		tmp;
 	char	valid;
+	int		tmp;
 
-	tmp = (*flags | 23) ^ 23;
-	valid = 0;
 	i = 0;
+	valid = 0;
+	tmp = *flags & ZERO;
 	while (FORBIDEN3[i])
 	{
 		if (FORBIDEN3[i] == specifier)
 			valid = 1;
 		i++;
 	}
-	if (tmp == 8 && valid == 1)
-		*flags = *flags ^ 8;
+	if (tmp == ZERO && valid == 1)
+		*flags = *flags ^ ZERO;
 }
 
-void	solve_spaceflag_with_types(int *flags, char specifier)
+void	solve_space(int *flags, char specifier)
 {
 	int		i;
-	int		tmp;
 	char	valid;
+	int		tmp;
 
-	tmp = (*flags | 15) ^ 15;
-	valid = 0;
 	i = 0;
+	valid = 0;
+	tmp = *flags & SPACE;
 	while (FORBIDEN1[i])
 	{
 		if (FORBIDEN1[i] == specifier)
 			valid = 1;
 		i++;
 	}
-	if (tmp == 16 && valid == 1)
-		*flags = *flags ^ 16;
+	if (tmp == SPACE && valid == 1)
+		*flags = *flags & SPACE;
 }

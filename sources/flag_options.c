@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/28 20:41:27 by salem            ###   ########.fr       */
+/*   Updated: 2020/06/29 22:18:50 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,29 @@ char	*flag_options(char *f, char specifier)
 		(*f == ' ') ? flags = flags | SPACE : flags;
 		f++;
 	}
-	fix_incompatible_flags(&flags);
-	solve_plus_flag_with_types(&flags, specifier);
-	solve_minusflag_with_types(&flags, specifier);
-	solve_hash_flag_with_types(&flags, specifier);
-	solve_zero_flag_with_types(&flags, specifier);
-	solve_spaceflag_with_types(&flags, specifier);
+	solve_incompatible(&flags);
+	solve_plus(&flags, specifier);
+	solve_minus(&flags, specifier);
+	solve_hash(&flags, specifier);
+	solve_zero(&flags, specifier);
+	solve_space(&flags, specifier);
 	big_hub(flags, 1);
 	return (f);
 }
 
-void	fix_incompatible_flags(int *flags)
+void	solve_incompatible(int *flags)
 {
 	int tmp;
+
 	tmp = *flags;
 	tmp = tmp & ZERO ;
-	if (tmp == 8)
-		*flags = *flags ^ 8;
+	if (tmp == ZERO)
+		*flags = *flags ^ ZERO;
 	else
 	{
 		tmp = *flags;
 		tmp = tmp & SPACE;
-		if (tmp == 16)
-			*flags = *flags ^ 16;
+		if (tmp == SPACE)
+			*flags = *flags ^ SPACE;
 	}
 }

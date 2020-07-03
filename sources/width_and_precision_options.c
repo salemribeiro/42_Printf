@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/28 15:12:36 by salem            ###   ########.fr       */
+/*   Updated: 2020/06/29 22:40:25 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,7 @@ char	*width_options(char *f)
 	width = -1;
 	buffer = NULL;
 	while (ft_isdigit(*f) || *f == '*')
-	{
-		buffer = add_buffer(*f, buffer, i);
-		f++;
-		i++;
-	}
+		buffer = add_buffer(*f++, buffer, i++);
 	if (buffer)
 	{
 		if (ft_isdigit(*buffer))

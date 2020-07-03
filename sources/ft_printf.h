@@ -31,14 +31,14 @@
 #define FORBIDEN2	"diucspn"
 #define FORBIDEN3	"cdpn"
 
-struct hub_op
+struct s_options
 {
 	char	flags;
 	int		width;
 	int		precision;
 	int		length;
 	char	specifier;
-};
+}typedef	t_options;
 
 void			tabela_de_tipos();
 /*
@@ -49,12 +49,12 @@ void			tabela_de_tipos();
 ** --> ft_printf.c <--
 */
 
-int				ft_printf(const char *format, ...);
-char			search_percent(char *text);
-char			*message_buffer(char c);
-char			*add_buffer(char c, char *buffer, int size);
-struct hub_op	big_hub(int value, char field);
-void			send_buffer(char *text);
+int			ft_printf(const char *format, ...);
+char		search_percent(char *text);
+char		*message_buffer(char c);
+char		*add_buffer(char c, char *buffer, int size);
+t_options	big_hub(int value, char field);
+void		send_buffer(char *text);
 
 /*
 **-----------------------------------------------------------------------------
@@ -64,32 +64,32 @@ void			send_buffer(char *text);
 ** --> specifier_options.c <--
 */
 
-int				specifier_options(char *subtext);
+int			specifier_options(char *subtext);
 
 /*
 ** --> flag_options.c <--
 */
 
-char			*flag_options(char *f, char specifier);
-void			fix_incompatible_flags(int *flags);
+char		*flag_options(char *f, char specifier);
+void		solve_incompatible(int *flags);
 
 /*
 ** --> type_and_flag.c <--
 */
 
-void			solve_plus_flag_with_types(int *flags, char specifier);
-void			solve_minusflag_with_types(int *flags, char specifier);
-void			solve_hash_flag_with_types(int *flags, char specifier);
-void			solve_zero_flag_with_types(int *flags, char specifier);
-void			solve_spaceflag_with_types(int *flags, char specifier);
+void		solve_plus(int *flags, char specifier);
+void		solve_minus(int *flags, char specifier);
+void		solve_hash(int *flags, char specifier);
+void		solve_zero(int *flags, char specifier);
+void		solve_space(int *flags, char specifier);
 
 /*
 ** --> width_and_precision_options.c <--
 */
 
-char			*width_options(char *f);
-char			*precision_options(char *f, char specifier);
-char			*length_options(char *f);
+char		*width_options(char *f);
+char		*precision_options(char *f, char specifier);
+char		*length_options(char *f);
 
 /*
 **-----------------------------------------------------------------------------
@@ -99,10 +99,10 @@ char			*length_options(char *f);
 ** --> argument_options.c <--
 */
 
-void			message_arg_solve(void *value, char specifier);
-void			store_int (void *value);
-char			*put_zero(char *source, int total);
-char			*resize_result(char *result, char c, int size);
+void		message_arg_solve(void *value, char specifier);
+void		store_int (void *value);
+char		*put_zero(char *source, int total);
+char		*resize_result(char *result, char c, int size);
 
 /*
 **-----------------------------------------------------------------------------
@@ -111,5 +111,5 @@ char			*resize_result(char *result, char c, int size);
 **-----------------------------------------------------------------------------
 ** --> print_functions.c <--
 */
-int		ft_printstr(char *text);
+int			ft_printstr(char *text);
 #endif

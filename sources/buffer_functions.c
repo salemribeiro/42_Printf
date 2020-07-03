@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:47:21 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/28 15:21:22 by salem            ###   ########.fr       */
+/*   Updated: 2020/06/29 23:20:39 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,27 +55,27 @@ char		*message_buffer(char c)
 ** enviados em args
 */
 
-struct hub_op	big_hub(int value, char field)
+t_options	big_hub(int value, char field)
 {
-	static struct hub_op s_options;
+	static t_options opt;
 
 	if (field == 0)
 	{
-		s_options.flags = 0;
-		s_options.width = 0;
-		s_options.precision = 0;
-		s_options.length = 0;
-		s_options.specifier = 0;
+		opt.flags = 0;
+		opt.width = 0;
+		opt.precision = 0;
+		opt.length = 0;
+		opt.specifier = 0;
 	}
 	else if (field == 1)
-		s_options.flags = value;
+		opt.flags = value;
 	else if (field == 2)
-		s_options.width = value;
+		opt.width = value;
 	else if (field == 3)
-		s_options.precision = value;
+		opt.precision = value;
 	else if (field == 4)
-		s_options.length = value;
+		opt.length = value;
 	else if (field == 5)
-		s_options.specifier = value;
-	return (s_options);
+		opt.specifier = value;
+	return (opt);
 }

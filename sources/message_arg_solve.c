@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/28 17:52:58 by salem            ###   ########.fr       */
+/*   Updated: 2020/06/29 23:45:38 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ void	message_arg_solve(void *value, char specifier)
 
 void	store_int (void *value)
 {
-	struct hub_op	s_opt;
-	char			*text;
-	char			c;
+	t_options	opt;
+	char		*text;
+	char		c;
 
-	s_opt = big_hub(-1, -1);
+	opt = big_hub(-1, -1);
 	text = ft_itoa((int)value);
-	if (s_opt.precision > 0 && ft_strlen(text))
-		text = put_zero(text, s_opt.precision);
-	if ((s_opt.flags & PLUS) == PLUS)
+	if (opt.precision > 0 && ft_strlen(text))
+		text = put_zero(text, opt.precision);
+	if ((opt.flags & PLUS) == PLUS)
 		text = ft_strjoin("+", text);
 	send_buffer(text);
 }
@@ -58,7 +58,6 @@ char	*put_zero(char *source, int total)
 	free (text);
 	return (tmp);
 }
-
 
 char	*resize_result(char *result, char c, int size)
 {

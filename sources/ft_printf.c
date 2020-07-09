@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:03:41 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/29 23:22:49 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/04 16:22:42 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,8 @@ int			ft_printf(const char *format, ...)
 		message_arg_solve(va_arg(item, void*), opt.specifier);
 		opt = big_hub(0, 0);
 	}
-	ft_printstr(message_buffer('\0'));
 	va_end(item);
-	return (0);
+	return (ft_printstr(message_buffer('\0')));
 }
 
 /*

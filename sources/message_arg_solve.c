@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/29 23:45:38 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/04 17:01:04 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	store_int (void *value)
 		text = put_zero(text, opt.precision);
 	if ((opt.flags & PLUS) == PLUS)
 		text = ft_strjoin("+", text);
+	if ((opt.flags & SPACE) == SPACE)
+		text = ft_strjoin(" ", text);
 	send_buffer(text);
 }
 
@@ -55,7 +57,6 @@ char	*put_zero(char *source, int total)
 		text[i++] = '0';
 	text[i] = '\0';
 	tmp = ft_strjoin(text, source);
-	free (text);
 	return (tmp);
 }
 

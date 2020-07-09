@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/29 23:50:10 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/08 22:20:34 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int main ()
 	int		numero = 150;
 	float	pnumero = 15.2253336;
 
-	tabela_de_tipos();
-	ft_printf("salem--%+0.12d 0kk3532%d 1121\n", numero,23);
-	printf("salem--%0.12d 0kk3532%d 1121\n", numero,23);
+//	tabela_de_tipos();
+	ft_printf("salem--%+.41d 0kk3532| %d |1121\n", numero,23);
+	printf("salem--%+.4d 0kk3532| %d |1121\n", numero,23);
 	return (0);
 }
 

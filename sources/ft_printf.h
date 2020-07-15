@@ -101,6 +101,7 @@ char		*length_options(char *f);
 
 void		message_arg_solve(void *value, char specifier);
 void		store_int (void *value);
+void		store_float (float *value);
 char		*put_zero(char *source, int total);
 char		*resize_result(char *result, char c, int size);
 

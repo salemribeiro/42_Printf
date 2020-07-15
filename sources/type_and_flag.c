@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/29 22:39:23 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/14 21:26:57 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,5 @@ void	solve_space(int *flags, char specifier)
 		i++;
 	}
 	if (tmp == SPACE && valid == 1)
-		*flags = *flags & SPACE;
+		*flags = *flags ^ SPACE;
 }

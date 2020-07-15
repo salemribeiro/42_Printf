@@ -6,12 +6,12 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/04 17:01:04 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/14 23:28:25 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+#include "stdio.h"
 /*
 ** Funcao responsavel por verificar e enviar os dados recebidos via args
 ** para sua função de tratamento correspondente
@@ -21,6 +21,8 @@ void	message_arg_solve(void *value, char specifier)
 {
 	if (specifier == 'd' || specifier == 'i')
 		store_int(value);
+	if (specifier == 'f')
+		store_float((float*)value);
 }
 
 /*
@@ -43,6 +45,19 @@ void	store_int (void *value)
 		text = ft_strjoin(" ", text);
 	send_buffer(text);
 }
+
+void	store_float (float *value)
+{
+	float teste = *value;
+	int	integer;
+	long long int	fraction;
+	long double		temp;
+
+	integer = (int)teste;
+	printf("Inteiro retirado: %d\n", integer);
+}
+
+
 
 char	*put_zero(char *source, int total)
 {

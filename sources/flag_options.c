@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/29 22:18:50 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/14 21:56:59 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,8 @@ char	*flag_options(char *f, char specifier)
 
 void	solve_incompatible(int *flags)
 {
-	int tmp;
-
-	tmp = *flags;
-	tmp = tmp & ZERO ;
-	if (tmp == ZERO)
+	if ((*flags & PLUS) == PLUS && (*flags & SPACE) == SPACE)
+		*flags = *flags ^ SPACE;
+	if ((*flags & MINUS) == MINUS && (*flags & ZERO) == ZERO)
 		*flags = *flags ^ ZERO;
-	else
-	{
-		tmp = *flags;
-		tmp = tmp & SPACE;
-		if (tmp == SPACE)
-			*flags = *flags ^ SPACE;
-	}
 }

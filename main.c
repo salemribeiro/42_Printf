@@ -6,21 +6,21 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/14 23:05:28 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/19 19:12:21 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <limits.h>
 #include <stdio.h> //remover a linha ao concluir o projeto
 #include "ft_printf.h"
 
 int main ()
 {
-	int		numero = 150;
-	double	pnumero = 123.745;
+	long int		numero = 9223372036854775807;
+	long double pnumero = 25;
 
-//	tabela_de_tipos();
-	ft_printf("salem--%-0.15f 0kk3532| %d |1121\n",pnumero,23);
-	   printf("salem--%-.15f 0kk3532| %d |1121\n", pnumero,23);
+	tabela_de_tipos();
+	ft_printf("salem--%ld 0kk3532| %d |1121\n", numero,23);
+	   printf("salem--%ld 0kk3532| %d |1121\n", numero,23);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:03:41 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/04 16:22:42 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/18 23:36:10 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			ft_printf(const char *format, ...)
 			opt = big_hub(va_arg(item, int), 2);
 		if (opt.precision == -1)
 			opt = big_hub(va_arg(item, int), 3);
-		message_arg_solve(va_arg(item, void*), opt.specifier);
+		message_arg_solve(item, opt.specifier);
 		opt = big_hub(0, 0);
 	}
 	va_end(item);

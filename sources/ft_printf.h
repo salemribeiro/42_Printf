@@ -99,9 +99,9 @@ char		*length_options(char *f);
 ** --> argument_options.c <--
 */
 
-void		message_arg_solve(void *value, char specifier);
-void		store_int (void *value);
-void		store_float (float *value);
+void		message_arg_solve(va_list list, char specifier);
+void		store_int (long long int value);
+void		store_float (long double value);
 char		*put_zero(char *source, int total);
 char		*resize_result(char *result, char c, int size);
 

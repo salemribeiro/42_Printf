@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:45:19 by salem             #+#    #+#             */
-/*   Updated: 2020/07/22 21:52:41 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/07/22 23:01:00 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -53,23 +53,60 @@ char	*get_hex(unsigned long long int value)
 	digits = value > 0 ? (digits - 2) : (digits - 1);
 	while (digits >= 0)
 	{
-		ptr[digits] = (value % 16) < 10 ? (value % 16 + 48) : (value % 16 + 97);
+		ptr[digits] = (value % 16) < 10 ? (value % 16) + 48 : (value % 16) + 87;
 		value /= 16;
 		digits--;
 	}
 	return (ptr);
 }
 
-void	get_oct(unsigned long long int value)
+char	*get_oct(unsigned long long int value)
 {
+	unsigned long long int	temp;
+	char					*ptr;
+	int						digits;
 
+	temp = value;
+	digits = 1;
+	while (temp > 0)
+	{
+		temp /= 8;
+		digits++;
+	}
+	ptr = (char*)ft_calloc(sizeof(char), digits);
+	digits = value > 0 ? (digits - 2) : (digits - 1);
+	while (digits >= 0)
+	{
+		ptr[digits] = (value % 8 + 48);
+		value /= 8;
+		digits--;
+	}
+	return (ptr);
 }
 
-void	get_bin(unsigned long long int value)
+char	*get_bin(unsigned long long int value)
 {
+	unsigned long long int	temp;
+	char					*ptr;
+	int						digits;
 
+	temp = value;
+	digits = 1;
+	while (temp > 0)
+	{
+		temp /= 2;
+		digits++;
+	}
+	ptr = (char*)ft_calloc(sizeof(char), digits);
+	digits = value > 0 ? (digits - 2) : (digits - 1);
+	while (digits >= 0)
+	{
+		ptr[digits] = (value % 2 + 48);
+		value /= 2;
+		digits--;
+	}
+	return (ptr);
 }
-
 
 char	*ft_itoa_base(long long int n, char base)
 {
@@ -84,16 +121,9 @@ char	*ft_itoa_base(long long int n, char base)
 	else if (base == 'h')
 		ptr = get_hex((unsigned long long int)(n * signal));
 	else if (base == 'o')
-		get_oct((unsigned long long int)(n * signal));
+		ptr = get_oct((unsigned long long int)(n * signal));
 	else if (base == 'b')
-		get_bin((unsigned long long int)(n * signal));
+		ptr = get_bin((unsigned long long int)(n * signal));
 	printf("%s\n", ptr);
-	return(NULL);
-}
-
-int main()
-{
-	ft_itoa_base(753, 'h');
-
-	return (0);
+	return(ptr);
 }

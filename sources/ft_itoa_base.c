@@ -6,11 +6,11 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:45:19 by salem             #+#    #+#             */
-/*   Updated: 2020/07/22 23:01:00 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/07/22 23:34:36 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
 
 char	*get_dec(unsigned long long int value)
 {
@@ -124,6 +124,5 @@ char	*ft_itoa_base(long long int n, char base)
 		ptr = get_oct((unsigned long long int)(n * signal));
 	else if (base == 'b')
 		ptr = get_bin((unsigned long long int)(n * signal));
-	printf("%s\n", ptr);
 	return(ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/19 14:30:01 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/23 21:22:09 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@
 
 void	message_arg_solve(va_list item, char specifier)
 {
-	if (specifier == 'd' || specifier == 'i')
-		store_int(va_arg(item, long int));
+	long long int value;
+
+	if (specifier == 'd' || specifier == 'i' || specifier == 'x' ||
+	specifier == 'X' || specifier == 'o' || specifier == 'O')
+		store_int(va_arg(item, long long int));
 }
 
 char	*put_zero(char *source, int total)

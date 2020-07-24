@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/19 19:12:21 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/23 23:05:05 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <limits.h>
@@ -15,12 +15,18 @@
 
 int main ()
 {
-	long int		numero = 9223372036854775807;
+	int	numero = 123454;
 	long double pnumero = 25;
 
-	tabela_de_tipos();
-	ft_printf("salem--%ld 0kk3532| %d |1121\n", numero,23);
-	   printf("salem--%ld 0kk3532| %d |1121\n", numero,23);
+//	tabela_de_tipos();
+//	ft_printf("dec %d\n", numero);
+//	   printf("dec %d\n", numero);
+
+//	ft_printf("hex %x\n", numero);
+//	   printf("hex %x\n", numero);
+	
+	ft_printf("oct %o\n", numero);
+	   printf("oct %o\n", numero);
 	return (0);
 }
 

@@ -6,11 +6,30 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:45:19 by salem             #+#    #+#             */
-/*   Updated: 2020/07/22 23:34:36 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/07/23 22:55:18 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
+
+char	*ft_itoa_base(long long int n, char base)
+{
+	long long int	temp;
+	int				signal;
+	char			*ptr;
+
+	temp = n;
+	signal = n < 0 ? -1 : 1;
+	if (base == 'd' || base == 'i')
+		ptr = get_dec((unsigned long long int)(n * signal));
+	else if (base == 'x' || base == 'X')
+		ptr = get_hex((unsigned long long int)(n * signal));
+	else if (base == 'o' || base == 'O')
+		ptr = get_oct((unsigned long long int)(n * signal));
+	else if (base == 'b')
+		ptr = get_bin((unsigned long long int)(n * signal));
+	return(ptr);
+}
 
 char	*get_dec(unsigned long long int value)
 {
@@ -106,23 +125,4 @@ char	*get_bin(unsigned long long int value)
 		digits--;
 	}
 	return (ptr);
-}
-
-char	*ft_itoa_base(long long int n, char base)
-{
-	long long int	temp;
-	int				signal;
-	char			*ptr;
-
-	temp = n;
-	signal = n < 0 ? -1 : 1;
-	if (base == 'd')
-		ptr = get_dec((unsigned long long int)(n * signal));
-	else if (base == 'h')
-		ptr = get_hex((unsigned long long int)(n * signal));
-	else if (base == 'o')
-		ptr = get_oct((unsigned long long int)(n * signal));
-	else if (base == 'b')
-		ptr = get_bin((unsigned long long int)(n * signal));
-	return(ptr);
 }

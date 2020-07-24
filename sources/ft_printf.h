@@ -26,6 +26,15 @@
 #define ZERO	8
 #define SPACE	16
 
+#define LLONG	0x4C
+#define LL 		0x6C6C
+#define LONG	0x6C
+#define HH		0x6868
+#define H		0x68
+#define J		0x6A
+#define T		0x74
+#define Z		0x7A
+
 #define FORBIDEN	"diuoxXfFeEgGaAcspn%"
 #define FORBIDEN1	"uoxXcspn"
 #define FORBIDEN2	"diucspn"
@@ -113,4 +122,18 @@ char		*resize_result(char *result, char c, int size);
 ** --> print_functions.c <--
 */
 int			ft_printstr(char *text);
+
+/*
+**-----------------------------------------------------------------------------
+**  Funcoes resposaveis por conversao de base e conversao de int para string
+**         Functions to convert base and convert int for string
+**-----------------------------------------------------------------------------
+** --> ft_itoa_base.c <--
+*/
+char	*ft_itoa_base(long long int n, char base);
+char	*get_dec(unsigned long long int value);
+char	*get_hex(unsigned long long int value);
+char	*get_oct(unsigned long long int value);
+char	*get_bin(unsigned long long int value);
+
 #endif

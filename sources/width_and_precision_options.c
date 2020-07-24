@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/06/29 22:40:25 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/23 22:24:33 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ char	*length_options(char *f)
 			f++;
 			i++;
 		}
-		if (l == 0x4C || l == 0x68 || l == 0x6A || l == 0x6C || l == 0x74 ||
-		l == 0x7A || l == 0x6868 || l == 0x6C6C)
+		if (l == LLONG || l == H || l == J || l == LONG || l == T ||
+		l == Z || l == HH || l == LL)
 			l = (int)*((short int*)buffer);
 		big_hub(l, 4);
 	}

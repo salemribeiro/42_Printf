@@ -47,6 +47,7 @@ struct s_options
 	int		precision;
 	int		length;
 	char	specifier;
+	char	text[2048];
 }typedef	t_options;
 
 void			tabela_de_tipos();
@@ -131,9 +132,7 @@ int			ft_printstr(char *text);
 ** --> ft_itoa_base.c <--
 */
 char	*ft_itoa_base(long long int n, char base);
-char	*get_dec(unsigned long long int value);
-char	*get_hex(unsigned long long int value);
-char	*get_oct(unsigned long long int value);
-char	*get_bin(unsigned long long int value);
+char	*get_base(unsigned long long int value, int b);
+char	*str_toupper(char *source);
 
 #endif

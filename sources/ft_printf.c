@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:03:41 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/18 23:36:10 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/26 23:54:26 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int			ft_printf(const char *format, ...)
 {
 	va_list		item;
 	t_options	opt;
-	char		*text;
 
 	va_start(item, format);
 	while(search_percent((char*)format))

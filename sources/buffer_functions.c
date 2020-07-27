@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:47:21 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/18 22:34:19 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/25 19:00:18 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,17 @@ char		*message_buffer(char c)
 	static int	i;
 	static char	*buffer;
 
-	buffer = add_buffer(c, buffer, i);
-	i++;
+	if (c >= 0)
+	{
+		buffer = add_buffer(c, buffer, i);
+		i++;
+	}
+	else
+	{
+		free(buffer);
+		buffer = NULL;
+		i = 0;
+	}
 	return (buffer);
 }
 

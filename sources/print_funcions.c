@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:46:59 by salem             #+#    #+#             */
-/*   Updated: 2020/06/27 21:58:02 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/25 19:15:55 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int		ft_printstr(char *text)
 	while (text[i])
 		i++;
 	if (i > 0)
+	{
 		write(1, text, i);
+		message_buffer(-1);
+	}
 	return (i);
 }

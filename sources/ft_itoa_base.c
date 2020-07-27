@@ -6,123 +6,74 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:45:19 by salem             #+#    #+#             */
-/*   Updated: 2020/07/23 22:55:18 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/26 23:48:56 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_itoa_base(long long int n, char base)
+char	*ft_itoa_base(long long int n, char specifier)
 {
-	long long int	temp;
+	long long int	tmp;
 	int				signal;
 	char			*ptr;
 
-	temp = n;
+	tmp = n;
 	signal = n < 0 ? -1 : 1;
-	if (base == 'd' || base == 'i')
-		ptr = get_dec((unsigned long long int)(n * signal));
-	else if (base == 'x' || base == 'X')
-		ptr = get_hex((unsigned long long int)(n * signal));
-	else if (base == 'o' || base == 'O')
-		ptr = get_oct((unsigned long long int)(n * signal));
-	else if (base == 'b')
-		ptr = get_bin((unsigned long long int)(n * signal));
+	if (specifier == 'd' || specifier == 'i')
+		ptr = get_base((unsigned long long int)(n * signal), 10);
+	else if (specifier == 'x' || specifier == 'X')
+	{
+		ptr = get_base((unsigned long long int)(n * signal), 16);
+		if (specifier == 'X')
+			ptr = str_toupper(ptr);
+	}
+	else if (specifier == 'o')
+		ptr = get_base((unsigned long long int)(n * signal), 8);
+	else if (specifier == 'b')
+		ptr = get_base((unsigned long long int)(n * signal), 2);
 	return(ptr);
 }
 
-char	*get_dec(unsigned long long int value)
+char	*get_base(unsigned long long int value, int b)
 {
-	unsigned long long int	temp;
+	unsigned long long int	tmp;
 	char					*ptr;
-	int						digits;
+	int						d;
 
-	temp = value;
-	digits = 1;
-	while (temp > 0)
+	tmp = value;
+	d = 1;
+	while (tmp > 0)
 	{
-		temp /= 10;
-		digits++;
+		tmp /= b;
+		d++;
 	}
-	ptr = (char*)ft_calloc(sizeof(char), digits);
-	digits = value > 0 ? (digits - 2) : (digits - 1);
-	while (digits >= 0)
+	ptr = (char*)ft_calloc(sizeof(char), d);
+	d = value > 0 ? (d - 2) : (d - 1);
+	while (d >= 0)
 	{
-		ptr[digits] = (value % 10 + 48);
-		value /= 10;
-		digits--;
+		if (b == 16)
+			ptr[d] = (value % b) < 10 ? (value % b) + 48 : (value % b) + 87;
+		else
+			ptr[d] = (value % b + 48);
+		value /= b;
+		d--;
 	}
 	return (ptr);
 }
 
-char	*get_hex(unsigned long long int value)
+char	*str_toupper(char *source)
 {
-	unsigned long long int	temp;
-	char					*ptr;
-	int						digits;
+	char	*tmp;
+	int		 i;
 
-	temp = value;
-	digits = 1;
-	while (temp > 0)
+	tmp = source;
+	i = 0;
+	while (tmp[i])
 	{
-		temp /= 16;
-		digits++;
+		tmp[i] = ft_toupper(tmp[i]);
+		i++;
 	}
-	ptr = (char*)ft_calloc(sizeof(char), digits);
-	digits = value > 0 ? (digits - 2) : (digits - 1);
-	while (digits >= 0)
-	{
-		ptr[digits] = (value % 16) < 10 ? (value % 16) + 48 : (value % 16) + 87;
-		value /= 16;
-		digits--;
-	}
-	return (ptr);
-}
-
-char	*get_oct(unsigned long long int value)
-{
-	unsigned long long int	temp;
-	char					*ptr;
-	int						digits;
-
-	temp = value;
-	digits = 1;
-	while (temp > 0)
-	{
-		temp /= 8;
-		digits++;
-	}
-	ptr = (char*)ft_calloc(sizeof(char), digits);
-	digits = value > 0 ? (digits - 2) : (digits - 1);
-	while (digits >= 0)
-	{
-		ptr[digits] = (value % 8 + 48);
-		value /= 8;
-		digits--;
-	}
-	return (ptr);
-}
-
-char	*get_bin(unsigned long long int value)
-{
-	unsigned long long int	temp;
-	char					*ptr;
-	int						digits;
-
-	temp = value;
-	digits = 1;
-	while (temp > 0)
-	{
-		temp /= 2;
-		digits++;
-	}
-	ptr = (char*)ft_calloc(sizeof(char), digits);
-	digits = value > 0 ? (digits - 2) : (digits - 1);
-	while (digits >= 0)
-	{
-		ptr[digits] = (value % 2 + 48);
-		value /= 2;
-		digits--;
-	}
-	return (ptr);
+	free(source);
+	return (tmp);
 }

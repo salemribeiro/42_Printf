@@ -50,6 +50,8 @@ struct s_options
 	char	text[2048];
 }typedef	t_options;
 
+t_options parameters;
+
 void			tabela_de_tipos();
 /*
 ** ----------------------------------------------------------------------------

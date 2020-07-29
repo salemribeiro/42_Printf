@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:03:41 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/28 00:01:56 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/28 23:18:30 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@
 int			ft_printf(const char *format, ...)
 {
 	va_list		item;
+	int			len;
 
 	va_start(item, format);
+	len = 0;
 	while(search_percent((char*)format))
 	{
 		if (parameters.width == -1)
@@ -29,11 +31,12 @@ int			ft_printf(const char *format, ...)
 		if (parameters.precision == -1)
 			parameters.precision = va_arg(item, int);
 		message_arg_solve(item, parameters.specifier);
-//retirar função bighub e montar um clean buffer
-	opt = big_hub(0, 0);
+		//retirar função bighub e montar um clean buffer
+		len += ft_strlen(message_buffer('\0'));
+		clear_struct();
 	}
 	va_end(item);
-	return (ft_printstr(message_buffer('\0')));
+	return (len);
 }
 
 /*

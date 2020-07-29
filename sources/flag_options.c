@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/28 00:02:08 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/28 20:44:29 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*flag_options(char *f, char specifier)
 	solve_hash(&flags, specifier);
 	solve_zero(&flags, specifier);
 	solve_space(&flags, specifier);
-	parameters.flags = 1;
+	parameters.flags = flags;
 	return (f);
 }
 

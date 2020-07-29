@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/23 22:24:33 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/28 22:05:10 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*width_options(char *f)
 	{
 		if (ft_isdigit(*buffer))
 			width = ft_atoi(buffer);
-		big_hub(width, 2);
+		parameters.width = width;
 	}
 	return (f);
 }
@@ -62,7 +62,7 @@ char	*precision_options(char *f, char specifier)
 	{
 		if (ft_isdigit(*buffer))
 			precision = ft_atoi(buffer);
-		big_hub(precision, 3);
+		parameters.precision = precision;
 	}
 	return (f);
 }
@@ -74,7 +74,7 @@ char	*precision_options(char *f, char specifier)
 char	*length_options(char *f)
 {
 	int		i;
-	int		l;
+	int		length;
 	char	*buffer;
 
 	i = 0;
@@ -85,14 +85,15 @@ char	*length_options(char *f)
 			*f == 'z' || *f == 't' || *f =='L')
 		{
 			buffer = add_buffer(*f, buffer, i);
-			l = (int)*((short int*)buffer);
+			length = (int)*((short int*)buffer);
 			f++;
 			i++;
 		}
-		if (l == LLONG || l == H || l == J || l == LONG || l == T ||
-		l == Z || l == HH || l == LL)
-			l = (int)*((short int*)buffer);
-		big_hub(l, 4);
+		if (length == LLONG || length == H || length == J || length == LONG ||
+		length == T || length == Z || length == HH || length == LL)
+			length = (int)*((short int*)buffer);
+		parameters.length = length;
 	}
-		return (f);
+	return (f);
+	
 }

@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:47:21 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/25 19:00:18 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/28 22:54:13 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,51 +40,31 @@ char	*add_buffer(char c, char *buffer, int size)
 ** Funcao responsavel por armazenar o buffer de messagem
 */
 
-char		*message_buffer(char c)
+char	*message_buffer(char c)
 {
-	static int	i;
-	static char	*buffer;
+	static int i;
 
-	if (c >= 0)
+	if (i == 5 || c == '\0')
 	{
-		buffer = add_buffer(c, buffer, i);
-		i++;
-	}
-	else
-	{
-		free(buffer);
-		buffer = NULL;
+		parameters.text[i] = '\0';
+		
+		ft_printstr(parameters.text);
 		i = 0;
 	}
-	return (buffer);
+	if (i < 5)
+	{
+		parameters.text[i] = c;
+		i++;
+	}
+	return(parameters.text);
 }
 
-/*
-** Funcao responsavel por armazenar dados de tratamento dos parametros
-** enviados em args
-*/
-
-t_options	big_hub(int value, char field)
+void	clear_struct()
 {
-	static t_options opt;
-
-	if (field == 0)
-	{
-		opt.flags = 0;
-		opt.width = 0;
-		opt.precision = 0;
-		opt.length = 0;
-		opt.specifier = 0;
-	}
-	else if (field == 1)
-		opt.flags = value;
-	else if (field == 2)
-		opt.width = value;
-	else if (field == 3)
-		opt.precision = value;
-	else if (field == 4)
-		opt.length = value;
-	else if (field == 5)
-		opt.specifier = value;
-	return (opt);
+	parameters.flags = 0;
+	parameters.width = 0;
+	parameters.precision = 0;
+	parameters.length = 0;
+	parameters.specifier = 0;
+	parameters.text[0] = '\0';
 }

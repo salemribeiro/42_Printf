@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:45:19 by salem             #+#    #+#             */
-/*   Updated: 2020/07/26 23:48:56 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/31 00:17:10 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,11 @@ char	*str_toupper(char *source)
 	char	*tmp;
 	int		 i;
 
-	tmp = source;
 	i = 0;
-	while (tmp[i])
+	tmp = (char*)ft_calloc(ft_strlen(source), sizeof(char));
+	while (source[i])
 	{
-		tmp[i] = ft_toupper(tmp[i]);
+		tmp[i] = ft_toupper(source[i]);
 		i++;
 	}
 	free(source);

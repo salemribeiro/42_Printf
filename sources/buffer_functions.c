@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:47:21 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/28 22:54:13 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/30 23:49:49 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,25 @@ char	*add_buffer(char c, char *buffer, int size)
 ** Funcao responsavel por armazenar o buffer de messagem
 */
 
-char	*message_buffer(char c)
+int		message_buffer(char c)
 {
-	static int i;
+	static int	i;
+	int			total;
 
 	if (i == 5 || c == '\0')
 	{
-		parameters.text[i] = '\0';
-		
-		ft_printstr(parameters.text);
+		parameters.text[i] = c;
+		total = ft_printstr(parameters.text);
 		i = 0;
+		parameters.text[i] = '\0';
+		return(total);
 	}
-	if (i < 5)
+	else if (i < 5)
 	{
 		parameters.text[i] = c;
-		i++;
 	}
-	return(parameters.text);
+	i++;
+	return(0);
 }
 
 void	clear_struct()

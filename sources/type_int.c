@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 13:19:01 by salem             #+#    #+#             */
-/*   Updated: 2020/07/28 21:00:24 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/31 00:10:56 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	store_int (long long int value)
 		value = (long long int)(char) value;
 	else if (parameters.length == H)
 		value = (long long int)(short int) value;
-	if (value < 0)
+	if (value < 0 && parameters.specifier != 'x' && parameters.specifier != 'X')
 		send_buffer("-");
 	text = ft_itoa_base(value, parameters.specifier);
 	

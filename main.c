@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/28 22:59:35 by salem            ###   ########.fr       */
+/*   Updated: 2020/07/31 00:18:30 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <limits.h>
@@ -19,8 +19,8 @@ int main ()
 	long double pnumero = 25;
 
 //	tabela_de_tipos();
-	ft_printf("dec %hd\n", numero);
-	   printf("dec %hd\n", numero);
+	ft_printf("dec %hd hex %hX oct %ho\n", numero, numero, numero);
+	   printf("dec %hd hex %hX oct %ho\n", numero, numero, numero);
 
 	ft_printf("hex %x\n", numero);
 	   printf("hex %x\n", numero);

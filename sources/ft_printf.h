@@ -63,7 +63,7 @@ void			tabela_de_tipos();
 
 int		ft_printf(const char *format, ...);
 char	search_percent(char *text);
-char	*message_buffer(char c);
+int		message_buffer(char c);
 char	*add_buffer(char c, char *buffer, int size);
 void	send_buffer(char *text);
 void	clear_struct();

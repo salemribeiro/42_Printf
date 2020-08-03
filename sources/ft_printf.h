@@ -134,7 +134,7 @@ int			ft_printstr(char *text);
 ** --> ft_itoa_base.c <--
 */
 char	*ft_itoa_base(long long int n, char base);
-char	*get_base(unsigned long long int value, int b);
+char	*get_base(long long int value, int b);
 char	*str_toupper(char *source);
-
+long long int	convert_int(long long int value);
 #endif

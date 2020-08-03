@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:45:19 by salem             #+#    #+#             */
-/*   Updated: 2020/07/31 00:17:10 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/02 21:29:10 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,26 @@ char	*ft_itoa_base(long long int n, char specifier)
 	int				signal;
 	char			*ptr;
 
-	tmp = n;
-	signal = n < 0 ? -1 : 1;
 	if (specifier == 'd' || specifier == 'i')
-		ptr = get_base((unsigned long long int)(n * signal), 10);
+		ptr = get_base(n, 10);
 	else if (specifier == 'x' || specifier == 'X')
 	{
-		ptr = get_base((unsigned long long int)(n * signal), 16);
+		ptr = get_base(n, 16);
 		if (specifier == 'X')
 			ptr = str_toupper(ptr);
 	}
 	else if (specifier == 'o')
-		ptr = get_base((unsigned long long int)(n * signal), 8);
+		ptr = get_base(n, 8);
 	else if (specifier == 'b')
-		ptr = get_base((unsigned long long int)(n * signal), 2);
+		ptr = get_base(n, 2);
 	return(ptr);
 }
 
-char	*get_base(unsigned long long int value, int b)
+char	*get_base(long long int value, int b)
 {
-	unsigned long long int	tmp;
-	char					*ptr;
-	int						d;
+	long long int	tmp;
+	char			*ptr;
+	int				d;
 
 	tmp = value;
 	d = 1;

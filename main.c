@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/31 00:18:30 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/02 15:48:54 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <limits.h>
@@ -15,18 +15,53 @@
 
 int main ()
 {
-	int	numero = 123454;
-	long double pnumero = 25;
+	int	nint = 123454;
+	long double pnint = 25;
 
-//	tabela_de_tipos();
-	ft_printf("dec %hd hex %hX oct %ho\n", numero, numero, numero);
-	   printf("dec %hd hex %hX oct %ho\n", numero, numero, numero);
+	//tabela_de_tipos();
 
-	ft_printf("hex %x\n", numero);
-	   printf("hex %x\n", numero);
 
-	ft_printf("oct %o\n", numero);
-	   printf("oct %o\n", numero);
+	ft_printf("\n-----------------INTEIROS COM SINAL-----------------------\n");
+	ft_printf("\n*long long int*\n");
+	ft_printf("dec %lld hex %llX oct %llo\n", nint, nint, nint);
+	   printf("dec %lld hex %llX oct %llo\n", nint, nint, nint);
+
+	ft_printf("\n*long int*\n");
+	ft_printf("dec %ld hex %lX oct %lo\n", nint, nint, nint);
+	   printf("dec %ld hex %lX oct %lo\n", nint, nint, nint);
+
+	ft_printf("\n*int*\n");
+	ft_printf("dec %d hex %X oct %o\n", nint, nint, nint);
+	   printf("dec %d hex %X oct %o\n", nint, nint, nint);
+
+	ft_printf("\n*short int*\n");
+	ft_printf("dec %hd hex %hX oct %ho\n", nint, nint, nint);
+	   printf("dec %hd hex %hX oct %ho\n", nint, nint, nint);
+
+	ft_printf("\n*char int*\n");
+	ft_printf("dec %hhd hex %hhX oct %hho\n", nint, nint, nint);
+	   printf("dec %hhd hex %hhX oct %hho\n", nint, nint, nint);
+
+	ft_printf("\n----------------INTEIROS SEM SINAL------------------------\n");
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	return (0);
 }
 

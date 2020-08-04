@@ -52,7 +52,6 @@ struct s_options
 
 t_options parameters;
 
-void			tabela_de_tipos();
 /*
 ** ----------------------------------------------------------------------------
 **               Funcoes para obtenção de dados e buffer
@@ -142,10 +141,5 @@ void	store_u_int(unsigned long long int value);
 unsigned long long int	convert_u_int(unsigned long long int value);
 char	*ft_u_itoa_base(unsigned long long int n, char specifier);
 char	*get_u_base(long long int value, int b);
-
-
-
-
-
 
 #endif

@@ -137,4 +137,15 @@ char	*ft_itoa_base(long long int n, char base);
 char	*get_base(long long int value, int b);
 char	*str_toupper(char *source);
 long long int	convert_int(long long int value);
+
+void	store_u_int(unsigned long long int value);
+unsigned long long int	convert_u_int(unsigned long long int value);
+char	*ft_u_itoa_base(unsigned long long int n, char specifier);
+char	*get_u_base(long long int value, int b);
+
+
+
+
+
+
 #endif

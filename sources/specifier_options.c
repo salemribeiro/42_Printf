@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/28 20:19:44 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/05 22:56:47 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ int		specifier_options(char *subtext)
 			j++;
 		if (FORBIDEN[j])
 		{
-			jmp = flag_options(ft_substr(subtext, 1, i), FORBIDEN[j]);
+			parameters.specifier = FORBIDEN[j];
+			jmp = flag_options(ft_substr(subtext, 1, i));
 			jmp = width_options(jmp);
-			jmp = precision_options(jmp, FORBIDEN[j]);
+			jmp = precision_options(jmp);
 			jmp = length_options(jmp);
 			parameters.specifier = FORBIDEN[j];
 			return(i + 1);

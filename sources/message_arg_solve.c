@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "stdio.h"
 /*
 ** Funcao responsavel por verificar e enviar os dados recebidos via args
 ** para sua função de tratamento correspondente
@@ -21,9 +20,13 @@ void	message_arg_solve(va_list item, char specifier)
 {
 	if (specifier == 'd' || specifier == 'i')
 		store_int(va_arg(item, long long int));
-	if (specifier == 'u' || specifier == 'x' || specifier == 'X' ||
+	else if (specifier == 'u' || specifier == 'x' || specifier == 'X' ||
 	specifier == 'o')
 		store_u_int(va_arg(item, unsigned long long int));
+	else if (specifier == 'c')
+		store_char(va_arg(item, int));
+	else if (specifier == 's')
+		store_string(va_arg(item, char*));
 }
 
 char	*put_zero(char *source, int total)

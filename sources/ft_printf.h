@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdarg.h>
-# include "libft.h"
+# include "./lib/libft.h"
 
 #define PLUS	1
 #define MINUS	2
@@ -40,7 +40,7 @@
 #define FORBIDEN2	"diucspn"
 #define FORBIDEN3	"cdpn"
 
-struct s_options
+typedef struct s_options
 {
 	char	flags;
 	int		width;
@@ -48,7 +48,7 @@ struct s_options
 	int		length;
 	char	specifier;
 	char	text[2048];
-}typedef	t_options;
+} t_options;
 
 t_options parameters;
 
@@ -81,25 +81,25 @@ int			specifier_options(char *subtext);
 ** --> flag_options.c <--
 */
 
-char		*flag_options(char *f, char specifier);
-void		solve_incompatible(int *flags);
+char		*flag_options(char *f);
+void		solve_incompatible();
 
 /*
 ** --> type_and_flag.c <--
 */
 
-void		solve_plus(int *flags, char specifier);
-void		solve_minus(int *flags, char specifier);
-void		solve_hash(int *flags, char specifier);
-void		solve_zero(int *flags, char specifier);
-void		solve_space(int *flags, char specifier);
+void		solve_plus();
+void		solve_minus();
+void		solve_hash();
+void		solve_zero();
+void		solve_space();
 
 /*
 ** --> width_and_precision_options.c <--
 */
 
 char		*width_options(char *f);
-char		*precision_options(char *f, char specifier);
+char		*precision_options(char *f);
 char		*length_options(char *f);
 
 /*

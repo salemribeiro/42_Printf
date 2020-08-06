@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 13:19:01 by salem             #+#    #+#             */
-/*   Updated: 2020/08/04 09:33:11 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/05 22:54:28 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 void	store_int(long long int value)
 {
 	char	*text;
-	char	c;
 
 	text = ft_itoa_base(convert_int(value), parameters.specifier);
-
 	if (parameters.precision > 0 && ft_strlen(text))
 		text = put_zero(text, parameters.precision);
 	if ((parameters.flags & PLUS) == PLUS && value >= 0)
@@ -31,12 +29,11 @@ void	store_int(long long int value)
 void	store_u_int(unsigned long long int value)
 {
 	char	*text;
-	char	c;
 
 	text = ft_u_itoa_base(convert_u_int(value), parameters.specifier);
 	if (parameters.precision > 0 && ft_strlen(text))
 		text = put_zero(text, parameters.precision);
-	if ((parameters.flags & PLUS) == PLUS && value >= 0)
+	if ((parameters.flags & PLUS) == PLUS)
 		text = ft_strjoin("+", text);
 	if ((parameters.flags & SPACE) == SPACE)
 		text = ft_strjoin(" ", text);
@@ -55,10 +52,8 @@ long long int	convert_int(long long int value)
 		value = (long long int)(char)value;
 	if (value < 0)
 	{
-		send_buffer("-");
 		value = value * (-1);
-		if ((parameters.flags & PLUS) == PLUS)
-			parameters.flags = parameters.flags ^ PLUS;
+		send_buffer("-");
 	}
 	return (value);
 }
@@ -73,5 +68,15 @@ unsigned long long int	convert_u_int(unsigned long long int value)
 		value = (unsigned long long int)(unsigned short int)value;
 	else if (parameters.length == HH)
 		value = (unsigned long long int)(unsigned char)value;
+	if ((parameters.flags & SPACE) == SPACE)
+		parameters.flags = parameters.flags ^ SPACE;
+	if ((parameters.flags & PLUS) == PLUS)
+		parameters.flags = parameters.flags ^ PLUS;
+	if ((parameters.flags & HASH ) == HASH && parameters.specifier == 'x')
+		send_buffer("0x");
+	if ((parameters.flags & HASH ) == HASH && parameters.specifier == 'X')
+		send_buffer("0X");
+	if ((parameters.flags & HASH ) == HASH && parameters.specifier == 'o')
+		send_buffer("0");
 	return (value);
 }

@@ -10,4 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 
+void	store_char (char c)
+{
+	char value[2];
+	if (c == '\0')
+		value[0] = -1;
+	else
+		value[0] = c;
+	value[1] = '\0';
+	send_buffer(value);
+}

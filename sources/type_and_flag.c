@@ -6,13 +6,13 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/14 21:26:57 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/04 22:08:45 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	solve_plus(int *flags, char specifier)
+void	solve_plus()
 {
 	int		i;
 	int		valid;
@@ -20,27 +20,27 @@ void	solve_plus(int *flags, char specifier)
 
 	i = 0;
 	valid = 0;
-	tmp = *flags & PLUS;
+	tmp = parameters.flags & PLUS;
 	while (FORBIDEN1[i])
 	{
-		if (FORBIDEN1[i] == specifier)
+		if (FORBIDEN1[i] == parameters.specifier)
 			valid = 1;
 		i++;
 	}
 	if (tmp == PLUS && valid == 1)
-		*flags = *flags ^ PLUS;
+		parameters.flags = parameters.flags ^ PLUS;
 }
 
-void	solve_minus(int *flags, char specifier)
+void	solve_minus()
 {
 	int tmp;
 
-	tmp = *flags & MINUS;
-	if (tmp == MINUS && specifier == 'n')
-		*flags = *flags ^ MINUS;
+	tmp = parameters.flags & MINUS;
+	if (tmp == MINUS && parameters.specifier == 'n')
+		parameters.flags = parameters.flags ^ MINUS;
 }
 
-void	solve_hash(int *flags, char specifier)
+void	solve_hash()
 {
 	int		i;
 	char	valid;
@@ -48,18 +48,18 @@ void	solve_hash(int *flags, char specifier)
 
 	i = 0;
 	valid = 0;
-	tmp = *flags & HASH;
+	tmp = parameters.flags & HASH;
 	while (FORBIDEN2[i])
 	{
-		if (FORBIDEN2[i] == specifier)
+		if (FORBIDEN2[i] == parameters.specifier)
 			valid = 1;
 		i++;
 	}
 	if (tmp == HASH && valid == 1)
-		*flags = *flags ^ HASH;
+		parameters.flags = parameters.flags ^ HASH;
 }
 
-void	solve_zero(int *flags, char specifier)
+void	solve_zero()
 {
 	int		i;
 	char	valid;
@@ -67,18 +67,18 @@ void	solve_zero(int *flags, char specifier)
 
 	i = 0;
 	valid = 0;
-	tmp = *flags & ZERO;
+	tmp = parameters.flags & ZERO;
 	while (FORBIDEN3[i])
 	{
-		if (FORBIDEN3[i] == specifier)
+		if (FORBIDEN3[i] == parameters.specifier)
 			valid = 1;
 		i++;
 	}
 	if (tmp == ZERO && valid == 1)
-		*flags = *flags ^ ZERO;
+		parameters.flags = parameters.flags ^ ZERO;
 }
 
-void	solve_space(int *flags, char specifier)
+void	solve_space()
 {
 	int		i;
 	char	valid;
@@ -86,13 +86,13 @@ void	solve_space(int *flags, char specifier)
 
 	i = 0;
 	valid = 0;
-	tmp = *flags & SPACE;
+	tmp = parameters.flags & SPACE;
 	while (FORBIDEN1[i])
 	{
-		if (FORBIDEN1[i] == specifier)
+		if (FORBIDEN1[i] == parameters.specifier)
 			valid = 1;
 		i++;
 	}
 	if (tmp == SPACE && valid == 1)
-		*flags = *flags ^ SPACE;
+		parameters.flags = parameters.flags ^ SPACE;
 }

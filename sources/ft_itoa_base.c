@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:45:19 by salem             #+#    #+#             */
-/*   Updated: 2020/08/03 22:32:24 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/05 22:55:32 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 char	*ft_itoa_base(long long int n, char specifier)
 {
-	long long int	tmp;
-	int				signal;
 	char			*ptr;
 
 	if (specifier == 'd' || specifier == 'i')

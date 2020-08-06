@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdarg.h>
-# include "./lib/libft.h"
+# include "libft.h"
 
 #define PLUS	1
 #define MINUS	2
@@ -141,5 +141,6 @@ void	store_u_int(unsigned long long int value);
 unsigned long long int	convert_u_int(unsigned long long int value);
 char	*ft_u_itoa_base(unsigned long long int n, char specifier);
 char	*get_u_base(long long int value, int b);
-
+void	store_char (char c);
+void	store_string(char *text);
 #endif

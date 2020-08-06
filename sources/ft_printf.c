@@ -24,7 +24,6 @@ int			ft_printf(const char *format, ...)
 
 	va_start(item, format);
 	len = 0;
-	ft_bzero(parameters.text, 2048);
 	while(search_percent((char*)format))
 	{
 		if (parameters.width == -1)

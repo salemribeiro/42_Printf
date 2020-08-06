@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/28 22:05:10 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/05 22:52:44 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*width_options(char *f)
 ** Funcao responsavel verificar e catalogar os parametros de precision
 */
 
-char	*precision_options(char *f, char specifier)
+char	*precision_options(char *f)
 {
 	int		i;
 	char	*buffer;

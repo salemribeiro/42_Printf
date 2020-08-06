@@ -6,40 +6,42 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/28 20:44:29 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/05 00:04:15 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*flag_options(char *f, char specifier)
+char	*flag_options(char *f)
 {
 	int		flags;
 
 	flags = 0;
 	while (*f == '+' || *f == '-' || *f == '#' || *f == '0' || *f == ' ')
 	{
-		(*f == '+') ? flags = flags | PLUS : flags;
-		(*f == '-') ? flags = flags | MINUS : flags;
-		(*f == '#') ? flags = flags | HASH : flags;
-		(*f == '0') ? flags = flags | ZERO : flags;
-		(*f == ' ') ? flags = flags | SPACE : flags;
+		flags = (*f == '+') ? flags | PLUS : flags;
+		flags = (*f == '-') ? flags | MINUS : flags;
+		flags = (*f == '#') ? flags | HASH : flags;
+		flags = (*f == '0') ? flags | ZERO : flags;
+		flags = (*f == ' ') ? flags | SPACE : flags;
 		f++;
 	}
-	solve_incompatible(&flags);
-	solve_plus(&flags, specifier);
-	solve_minus(&flags, specifier);
-	solve_hash(&flags, specifier);
-	solve_zero(&flags, specifier);
-	solve_space(&flags, specifier);
 	parameters.flags = flags;
+	solve_incompatible();
 	return (f);
 }
 
-void	solve_incompatible(int *flags)
+void	solve_incompatible()
 {
-	if ((*flags & PLUS) == PLUS && (*flags & SPACE) == SPACE)
-		*flags = *flags ^ SPACE;
-	if ((*flags & MINUS) == MINUS && (*flags & ZERO) == ZERO)
-		*flags = *flags ^ ZERO;
+	if ((parameters.flags & PLUS) == PLUS &&
+	(parameters.flags & SPACE) == SPACE)
+		parameters.flags = parameters.flags ^ SPACE;
+	if ((parameters.flags & MINUS) == MINUS &&
+	(parameters.flags & ZERO) == ZERO)
+		parameters.flags = parameters.flags ^ ZERO;
+	solve_plus();
+	solve_minus();
+	solve_hash();
+	solve_zero();
+	solve_space();
 }

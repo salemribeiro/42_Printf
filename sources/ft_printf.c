@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:03:41 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/31 00:05:23 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/05 22:56:22 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int			ft_printf(const char *format, ...)
 char		search_percent(char *text)
 {
 	static int	i;
-	char		temp;
 
 	while (text[i])
 	{

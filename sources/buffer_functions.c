@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:47:21 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/30 23:49:49 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/06 22:39:00 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,4 @@ void	clear_struct()
 	parameters.precision = 0;
 	parameters.length = 0;
 	parameters.specifier = 0;
-	parameters.text[0] = '\0';
 }

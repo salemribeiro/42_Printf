@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 13:19:01 by salem             #+#    #+#             */
-/*   Updated: 2020/08/05 22:54:28 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/06 23:53:44 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	store_int(long long int value)
 	if ((parameters.flags & SPACE) == SPACE)
 		text = ft_strjoin(" ", text);
 	send_buffer(text);
+	free(text);
 }
 
 void	store_u_int(unsigned long long int value)
@@ -38,6 +39,7 @@ void	store_u_int(unsigned long long int value)
 	if ((parameters.flags & SPACE) == SPACE)
 		text = ft_strjoin(" ", text);
 	send_buffer(text);
+	free (text);
 }
 
 long long int	convert_int(long long int value)

@@ -48,6 +48,7 @@ typedef struct s_options
 	int		length;
 	char	specifier;
 	char	text[2048];
+	int		count;
 } t_options;
 
 t_options parameters;

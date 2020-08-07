@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:03:41 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/06 22:02:26 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/06 22:39:51 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ int			ft_printf(const char *format, ...)
 		if (parameters.precision == -1)
 			parameters.precision = va_arg(item, int);
 		message_arg_solve(item, parameters.specifier);
+		clear_struct();
 	}
 	message_buffer('\0');
 	len = parameters.count;
 	parameters.count = 0;
-	clear_struct();
+	parameters.text[0] = '\0';
 	va_end(item);
 	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/03 23:33:57 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/06 23:10:39 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,14 @@
 void	message_arg_solve(va_list item, char specifier)
 {
 	if (specifier == 'd' || specifier == 'i')
-		store_int(va_arg(item, long long int));
+	{
+		if (parameters.length == LL)
+			store_int(va_arg(item, long long int));
+		else if (parameters.length == LONG)
+			store_int(va_arg(item, long int));
+		else
+			store_int(va_arg(item, int));
+	}
 	else if (specifier == 'u' || specifier == 'x' || specifier == 'X' ||
 	specifier == 'o')
 		store_u_int(va_arg(item, unsigned long long int));

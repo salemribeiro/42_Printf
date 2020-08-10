@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:03:41 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/06 22:39:51 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/09 14:34:08 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int			ft_printf(const char *format, ...)
 	message_buffer('\0');
 	len = parameters.count;
 	parameters.count = 0;
-	parameters.text[0] = '\0';
 	va_end(item);
 	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 17:12:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/05/08 00:01:50 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/08 18:11:37 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ char				*ft_strjoin(char const *s1, char const *s2)
 	if (!ptr)
 		return (0);
 	execjoin(s1, s2, ptr);
+	free(s2)
 	return (ptr);
 }

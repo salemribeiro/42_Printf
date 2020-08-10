@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/06 23:10:39 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/09 13:41:25 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void	send_buffer(char *text)
 	int i;
 
 	i = 0;
+	if (!text)
+		return ;
 	while (text[i])
 	{
 		message_buffer(text[i]);

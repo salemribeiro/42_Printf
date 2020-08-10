@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:45:19 by salem             #+#    #+#             */
-/*   Updated: 2020/08/05 22:55:32 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/09 11:04:42 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*ft_itoa_base(long long int n, char specifier)
 {
 	char			*ptr;
 
+	ptr = NULL;
 	if (specifier == 'd' || specifier == 'i')
 		ptr = get_base(n, 10);
 	return(ptr);
@@ -28,6 +29,7 @@ char	*get_base(long long int value, int b)
 	int				d;
 
 	tmp = value;
+	ptr = NULL;
 	d = 1;
 	while (tmp > 0)
 	{
@@ -36,7 +38,7 @@ char	*get_base(long long int value, int b)
 	}
 	ptr = (char*)ft_calloc(sizeof(char), d);
 	d = value > 0 ? (d - 2) : (d - 1);
-	while (d >= 0)
+	while (d >= 0 && ptr)
 	{
 		if (b == 16)
 			ptr[d] = (value % b) < 10 ? (value % b) + 48 : (value % b) + 87;

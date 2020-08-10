@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/05 22:52:44 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/09 12:17:01 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char	*width_options(char *f)
 		if (ft_isdigit(*buffer))
 			width = ft_atoi(buffer);
 		parameters.width = width;
+		free(buffer);
 	}
 	return (f);
 }
@@ -63,6 +64,7 @@ char	*precision_options(char *f)
 		if (ft_isdigit(*buffer))
 			precision = ft_atoi(buffer);
 		parameters.precision = precision;
+		free(buffer);
 	}
 	return (f);
 }
@@ -79,6 +81,7 @@ char	*length_options(char *f)
 
 	i = 0;
 	buffer = NULL;
+	length = -1;
 	if (*f)
 	{
 		while (*f == 'h' || *f == 'l' || *f == 'j' ||
@@ -94,6 +97,7 @@ char	*length_options(char *f)
 			length = (int)*((short int*)buffer);
 		parameters.length = length;
 	}
+	if (buffer != NULL)
+		free(buffer);
 	return (f);
-	
 }

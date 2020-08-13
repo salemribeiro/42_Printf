@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 09:16:50 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/09 11:58:53 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/10 09:54:01 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,22 @@ int main ()
 	char	*u = "-0";*/
 
 
-//ft_printf("O número é: %d\n", d);
+	ft_printf("O número é: %d\n", d);
 
 
-/*	ft_printf(" --- Return : %d\n", ft_printf("%i, %d, %d, %d, %c, %c, %c, %d, %u, %x, %X\n", i, j, k, l, c, c, c, c, j, j, j));
+	ft_printf(" --- Return : %d\n", ft_printf("%i, %d, %d, %d, %c, %c, %c, %d, %u, %x, %X\n", i, j, k, l, c, c, c, c, j, j, j));
 	printf(" --- Return : %d\n\n", printf("%i, %d, %d, %d, %c, %c, %c, %d, %u, %x, %X\n", i, j, k, l, c, c, c, c, j, j, j)); //T2
-*/	
+
 	ft_printf(" --- Return : %d\n", ft_printf("%0i, %0d, %0d, %0d, %0d, %0d, %0d, %0d\n", i, j, k, l, m, c, e, d)); //T3
 	printf(" --- Return : %d\n\n", printf("%0i, %0d, %0d, %0d, %0d, %0d, %0d, %0d\n", i, j, k, l, m, c, e, d)); //T3
 	
-/*	ft_printf(" --- Return : %d\n", ft_printf("%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d\n", i, j, k, l, m, c, e, d)); //T4
+ft_printf(" --- Return : %d\n", ft_printf("%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d\n", i, j, k, l, m, c, e, d)); //T4
 	printf(" --- Return : %d\n\n", printf("%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d\n", i, j, k, l, m, c, e, d)); //T4
 	
 	ft_printf(" --- Return : %d\n", ft_printf("%2i, %2d, %2d, %2d, %2d, %2d, %2d, %2d\n", i, j, k, l, m, c, e, d)); //T5
 	printf(" --- Return : %d\n\n", printf("%2i, %2d, %2d, %2d, %2d, %2d, %2d, %2d\n", i, j, k, l, m, c, e, d)); //T5
 	
 	ft_printf(" --- Return : %d\n", ft_printf("%3i, %3d, %3d, %3d, %3d, %3d, %3d, %3d\n", i, j, k, l, m, c, e, d)); //T6
-	printf(" --- Return : %d\n\n", printf("%3i, %3d, %3d, %3d, %3d, %3d, %3d, %3d\n", i, j, k, l, m, c, e, d)); //T6*/
+	printf(" --- Return : %d\n\n", printf("%3i, %3d, %3d, %3d, %3d, %3d, %3d, %3d\n", i, j, k, l, m, c, e, d)); //T6
 	return (0);
 }

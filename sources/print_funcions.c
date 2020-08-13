@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:46:59 by salem             #+#    #+#             */
-/*   Updated: 2020/08/06 22:01:12 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/11 23:29:57 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,13 @@ int		ft_printstr(char *text)
 	parameters.count += (int)write(1, &text[j], k);
 	return (i);
 }
+
+void	create_buffer()
+{
+	int i;
+
+	i = 0;
+	while (i < 2048)
+		parameters.text[i++] = '\0';
+}
+

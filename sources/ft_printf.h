@@ -40,7 +40,7 @@
 #define FORBIDEN2	"diucspn"
 #define FORBIDEN3	"cdpn"
 
-typedef struct s_options
+struct s_options
 {
 	char	flags;
 	int		width;
@@ -49,9 +49,9 @@ typedef struct s_options
 	char	specifier;
 	char	text[2048];
 	int		count;
-} t_options;
+};
 
-t_options parameters;
+struct s_options parameters;
 
 /*
 ** ----------------------------------------------------------------------------
@@ -111,7 +111,7 @@ char		*length_options(char *f);
 ** --> argument_options.c <--
 */
 
-void		message_arg_solve(va_list list, char specifier);
+void		message_arg_solve(va_list list);
 void		store_int (long long int value);
 void		store_float (long double value);
 char		*put_zero(char *source, int total);
@@ -133,14 +133,15 @@ int			ft_printstr(char *text);
 **-----------------------------------------------------------------------------
 ** --> ft_itoa_base.c <--
 */
-char	*ft_itoa_base(long long int n, char base);
+char	*ft_itoa_base(long long int n);
 char	*get_base(long long int value, int b);
 char	*str_toupper(char *source);
 long long int	convert_int(long long int value);
+void	create_buffer();
 
 void	store_u_int(unsigned long long int value);
 unsigned long long int	convert_u_int(unsigned long long int value);
-char	*ft_u_itoa_base(unsigned long long int n, char specifier);
+char	*ft_u_itoa_base(unsigned long long int n);
 char	*get_u_base(long long int value, int b);
 void	store_char (char c);
 void	store_string(char *text);

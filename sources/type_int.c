@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 13:19:01 by salem             #+#    #+#             */
-/*   Updated: 2020/08/06 23:53:44 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/11 22:11:23 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	store_int(long long int value)
 {
 	char	*text;
 
-	text = ft_itoa_base(convert_int(value), parameters.specifier);
+	text = ft_itoa_base(convert_int(value));
 	if (parameters.precision > 0 && ft_strlen(text))
 		text = put_zero(text, parameters.precision);
 	if ((parameters.flags & PLUS) == PLUS && value >= 0)
@@ -31,7 +31,7 @@ void	store_u_int(unsigned long long int value)
 {
 	char	*text;
 
-	text = ft_u_itoa_base(convert_u_int(value), parameters.specifier);
+	text = ft_u_itoa_base(convert_u_int(value));
 	if (parameters.precision > 0 && ft_strlen(text))
 		text = put_zero(text, parameters.precision);
 	if ((parameters.flags & PLUS) == PLUS)

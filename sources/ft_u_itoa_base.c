@@ -6,28 +6,28 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:45:19 by salem             #+#    #+#             */
-/*   Updated: 2020/08/09 11:03:36 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/10 23:53:00 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_u_itoa_base(unsigned long long int n, char specifier)
+char	*ft_u_itoa_base(unsigned long long int n)
 {
 	char	*ptr;
 
 	ptr = NULL;
-	if (specifier == 'u')
+	if (parameters.specifier == 'u')
 		ptr = get_base(n, 10);
-	else if (specifier == 'x' || specifier == 'X')
+	else if (parameters.specifier == 'x' || parameters.specifier == 'X')
 	{
 		ptr = get_base(n, 16);
-		if (specifier == 'X')
+		if (parameters.specifier == 'X')
 			ptr = str_toupper(ptr);
 	}
-	else if (specifier == 'o')
+	else if (parameters.specifier == 'o')
 		ptr = get_base(n, 8);
-	else if (specifier == 'b')
+	else if (parameters.specifier == 'b')
 		ptr = get_base(n, 2);
 	return(ptr);
 }
@@ -46,7 +46,7 @@ char	*get_u_base(long long int value, int b)
 		tmp /= b;
 		d++;
 	}
-	ptr = (char*)ft_calloc(sizeof(char), d);
+	ptr = (char*)ft_calloc(sizeof(char), d + 1);
 	d = value > 0 ? (d - 2) : (d - 1);
 	while (d >= 0 && ptr)
 	{
@@ -62,16 +62,13 @@ char	*get_u_base(long long int value, int b)
 
 char	*str_toupper(char *source)
 {
-	char	*tmp;
 	int		 i;
 
 	i = 0;
-	tmp = (char*)ft_calloc(ft_strlen(source), sizeof(char));
 	while (source[i])
 	{
-		tmp[i] = ft_toupper(source[i]);
+		source[i] = ft_toupper(source[i]);
 		i++;
 	}
-	free(source);
-	return (tmp);
+	return (source);
 }

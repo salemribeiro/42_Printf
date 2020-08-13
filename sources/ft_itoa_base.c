@@ -6,18 +6,18 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:45:19 by salem             #+#    #+#             */
-/*   Updated: 2020/08/09 11:04:42 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/11 21:50:18 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_itoa_base(long long int n, char specifier)
+char	*ft_itoa_base(long long int n)
 {
 	char			*ptr;
 
 	ptr = NULL;
-	if (specifier == 'd' || specifier == 'i')
+	if (parameters.specifier == 'd' || parameters.specifier == 'i')
 		ptr = get_base(n, 10);
 	return(ptr);
 }
@@ -36,7 +36,7 @@ char	*get_base(long long int value, int b)
 		tmp /= b;
 		d++;
 	}
-	ptr = (char*)ft_calloc(sizeof(char), d);
+	ptr = (char*)ft_calloc(sizeof(char),d + 1);
 	d = value > 0 ? (d - 2) : (d - 1);
 	while (d >= 0 && ptr)
 	{

@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/09 13:41:25 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/11 22:08:09 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 ** para sua função de tratamento correspondente
 */
 
-void	message_arg_solve(va_list item, char specifier)
+void	message_arg_solve(va_list item)
 {
-	if (specifier == 'd' || specifier == 'i')
+	if (parameters.specifier == 'd' || parameters.specifier == 'i')
 	{
 		if (parameters.length == LL)
 			store_int(va_arg(item, long long int));
@@ -27,12 +27,12 @@ void	message_arg_solve(va_list item, char specifier)
 		else
 			store_int(va_arg(item, int));
 	}
-	else if (specifier == 'u' || specifier == 'x' || specifier == 'X' ||
-	specifier == 'o')
+	else if (parameters.specifier == 'u' || parameters.specifier == 'x' ||
+	parameters.specifier == 'X' || parameters.specifier == 'o')
 		store_u_int(va_arg(item, unsigned long long int));
-	else if (specifier == 'c')
+	else if (parameters.specifier == 'c')
 		store_char(va_arg(item, int));
-	else if (specifier == 's')
+	else if (parameters.specifier == 's')
 		store_string(va_arg(item, char*));
 }
 
@@ -41,14 +41,16 @@ char	*put_zero(char *source, int total)
 	int		i;
 	int		size;
 	char	*tmp;
-	char	text[total + 1];
+	char	*text;
 
 	i = 0;
 	size = total - ft_strlen(source);
+	text = ft_calloc(size, sizeof(char));
 	while (i < size)
 		text[i++] = '0';
 	text[i] = '\0';
 	tmp = ft_strjoin(text, source);
+	free(text);
 	return (tmp);
 }
 
@@ -82,8 +84,6 @@ void	send_buffer(char *text)
 	int i;
 
 	i = 0;
-	if (!text)
-		return ;
 	while (text[i])
 	{
 		message_buffer(text[i]);

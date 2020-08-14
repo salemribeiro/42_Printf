@@ -6,13 +6,19 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/04 22:08:45 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/13 23:43:46 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	solve_plus()
+/*
+**  Recebe como parametro o inteiro do tipo char "flags", verifica se a flag
+** pode ser utilizada com lista de especificadores "SPECIFIERS1" e retorna o
+** inteiro do tipo char "flags" com seus bits tratados.
+*/
+
+char	solve_plus(char flags)
 {
 	int		i;
 	int		valid;
@@ -20,27 +26,41 @@ void	solve_plus()
 
 	i = 0;
 	valid = 0;
-	tmp = parameters.flags & PLUS;
-	while (FORBIDEN1[i])
+	tmp = flags & PLUS;
+	while (SPECIFIERS1[i])
 	{
-		if (FORBIDEN1[i] == parameters.specifier)
+		if (SPECIFIERS1[i] == g_opt.specifier)
 			valid = 1;
 		i++;
 	}
 	if (tmp == PLUS && valid == 1)
-		parameters.flags = parameters.flags ^ PLUS;
+		flags = flags ^ PLUS;
+	return (flags);
 }
 
-void	solve_minus()
+/*
+**  Recebe como parametro o inteiro do tipo char "flags", verifica se a flag
+** pode ser utilizada com o especificador "n" e retorna o inteiro do tipo char 
+** "flags" com seus bits tratados.
+*/
+
+char	solve_minus(char flags)
 {
 	int tmp;
 
-	tmp = parameters.flags & MINUS;
-	if (tmp == MINUS && parameters.specifier == 'n')
-		parameters.flags = parameters.flags ^ MINUS;
+	tmp = flags & MINUS;
+	if (tmp == MINUS && g_opt.specifier == 'n')
+		flags = flags ^ MINUS;
+	return (flags);
 }
 
-void	solve_hash()
+/*
+**  Recebe como parametro o inteiro do tipo char "flags", verifica se a flag
+** pode ser utilizada com lista de especificadores "SPECIFIERS2" e retorna o
+** inteiro do tipo char "flags" com seus bits tratados.
+*/
+
+char	solve_hash(char flags)
 {
 	int		i;
 	char	valid;
@@ -48,18 +68,25 @@ void	solve_hash()
 
 	i = 0;
 	valid = 0;
-	tmp = parameters.flags & HASH;
-	while (FORBIDEN2[i])
+	tmp = flags & HASH;
+	while (SPECIFIERS2[i])
 	{
-		if (FORBIDEN2[i] == parameters.specifier)
+		if (SPECIFIERS2[i] == g_opt.specifier)
 			valid = 1;
 		i++;
 	}
 	if (tmp == HASH && valid == 1)
-		parameters.flags = parameters.flags ^ HASH;
+		flags = flags ^ HASH;
+	return (flags);
 }
 
-void	solve_zero()
+/*
+**  Recebe como parametro o inteiro do tipo char "flags", verifica se a flag
+** pode ser utilizada com lista de especificadores "SPECIFIERS3" e retorna o
+** inteiro do tipo char "flags" com seus bits tratados.
+*/
+
+char	solve_zero(char flags)
 {
 	int		i;
 	char	valid;
@@ -67,18 +94,25 @@ void	solve_zero()
 
 	i = 0;
 	valid = 0;
-	tmp = parameters.flags & ZERO;
-	while (FORBIDEN3[i])
+	tmp = flags & ZERO;
+	while (SPECIFIER3[i])
 	{
-		if (FORBIDEN3[i] == parameters.specifier)
+		if (SPECIFIER3[i] == g_opt.specifier)
 			valid = 1;
 		i++;
 	}
 	if (tmp == ZERO && valid == 1)
-		parameters.flags = parameters.flags ^ ZERO;
+		flags = flags ^ ZERO;
+	return (flags);
 }
 
-void	solve_space()
+/*
+**  Recebe como parametro o inteiro do tipo char "flags", verifica se a flag
+** pode ser utilizada com lista de especificadores "SPECIFIERS1" e retorna o
+** inteiro do tipo char "flags" com seus bits tratados.
+*/
+
+char	solve_space(char flags)
 {
 	int		i;
 	char	valid;
@@ -86,13 +120,14 @@ void	solve_space()
 
 	i = 0;
 	valid = 0;
-	tmp = parameters.flags & SPACE;
-	while (FORBIDEN1[i])
+	tmp = flags & SPACE;
+	while (SPECIFIERS1[i])
 	{
-		if (FORBIDEN1[i] == parameters.specifier)
+		if (SPECIFIERS1[i] == g_opt.specifier)
 			valid = 1;
 		i++;
 	}
 	if (tmp == SPACE && valid == 1)
-		parameters.flags = parameters.flags ^ SPACE;
+		flags = flags ^ SPACE;
+	return (flags);
 }

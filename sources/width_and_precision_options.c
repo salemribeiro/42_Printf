@@ -6,17 +6,19 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/09 12:17:01 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/14 09:39:13 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** Funcao responsavel verificar e catalogar os parametros de width
+**  Funcao recebe um ponteiro de char "*parameters" busca por informacoes do
+** width envia essas informacoes para a estrutura global "opt.width" e avanca
+** o ponteiro para posicao final de indicacao de width e retorna o mesmo.
 */
 
-char	*width_options(char *f)
+char	*width_options(char *parameters)
 {
 	int		i;
 	int		width;
@@ -25,23 +27,26 @@ char	*width_options(char *f)
 	i = 0;
 	width = -1;
 	buffer = NULL;
-	while (ft_isdigit(*f) || *f == '*')
-		buffer = add_buffer(*f++, buffer, i++);
+	while (ft_isdigit(*parameters) || *parameters == '*')
+		buffer = add_buffer(*parameters++, buffer, i++);
 	if (buffer)
 	{
 		if (ft_isdigit(*buffer))
 			width = ft_atoi(buffer);
-		parameters.width = width;
+		g_opt.width = width;
 		free(buffer);
 	}
-	return (f);
+	return (parameters);
 }
 
 /*
-** Funcao responsavel verificar e catalogar os parametros de precision
+**  Funcao recebe um ponteiro de char "*parameters" busca por informacoes do
+** precision envia essas informacoes para a estrutura global "opt.precision" e
+** avanca o ponteiro para posicao final de indicacao de precision e retorna o
+** mesmo.
 */
 
-char	*precision_options(char *f)
+char	*precision_options(char *parameters)
 {
 	int		i;
 	char	*buffer;
@@ -50,30 +55,30 @@ char	*precision_options(char *f)
 	i = 0;
 	buffer = NULL;
 	precision = -1;
-	while (ft_isdigit(*f) || *f == '*' || *f == '.')
+	while (ft_isdigit(*parameters) || *parameters == '*' || *parameters == '.')
 	{
-		if (*f != '.')
-		{
-			buffer = add_buffer(*f, buffer, i);
-			i++;
-		}
-		f++;
+		if (*parameters != '.')
+			buffer = add_buffer(*parameters++, buffer, i++);
+		parameters++;
 	}
 	if (buffer)
 	{
 		if (ft_isdigit(*buffer))
 			precision = ft_atoi(buffer);
-		parameters.precision = precision;
+		g_opt.precision = precision;
 		free(buffer);
 	}
 	return (f);
 }
 
 /*
-** Funcao responsavel verificar e catalogar os parametros de length
+**  Funcao recebe um ponteiro de char "*parameters" busca por informacoes do
+** length envia essas informacoes para a estrutura global "opt.length" e
+** avanca o ponteiro para posicao final de indicacao de length e retorna o
+** mesmo.
 */
 
-char	*length_options(char *f)
+char	*length_options(char *parameters)
 {
 	int		i;
 	int		length;
@@ -82,20 +87,20 @@ char	*length_options(char *f)
 	i = 0;
 	buffer = NULL;
 	length = -1;
-	if (*f)
+	if (*parameters)
 	{
-		while (*f == 'h' || *f == 'l' || *f == 'j' ||
-			*f == 'z' || *f == 't' || *f =='L')
+		while (*parameters == 'h' || *parameters == 'l' || *parameters == 'j' ||
+			*parameters == 'z' || *parameters == 't' || *parameters =='L')
 		{
-			buffer = add_buffer(*f, buffer, i);
+			buffer = add_buffer(*parameters, buffer, i);
 			length = (int)*((short int*)buffer);
-			f++;
+			parameters++;
 			i++;
 		}
 		if (length == LLONG || length == H || length == J || length == LONG ||
 		length == T || length == Z || length == HH || length == LL)
 			length = (int)*((short int*)buffer);
-		parameters.length = length;
+		g_opt.length = length;
 	}
 	if (buffer != NULL)
 		free(buffer);

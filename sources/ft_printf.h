@@ -14,33 +14,34 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# define PLUS	1
+# define MINUS	2
+# define HASH	4
+# define ZERO	8
+# define SPACE	16
+
+# define LLONG	0x4C
+# define LL 		0x6C6C
+# define LONG	0x6C
+# define HH		0x6868
+# define H		0x68
+# define J		0x6A
+# define T		0x74
+# define Z		0x7A
+
+# define SPECIFIERS0	"diuoxXfFeEgGaAcspn%"
+# define SPECIFIERS1	"uoxXcspn"
+# define SPECIFIERS2	"diucspn"
+# define SPECIFIERS3	"cdpn"
+
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdarg.h>
 # include "libft.h"
 
-#define PLUS	1
-#define MINUS	2
-#define HASH	4
-#define ZERO	8
-#define SPACE	16
 
-#define LLONG	0x4C
-#define LL 		0x6C6C
-#define LONG	0x6C
-#define HH		0x6868
-#define H		0x68
-#define J		0x6A
-#define T		0x74
-#define Z		0x7A
-
-#define FORBIDEN	"diuoxXfFeEgGaAcspn%"
-#define FORBIDEN1	"uoxXcspn"
-#define FORBIDEN2	"diucspn"
-#define FORBIDEN3	"cdpn"
-
-struct s_options
+struct s_opt
 {
 	char	flags;
 	int		width;
@@ -50,9 +51,7 @@ struct s_options
 	char	text[2048];
 	int		count;
 };
-
-struct s_options parameters;
-
+struct s_opt g_opt;
 /*
 ** ----------------------------------------------------------------------------
 **               Funcoes para obtenção de dados e buffer
@@ -73,35 +72,19 @@ void	clear_struct();
 **     Funcoes para tratamento de especificadores flags, largura e precisao
 **         Functions for treatment of specifiers, width and precision
 **-----------------------------------------------------------------------------
-** --> specifier_options.c <--
 */
 
 int			specifier_options(char *subtext);
-
-/*
-** --> flag_options.c <--
-*/
-
-char		*flag_options(char *f);
-void		solve_incompatible();
-
-/*
-** --> type_and_flag.c <--
-*/
-
-void		solve_plus();
-void		solve_minus();
-void		solve_hash();
-void		solve_zero();
-void		solve_space();
-
-/*
-** --> width_and_precision_options.c <--
-*/
-
-char		*width_options(char *f);
-char		*precision_options(char *f);
-char		*length_options(char *f);
+char		*flag_options(char *parameters);
+char		solve_incompatible(char flags);
+char		solve_plus(char flags);
+char		solve_minus(char flags);
+char		solve_hash(char flags);
+char		solve_zero(char flags);
+char		solve_space(char flags);
+char		*width_options(char *parameters);
+char		*precision_options(char *parameters);
+char		*length_options(char *parameters);
 
 /*
 **-----------------------------------------------------------------------------

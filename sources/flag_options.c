@@ -6,15 +6,22 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/05 00:04:15 by salem            ###   ########.fr       */
+/*   Updated: 2020/08/14 09:23:50 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*flag_options(char *f)
+/*
+**  Recebe um conjunto de caracters em um ponteiro de char "*parameters",
+** percorre todo ponteiro em busca de valores que representam flags, envia
+** essas flags para o campo da estrutura global "g_opt.flags" e avanca o
+** ponteiro para posicao final de indicacao de flags e retorna o mesmo.
+*/
+
+char	*flag_options(char *parameters)
 {
-	int		flags;
+	char	flags;
 
 	flags = 0;
 	while (*f == '+' || *f == '-' || *f == '#' || *f == '0' || *f == ' ')
@@ -26,22 +33,28 @@ char	*flag_options(char *f)
 		flags = (*f == ' ') ? flags | SPACE : flags;
 		f++;
 	}
-	parameters.flags = flags;
-	solve_incompatible();
+	g_opt.flags = solve_incompatible(flags);
 	return (f);
 }
 
-void	solve_incompatible()
+/*
+**  Recebe um inteiro char "flags" e executa uma série de verificacoes
+** corrigindo suas incompatibilidades por ordem de importancia, retornando um
+** inteiro char com as correcoes aplicadas.
+**  Foi desenhado dessa forma para os tratamentos poderem ser chamados em
+** qualquer parte do código
+*/
+
+char	solve_incompatible(char flags)
 {
-	if ((parameters.flags & PLUS) == PLUS &&
-	(parameters.flags & SPACE) == SPACE)
-		parameters.flags = parameters.flags ^ SPACE;
-	if ((parameters.flags & MINUS) == MINUS &&
-	(parameters.flags & ZERO) == ZERO)
-		parameters.flags = parameters.flags ^ ZERO;
-	solve_plus();
-	solve_minus();
-	solve_hash();
-	solve_zero();
-	solve_space();
+	if ((flags & PLUS) == PLUS && (flags & SPACE) == SPACE)
+		flags = flags ^ SPACE;
+	if ((flags & MINUS) == MINUS && (flags & ZERO) == ZERO)
+		flags = flags ^ ZERO;
+	flags = solve_plus(flags);
+	flags = solve_minus(flags);
+	flags = solve_hash(flags);
+	flags = solve_zero(flags);
+	flags = solve_space(flags);
+	return (flags);
 }

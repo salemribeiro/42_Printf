@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:45:19 by salem             #+#    #+#             */
-/*   Updated: 2020/08/10 23:53:00 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/18 20:27:55 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ char	*ft_u_itoa_base(unsigned long long int n)
 	char	*ptr;
 
 	ptr = NULL;
-	if (parameters.specifier == 'u')
-		ptr = get_base(n, 10);
-	else if (parameters.specifier == 'x' || parameters.specifier == 'X')
+	if (g_opt.specifier == 'u')
+		ptr = get_u_base(n, 10);
+	else if (g_opt.specifier == 'x' || g_opt.specifier == 'X')
 	{
-		ptr = get_base(n, 16);
-		if (parameters.specifier == 'X')
+		ptr = get_u_base(n, 16);
+		if (g_opt.specifier == 'X')
 			ptr = str_toupper(ptr);
 	}
-	else if (parameters.specifier == 'o')
-		ptr = get_base(n, 8);
-	else if (parameters.specifier == 'b')
-		ptr = get_base(n, 2);
+	else if (g_opt.specifier == 'o')
+		ptr = get_u_base(n, 8);
+	else if (g_opt.specifier == 'b')
+		ptr = get_u_base(n, 2);
 	return(ptr);
 }
 
-char	*get_u_base(long long int value, int b)
+char	*get_u_base(unsigned long long int value, int b)
 {
 	unsigned long long int	tmp;
 	char					*ptr;

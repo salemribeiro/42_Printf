@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:03:41 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/11 23:17:47 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/17 23:38:24 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,20 @@ int			ft_printf(const char *format, ...)
 {
 	va_list		item;
 	int			len;
-	create_buffer();
-	parameters.count = 0;
+	clear_struct();
 	va_start(item, format);
 	len = 0;
 	while(search_percent((char*)format))
 	{
-		if (parameters.width == -1)
-			parameters.width = va_arg(item, int);
-		if (parameters.precision == -1)
-			parameters.precision = va_arg(item, int);
+		if (g_opt.width == -1)
+			g_opt.width = va_arg(item, int);
+		if (g_opt.precision == -1)
+			g_opt.precision = va_arg(item, int);
 		message_arg_solve(item);
-		clear_struct();
 	}
 	message_buffer('\0');
-	len = parameters.count;
-	parameters.count = 0;
+	len = g_opt.count;
+	g_opt.count = 0;
 	va_end(item);
 	return (len);
 }

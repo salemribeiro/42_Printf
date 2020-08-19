@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/14 09:39:13 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/17 20:33:47 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	*precision_options(char *parameters)
 		g_opt.precision = precision;
 		free(buffer);
 	}
-	return (f);
+	return (parameters);
 }
 
 /*
@@ -104,5 +104,5 @@ char	*length_options(char *parameters)
 	}
 	if (buffer != NULL)
 		free(buffer);
-	return (f);
+	return (parameters);
 }

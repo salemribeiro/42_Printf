@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:45:19 by salem             #+#    #+#             */
-/*   Updated: 2020/08/11 21:50:18 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/17 21:14:47 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_itoa_base(long long int n)
 	char			*ptr;
 
 	ptr = NULL;
-	if (parameters.specifier == 'd' || parameters.specifier == 'i')
+	if (g_opt.specifier == 'd' || g_opt.specifier == 'i')
 		ptr = get_base(n, 10);
 	return(ptr);
 }

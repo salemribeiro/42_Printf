@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/13 23:43:46 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/17 21:17:34 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** inteiro do tipo char "flags" com seus bits tratados.
 */
 
-char	solve_plus(char flags)
+char	solve_plus(char flags, char specifier)
 {
 	int		i;
 	int		valid;
@@ -29,7 +29,7 @@ char	solve_plus(char flags)
 	tmp = flags & PLUS;
 	while (SPECIFIERS1[i])
 	{
-		if (SPECIFIERS1[i] == g_opt.specifier)
+		if (SPECIFIERS1[i] == specifier)
 			valid = 1;
 		i++;
 	}
@@ -44,12 +44,12 @@ char	solve_plus(char flags)
 ** "flags" com seus bits tratados.
 */
 
-char	solve_minus(char flags)
+char	solve_minus(char flags, char specifier)
 {
 	int tmp;
 
 	tmp = flags & MINUS;
-	if (tmp == MINUS && g_opt.specifier == 'n')
+	if (tmp == MINUS && specifier == 'n')
 		flags = flags ^ MINUS;
 	return (flags);
 }
@@ -60,7 +60,7 @@ char	solve_minus(char flags)
 ** inteiro do tipo char "flags" com seus bits tratados.
 */
 
-char	solve_hash(char flags)
+char	solve_hash(char flags, char specifier)
 {
 	int		i;
 	char	valid;
@@ -71,7 +71,7 @@ char	solve_hash(char flags)
 	tmp = flags & HASH;
 	while (SPECIFIERS2[i])
 	{
-		if (SPECIFIERS2[i] == g_opt.specifier)
+		if (SPECIFIERS2[i] == specifier)
 			valid = 1;
 		i++;
 	}
@@ -86,7 +86,7 @@ char	solve_hash(char flags)
 ** inteiro do tipo char "flags" com seus bits tratados.
 */
 
-char	solve_zero(char flags)
+char	solve_zero(char flags, char specifier)
 {
 	int		i;
 	char	valid;
@@ -95,9 +95,9 @@ char	solve_zero(char flags)
 	i = 0;
 	valid = 0;
 	tmp = flags & ZERO;
-	while (SPECIFIER3[i])
+	while (SPECIFIERS3[i])
 	{
-		if (SPECIFIER3[i] == g_opt.specifier)
+		if (SPECIFIERS3[i] == specifier)
 			valid = 1;
 		i++;
 	}
@@ -112,7 +112,7 @@ char	solve_zero(char flags)
 ** inteiro do tipo char "flags" com seus bits tratados.
 */
 
-char	solve_space(char flags)
+char	solve_space(char flags, char specifier)
 {
 	int		i;
 	char	valid;
@@ -123,7 +123,7 @@ char	solve_space(char flags)
 	tmp = flags & SPACE;
 	while (SPECIFIERS1[i])
 	{
-		if (SPECIFIERS1[i] == g_opt.specifier)
+		if (SPECIFIERS1[i] == specifier)
 			valid = 1;
 		i++;
 	}

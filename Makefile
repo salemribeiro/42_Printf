@@ -6,7 +6,7 @@
 #    By: salem <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/06 09:08:01 by salem             #+#    #+#              #
-#    Updated: 2020/08/24 23:03:24 by sfreitas         ###   ########.fr        #
+#    Updated: 2020/08/25 20:51:07 by caio             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,5 +36,5 @@ all : libftprintf.a
 libftprintf.a : $(OBJ)
 	ar -rcs $@ $^
 
-$(OBJ) : $(SRCS)
-	clang -Wall -Wextra -I sources/ -I lib/ lib/libft.a -c $< -o $@
+%.o: %.c
+	clang -Wall -Wextra -c -o $@ $< -I lib/ -I sources/

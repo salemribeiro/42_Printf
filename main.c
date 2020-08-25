@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 09:16:50 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/18 23:31:39 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/24 22:19:00 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdio.h>
 int main ()
 {
+
 //	int		a = -4;
 //	int		b = 0;
 	char	c = 'a';
@@ -35,6 +36,7 @@ int main ()
 //	char	*s = "-2147483648";
 //	char	*t = "0x12345678";
 //	char	*u = "-0";
+
 
 
 ft_printf(" --- Return : %d\n\n", ft_printf("%i, %d, %d, %d, %c, %c, %c, %d, %u, %x, %X\n", i, j, k, l, c, c, c, c, j, j, j)); //T2

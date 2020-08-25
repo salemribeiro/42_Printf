@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/18 23:30:38 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/08/22 12:14:50 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,14 @@ void	message_arg_solve(va_list item)
 	}
 	else if (g_opt.specifier == 'u' || g_opt.specifier == 'x' ||
 	g_opt.specifier == 'X' || g_opt.specifier == 'o')
-		store_u_int(va_arg(item, unsigned long long int));
+	{
+		if (g_opt.length == LL)
+			store_u_int(va_arg(item, unsigned long long int));
+		else if (g_opt.length == LONG)
+			store_u_int(va_arg(item, unsigned long int));
+		else
+			store_u_int(va_arg(item, unsigned int));
+	}
 	else if (g_opt.specifier == 'c')
 		store_char(va_arg(item, int));
 	else if (g_opt.specifier == 's')

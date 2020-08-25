@@ -6,12 +6,13 @@
 #    By: salem <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/06 09:08:01 by salem             #+#    #+#              #
-#    Updated: 2020/08/06 09:08:04 by salem            ###   ########.fr        #
+#    Updated: 2020/08/24 23:03:24 by sfreitas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libftprintf.a
-SRCS	= 	buffer_functions.c \
+
+SRCS	=	buffer_functions.c \
 			flag_options.c \
 			ft_itoa_base.c \
 			ft_printf.c \
@@ -26,43 +27,14 @@ SRCS	= 	buffer_functions.c \
 			type_pointer.c \
 			width_and_precision_options.c
 
-OBJS	=	$(SRCS:.c=.o)
-#FLAG	=	-Wall -Werror -Wextra
-#FLAG	=	-Wall -Werror -Wextra -g -fsanitize=address
-FLAG	=	 -g
-RM		=	rm -f
-HEAD	= 	ft_printf.h
-AR		=	ar -rcs
-LDIR	=	lib/
-LBFT	=	-lft
-LPTF 	=	-lftprintf
-LNAME	= 	lib/libft.a
+OBJ = $(patsubst %.c, %.o, $(SRCS))
 
-all:		$(NAME)
+VPATH = sources/
 
-$(NAME):
-			$(MAKE) -C $(LDIR)
-			gcc -c $(FLAG) $(SRCS) -I.$(HEAD)
-			cp $(LNAME) $(NAME)
-			$(AR) $(NAME) $(OBJS)
+all : libftprintf.a
 
-#$(NAME):
-#			$(MAKE) -C $(LDIR)
-#			gcc -c $(FLAG) $(SRCS) -I.$(HEAD) -L$(LDIR) $(LBFT)
-#			cp $(LNAME) $(NAME)
-#			$(AR) $(NAME) $(OBJS)
+libftprintf.a : $(OBJ)
+	ar -rcs $@ $^
 
-teste:		all clean
-			gcc $(FLAG) main.c -L. $(LPTF) && ./a.out
-
-clean:
-			$(MAKE) clean -C $(LDIR)
-			$(RM) $(OBJS)
-
-fclean:		clean
-			$(MAKE) fclean -C $(LDIR)
-			$(RM) $(NAME)
-
-re:			fclean all
-			
-.PHONY:		all clean fclean re bonus
+$(OBJ) : $(SRCS)
+	clang -Wall -Wextra -I sources/ -I lib/ lib/libft.a -c $< -o $@

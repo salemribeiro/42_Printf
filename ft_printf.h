@@ -38,7 +38,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdarg.h>
-# include "../lib/libft.h"
+# include "libft.h"
 
 struct s_opt
 {

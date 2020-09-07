@@ -123,4 +123,5 @@ char	*ft_u_itoa_base(unsigned long long int n);
 char	*get_u_base(unsigned long long int value, int b);
 void	store_char (char c);
 void	store_string(char *text);
+unsigned long long int	store_pointer(void *ptr);
 #endif

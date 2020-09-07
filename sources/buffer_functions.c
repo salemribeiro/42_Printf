@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:47:21 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/18 20:17:25 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/09/02 00:29:01 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*add_buffer(char c, char *buffer, int size)
 	char *temp;
 
 	i = 0;
-	temp = calloc(size + 2, sizeof(c));
+	temp = ft_calloc(size + 2, sizeof(c));
 	if (buffer)
 	{
 		while (buffer[i])

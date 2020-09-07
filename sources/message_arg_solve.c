@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/22 12:14:50 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/09/01 00:18:41 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	message_arg_solve(va_list item)
 		store_char(va_arg(item, int));
 	else if (g_opt.specifier == 's')
 		store_string(va_arg(item, char*));
+	else if (g_opt.specifier == 'p')
+		store_u_int(store_pointer(va_arg(item, void*)));
 }
 
 /*

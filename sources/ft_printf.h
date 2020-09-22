@@ -123,5 +123,9 @@ char	*ft_u_itoa_base(unsigned long long int n);
 char	*get_u_base(unsigned long long int value, int b);
 void	store_char (char c);
 void	store_string(char *text);
+void	store_float(long double value);
+void	convert_char(long double value, int precision);
+char	round_number(char *value, int precision);
+char	*sum_one(char *value, int precision);
 unsigned long long int	store_pointer(void *ptr);
 #endif

@@ -44,13 +44,15 @@ void	message_arg_solve(va_list item)
 		store_string(va_arg(item, char*));
 	else if (g_opt.specifier == 'p')
 		store_u_int(store_pointer(va_arg(item, void*)));
+	else if (g_opt.specifier == 'f')
+		store_float(va_arg(item, long double));
 }
 
 /*
 *   Funcao recebe como parametro um ponteiro "*source", um caracter "c" e
 ** um inteiro "total".
-**  E responsavel por criar um novo ponteiro de tamanho "total", contendo o
-** conteudo dos valores de "*source" completados com "c".
+**  E responsavel por criar um novo ponteiro de tamanho "total", contendo os
+** valores de "*source" completados com "c".
 */
 
 char	*manager_precision(char *source, int total)

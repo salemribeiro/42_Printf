@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 
 /*
-**  Funcao recebe um caracter c um ponteiro para uma string e um inteiro
+**  Funcao recebe um caracter c, um ponteiro para uma string e um inteiro
 ** que informa o tamanho da string recebida.
 **  Ela reponsavel por unir o ponteiro de char com o caractere recebido
 ** retornando o resultado dessa união.

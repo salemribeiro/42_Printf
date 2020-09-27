@@ -28,7 +28,10 @@ char	*width_options(char *parameters)
 	width = -1;
 	buffer = NULL;
 	while (ft_isdigit(*parameters) || *parameters == '*')
-		buffer = add_buffer(*parameters++, buffer, i++);
+	{
+		buffer = add_buffer(*parameters, buffer, i++);
+		parameters++;
+	}
 	if (buffer)
 	{
 		if (ft_isdigit(*buffer))
@@ -57,8 +60,8 @@ char	*precision_options(char *parameters)
 	precision = -1;
 	while (ft_isdigit(*parameters) || *parameters == '*' || *parameters == '.')
 	{
-		if (*parameters != '.')
-			buffer = add_buffer(*parameters++, buffer, i++);
+		if (ft_isdigit(*parameters))
+			buffer = add_buffer(*parameters, buffer, i++);
 		parameters++;
 	}
 	if (buffer)
@@ -68,6 +71,8 @@ char	*precision_options(char *parameters)
 		g_opt.precision = precision;
 		free(buffer);
 	}
+	else
+		g_opt.precision = -2;
 	return (parameters);
 }
 

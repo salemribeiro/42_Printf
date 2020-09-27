@@ -15,52 +15,55 @@
 int main ()
 {
 
-//	int		a = -4;
-//	int		b = 0;
-	char	c = 'a';
-	int		d = 2147483647;
-	int		e = -2147483648;
-//	int		f = 42;
-//	int		g = 25;
-//	int		h = 4200;
-	int		i = 8;
-	int		j = -12;
-	int		k = 123456789;
-	int		l = 0;
-	int		m = -12345678;
-//	char	*n = "abcdefghijklmnop";
-//	char	*o = "-a";
-//	char	*p = "-12";
-//	char	*q = "0";
-//	char	*r = "%%";
-//	char	*s = "-2147483648";
-//	char	*t = "0x12345678";
-//	char	*u = "-0";
-	float	ponto = -13.999999;
+	float	ponto = 3.9950456789;
 
+// teste com especificador f
+	ft_printf("\nvalor flutuante = %f\n", ponto);
+	printf("valor flutuante = %f\n", ponto);
+	ft_printf("\nvalor flutuante = %.0f\n", ponto);
+	printf("valor flutuante = %.0f\n", ponto);
+	ft_printf("\nvalor flutuante = %.1f\n", ponto);
+	printf("valor flutuante = %.1f\n", ponto);
+	ft_printf("\nvalor flutuante = %.2f\n", ponto);
+	printf("valor flutuante = %.2f\n", ponto);
+	ft_printf("\nvalor flutuante = %.3f\n", ponto);
+	printf("valor flutuante = %.3f\n", ponto);
+	ft_printf("\nvalor flutuante = %.4f\n", ponto);
+	printf("valor flutuante = %.4f\n", ponto);
+	ft_printf("\nvalor flutuante = %.5f\n", ponto);
+	printf("valor flutuante = %.5f\n", ponto);
 
-ft_printf(" --- Return : %d\n\n", ft_printf("%i, %d, %d, %d, %c, %c, %c, %d, %u, %x, %X\n", i, j, k, l, c, c, c, c, j, j, j)); //T2
+// teste com especificador g
+	ft_printf("\nvalor flutuante = %g\n", ponto);
+	printf("valor flutuante = %g\n", ponto);
+	ft_printf("\nvalor flutuante = %.0g\n", ponto);
+	printf("valor flutuante = %.0g\n", ponto);
+	ft_printf("\nvalor flutuante = %.1g\n", ponto);
+	printf("valor flutuante = %.1g\n", ponto);
+	ft_printf("\nvalor flutuante = %.2g\n", ponto);
+	printf("valor flutuante = %.2g\n", ponto);
+	ft_printf("\nvalor flutuante = %.3g\n", ponto);
+	printf("valor flutuante = %.3g\n", ponto);
+	ft_printf("\nvalor flutuante = %.4g\n", ponto);
+	printf("valor flutuante = %.4g\n", ponto);
+	ft_printf("\nvalor flutuante = %.5g\n", ponto);
+	printf("valor flutuante = %.5g\n", ponto);
 
-printf(" --- Return : %d\n\n", printf("%i, %d, %d, %d, %c, %c, %c, %d, %u, %x, %X\n", i, j, k, l, c, c, c, c, j, j, j)); //T2
-
-
-	ft_printf(" --- Return : %d\n", ft_printf("%0i, %0d, %0d, %0d, %0d, %0d, %0d, %0d\n", i, j, k, l, m, c, e, d)); //T3
-	printf(" --- Return : %d\n\n", printf("%0i, %0d, %0d, %0d, %0d, %0d, %0d, %0d\n", i, j, k, l, m, c, e, d)); //T3
-
-ft_printf(" --- Return : %d\n", ft_printf("%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d\n", i, j, k, l, m, c, e, d)); //T4
-	printf(" --- Return : %d\n\n", printf("%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d\n", i, j, k, l, m, c, e, d)); //T4
-	
-	ft_printf(" --- Return : %d\n", ft_printf("%2i, %2d, %2d, %2d, %2d, %2d, %2d, %2d\n", i, j, k, l, m, c, e, d)); //T5
-	printf(" --- Return : %d\n\n", printf("%2i, %2d, %2d, %2d, %2d, %2d, %2d, %2d\n", i, j, k, l, m, c, e, d)); //T5
-
-	ft_printf(" --- Return : %d\n", ft_printf("%3i, %3d, %3d, %3d, %3d, %3d, %3d, %3d\n", i, j, k, l, m, c, e, d)); //T6
-	printf(" --- Return : %d\n\n", printf("%3i, %3d, %3d, %3d, %3d, %3d, %3d, %3d\n", i, j, k, l, m, c, e, d)); //T6
-
-ft_printf(" --- Return : %d\n", ft_printf("%3i, %3d, %3d, %3d, %3d, %3d, %3d, %.5f\n", i, j, k, l, m, c, e, ponto)); //T6
-	printf(" --- Return : %d\n\n", printf("%3i, %3d, %3d, %3d, %3d, %3d, %3d, %.5f\n", i, j, k, l, m, c, e, ponto)); //T6
-
-//ft_printf("valor flutuante = %.5Lf\n", ponto);
-
+// teste com especificador a
+	ft_printf("\nvalor flutuante = %f\n", ponto);
+	printf("valor flutuante = %a\n", ponto);
+	ft_printf("\nvalor flutuante = %.0f\n", ponto);
+	printf("valor flutuante = %.0a\n", ponto);
+	ft_printf("\nvalor flutuante = %.1f\n", ponto);
+	printf("valor flutuante = %.1a\n", ponto);
+	ft_printf("\nvalor flutuante = %.2f\n", ponto);
+	printf("valor flutuante = %.2a\n", ponto);
+	ft_printf("\nvalor flutuante = %.3f\n", ponto);
+	printf("valor flutuante = %.3a\n", ponto);
+	ft_printf("\nvalor flutuante = %.4f\n", ponto);
+	printf("valor flutuante = %.4a\n", ponto);
+	ft_printf("\nvalor flutuante = %.5f\n", ponto);
+	printf("valor flutuante = %.5a\n", ponto);
 
 	return (0);
 

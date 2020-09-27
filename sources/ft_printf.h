@@ -128,4 +128,7 @@ void	convert_char(long double value, int precision);
 char	round_number(char *value, int precision);
 char	*sum_one(char *value, int precision);
 unsigned long long int	store_pointer(void *ptr);
+int		convert_double(long double value, int precision);
+int		count_digits(long long int a, long long int b);
+int		join_number(long long int eint, long long dint, int precision);
 #endif

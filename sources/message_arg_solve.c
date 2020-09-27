@@ -44,8 +44,14 @@ void	message_arg_solve(va_list item)
 		store_string(va_arg(item, char*));
 	else if (g_opt.specifier == 'p')
 		store_u_int(store_pointer(va_arg(item, void*)));
-	else if (g_opt.specifier == 'f')
-		store_float(va_arg(item, long double));
+	else if (g_opt.specifier == 'f' || g_opt.specifier == 'F' ||
+	g_opt.specifier == 'g' || g_opt.specifier == 'G')
+	{
+			if (g_opt.length == LLONG)
+				store_float(va_arg(item, long double));
+			else
+				store_float(va_arg(item, double));
+	}
 }
 
 /*

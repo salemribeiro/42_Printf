@@ -52,6 +52,13 @@ void	message_arg_solve(va_list item)
 			else
 				store_float(va_arg(item, double));
 	}
+	else if (g_opt.specifier == 'e' || g_opt.specifier == 'E')
+	{
+			if (g_opt.length == LLONG)
+				store_sci(va_arg(item, long double));
+			else
+				store_sci(va_arg(item, double));
+	}
 }
 
 /*

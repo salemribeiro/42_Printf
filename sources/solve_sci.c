@@ -43,9 +43,9 @@ int		solve_expoent(int value)
 {
 	char *ptr;
 
-	if (g_opt.specifier == 'e')
+	if (g_opt.specifier == 'e' || g_opt.specifier == 'g')
 		message_buffer('e');
-	else if (g_opt.specifier == 'E')
+	else if (g_opt.specifier == 'E' || g_opt.specifier == 'G')
 		message_buffer('E');
 
 	if (value < 0)

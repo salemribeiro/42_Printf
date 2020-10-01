@@ -38,7 +38,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdarg.h>
-# include "../lib/libft.h"
+# include "../libft/libft.h"
 
 struct s_opt
 {
@@ -130,4 +130,6 @@ int		mount_float(long long int eint, char *dint, int precision);
 int		store_sci(long double value);
 int		count_expoent(long double value);
 int		solve_expoent(int value);
+int		count_value(long double value, int precision);
+void	store_dgeneric(long double value);
 #endif

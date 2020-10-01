@@ -17,9 +17,7 @@ char	*ft_u_itoa_base(unsigned long long int n)
 	char	*ptr;
 
 	ptr = NULL;
-	if (g_opt.specifier == 'u')
-		ptr = get_u_base(n, 10);
-	else if (g_opt.specifier == 'x' || g_opt.specifier == 'X')
+	if (g_opt.specifier == 'x' || g_opt.specifier == 'X')
 	{
 		ptr = get_u_base(n, 16);
 		if (g_opt.specifier == 'X')
@@ -29,6 +27,8 @@ char	*ft_u_itoa_base(unsigned long long int n)
 		ptr = get_u_base(n, 8);
 	else if (g_opt.specifier == 'b')
 		ptr = get_u_base(n, 2);
+	else
+		ptr = get_u_base(n, 10);
 	return(ptr);
 }
 

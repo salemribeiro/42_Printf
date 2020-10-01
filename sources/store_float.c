@@ -26,12 +26,7 @@ void	 store_float(long double value)
 		value = value * (-1);
 	}
 	if (g_opt.precision == -2)
-	{
-		if (g_opt.specifier == 'g' || g_opt.specifier == 'G')
-			g_opt.precision = 4;
-		else
 			g_opt.precision = 6;
-	}
 	convert_char(value, g_opt.precision);
 }
 
@@ -65,15 +60,7 @@ int		mount_float(long long int eint, char *dint, int precision)
 	int		i;
 
 	i = precision - 1;
-	if (g_opt.specifier == 'g' || g_opt.specifier == 'G')
-	{
-		while (i >= 0 && dint[i] == '0')
-		{
-			dint[i] = '\0';
-			i--;
-		}
-	}
-	ptr = ft_itoa(eint);
+	ptr = ft_u_itoa_base((unsigned long long int)eint);
 	send_buffer(ptr);
 	if (dint[0])
 	{

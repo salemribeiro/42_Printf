@@ -41,9 +41,9 @@ char		*createstring(char *ptr, unsigned int value, char signal, int d)
 	return (ptr);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(long long int n)
 {
-	unsigned int	value;
+	long long unsigned int	value;
 	int				digits;
 	int				signal;
 	char			*ptr;
@@ -52,11 +52,11 @@ char		*ft_itoa(int n)
 	if (n < 0)
 	{
 		signal = 1;
-		value = (unsigned int)n;
+		value = (long long unsigned int)n;
 		value *= (-1);
 	}
 	else
-		value = (unsigned int)n;
+		value = (long long unsigned int)n;
 	if (value != 0)
 		digits = numberdigits(value) + signal + 1;
 	else

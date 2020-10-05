@@ -62,6 +62,8 @@ int		mount_float(long long int eint, char *dint, int precision)
 	i = precision - 1;
 	ptr = ft_u_itoa_base((unsigned long long int)eint);
 	send_buffer(ptr);
+	if ((g_opt.specifier == 'g' || g_opt.specifier == 'G') && dint[0])
+		remove_zero(dint);
 	if (dint[0])
 	{
 		message_buffer('.');
@@ -96,4 +98,14 @@ int		round_number(char *value, int precision)
 	value[0] = (value[0] == -1) ? 48 : value[0];
 	value[precision] = '\0';
 	return (flag);
+}
+
+int		remove_zero(char *value)
+{
+	int i;
+
+	i = ft_strlen(value) - 1;
+	while(value[i] == '0')
+		value[i--] = '\0';
+	return (0);
 }

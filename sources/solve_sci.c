@@ -7,7 +7,7 @@ int		store_sci(long double value)
 		message_buffer('-');
 		value = value * (-1);
 	}
-	else if (value == 0)
+	else if (value == 0 && (g_opt.specifier == 'g' || g_opt.specifier == 'G'))
 	{
 		message_buffer('0');
 		return (0);
@@ -21,14 +21,14 @@ int		count_expoent(long double value)
 	int i;
 
 	i = 0;
-	while (value < 1 || value > 10)
+	while (value > 0  && (value < 1 || value >= 10))
 	{
 		if (value < 1)
 		{
 			value = value * 10;
 			i--;
 		}
-		else if (value > 10)
+		else if (value >= 10)
 		{
 			value = value / 10;
 			i++;
@@ -53,7 +53,7 @@ int		solve_expoent(int value)
 		message_buffer('-');
 		value = value * (-1);
 	}
-	else if (value > 0)
+	else if (value >= 0)
 		message_buffer('+');
 	if (value >= 0 && value < 10)
 		message_buffer('0');
@@ -62,7 +62,3 @@ int		solve_expoent(int value)
 	free (ptr);
 	return(0);
 }
-
-
-
-

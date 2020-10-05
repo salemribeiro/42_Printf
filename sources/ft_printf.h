@@ -132,4 +132,5 @@ int		count_expoent(long double value);
 int		solve_expoent(int value);
 int		count_value(long double value, int precision);
 void	store_dgeneric(long double value);
+int		remove_zero(char *value);
 #endif

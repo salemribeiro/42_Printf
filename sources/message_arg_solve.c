@@ -63,6 +63,11 @@ void	message_arg_solve(va_list item)
 			else
 				store_dgeneric(va_arg(item, double));
 	}
+	else if (g_opt.specifier == '%')
+	{
+		message_buffer('%');
+	}
+
 }
 
 /*

@@ -17,26 +17,26 @@ int main ()
 
 
 //	double	ponto = 1;
-//	long double	ponto = -56343333340.7855400000456777;
-	double	ponto = -0.78045677798744;
+	double	ponto = -1.7855400000456777;
+//	double	ponto = 0;
 
 // teste com especificador f
 	ft_printf("\nvalor f = %f\n", ponto);
-	printf("valor f = %f\n", ponto);
-	ft_printf("\nvalor f = %.0f\n", ponto);
-	printf("valor f = %.0f\n", ponto);
-	ft_printf("\nvalor f = %.1f\n", ponto);
-	printf("valor f = %.1f\n", ponto);
-	ft_printf("\nvalor f = %.2f\n", ponto);
-	printf("valor f = %.2f\n", ponto);
-	ft_printf("\nvalor f = %.3f\n", ponto);
-	printf("valor f = %.3f\n", ponto);
-	ft_printf("\nvalor f = %.4f\n", ponto);
-	printf("valor f = %.4f\n", ponto);
-	ft_printf("\nvalor f = %.5f\n", ponto);
-	printf("valor f = %.5f\n", ponto);
-	ft_printf("\nvalor f = %.10f\n", ponto);
-	printf("valor f = %.10f\n", ponto);
+	printf("valor f = %a\n", ponto);
+	ft_printf("\nvalor f 0 = %.0f\n", ponto);
+	printf("valor f 0 = %.0f\n", ponto);
+	ft_printf("\nvalor f 1 = %.1f\n", ponto);
+	printf("valor f 1 = %.1f\n", ponto);
+	ft_printf("\nvalor f 2 = %.2f\n", ponto);
+	printf("valor f 2 = %.2f\n", ponto);
+	ft_printf("\nvalor f 3 = %.3f\n", ponto);
+	printf("valor f 3 = %.3f\n", ponto);
+	ft_printf("\nvalor f 4 = %.4f\n", ponto);
+	printf("valor f 4 = %.4f\n", ponto);
+	ft_printf("\nvalor f 5 = %.5f\n", ponto);
+	printf("valor f 5 = %.5f\n", ponto);
+	ft_printf("\nvalor f 10 = %.10f\n", ponto);
+	printf("valor f 10 = %.10f\n", ponto);
 
 
 //	 teste com especificador g
@@ -52,8 +52,10 @@ int main ()
 	printf("valor g 3 = %.3g\n", ponto);
 	ft_printf("\nvalor g 4 = %.4g\n", ponto);
 	printf("valor g 4 = %.4g\n", ponto);
-	ft_printf("\nvalor g 5 = %.15g\n", ponto);
-	printf("valor g 5 = %.15g\n", ponto);
+	ft_printf("\nvalor g 5 = %.5g\n", ponto);
+	printf("valor g 5 = %.5g\n", ponto);
+	ft_printf("\nvalor g 10 = %.5g\n", ponto);
+	printf("valor g 10 = %.5g\n", ponto);
 
 
 // teste com especificador a

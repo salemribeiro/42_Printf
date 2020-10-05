@@ -16,29 +16,27 @@ int		count_value(long double value, int precision)
 {
 	char *ptr;
 	int i;
-	int j;
-	long long int mult;
-	long long int eint;
 
 	i = 0;
-	mult = 1;
-	eint = (long long int)value;
-	ptr = ft_u_itoa_base(eint);
-	j = ft_strlen(ptr);
-	free(ptr);
-	if (j > precision)
+	if (value <= 1)
+	{
+		g_opt.precision = g_opt.precision == 0 ? 1 : g_opt.precision;
+		store_float(value);
+		return(0);
+	}
+	ptr = ft_u_itoa_base((long long int)value);
+	if ((int)ft_strlen(ptr) > precision)
 	{
 		if (precision > 0)
 			g_opt.precision --;
-		g_opt.specifier = g_opt.specifier == 'g' ? 'e' : 'E';
 		store_sci(value);
 	}
 	else
 	{
 		if (precision > 0)
-			g_opt.precision -= j;
-		g_opt.specifier = g_opt.specifier == 'g' ? 'f' : 'F';
+			g_opt.precision -= (int)ft_strlen(ptr);
 		store_float(value);
 	}
-	return(1);
+	free(ptr);
+	return(0);
 }

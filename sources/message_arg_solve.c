@@ -88,7 +88,7 @@ char	*manager_precision(char *source, int total)
 	size = total - ft_strlen(source);
 	if (size <= 0)
 		return (source);
-	text = ft_calloc(size, sizeof(char));
+	text = ft_calloc(size + 1, sizeof(char));
 	while (i < size)
 		text[i++] = '0';
 	text[i] = '\0';
@@ -109,7 +109,7 @@ char	*manager_width(char *source, int total)
 	size = total - ft_strlen(source);
 	if (size <= 0)
 		return (source);
-	text = ft_calloc(size, sizeof(char));
+	text = ft_calloc(size + 1, sizeof(char));
 	while (i < size)
 		text[i++] = ' ';
 	text[i] = '\0';

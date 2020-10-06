@@ -35,7 +35,7 @@ int		ft_printstr(char *text)
 		k++;
 	}
 	if (i > 0)
-	g_opt.count += (int)write(1, &text[j], k);
+		g_opt.count += (int)write(1, &text[j], k);
 	return (i);
 }
 

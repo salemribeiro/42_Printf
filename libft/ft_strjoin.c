@@ -57,6 +57,6 @@ char				*ft_strjoin(char const *s1, char const *s2)
 	ptr = (char*)malloc(sizeof(char) * (i + j + 1));
 	if (!ptr)
 		return (0);
-	execjoin(s1, s2, ptr);
+	ptr = execjoin(s1, s2, ptr);
 	return (ptr);
 }

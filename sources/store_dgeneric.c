@@ -18,23 +18,18 @@ int		count_value(long double value, int precision)
 	int i;
 
 	i = 0;
-	if (value <= 1)
-	{
-		g_opt.precision = g_opt.precision == 0 ? 1 : g_opt.precision;
-		store_float(value);
-		return(0);
-	}
 	ptr = ft_u_itoa_base((long long int)value);
-	if ((int)ft_strlen(ptr) > precision)
+	if ((int)ft_strlen(ptr) > precision && precision > 0)
 	{
-		if (precision > 0)
-			g_opt.precision --;
+		g_opt.precision --;
 		store_sci(value);
 	}
 	else
 	{
 		if (precision > 0)
 			g_opt.precision -= (int)ft_strlen(ptr);
+		else
+			g_opt.precision = 0;
 		store_float(value);
 	}
 	free(ptr);

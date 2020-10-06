@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   teste_float.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/06 19:26:26 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/09/07 20:32:28 by sfreitas         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
 /*
@@ -39,7 +27,7 @@ int		convert_char(long double value, int precision)
 	i = 0;
 	eint = (long long int)value;
 	value = (value - (long double)eint) * 10;
-	dint = (char*)ft_calloc(precision + 2, sizeof(char));
+	dint = (char*)ft_calloc(precision + 1, sizeof(char));
 	while (i <= precision)
 	{
 		dint[i] = (char)value;

@@ -36,7 +36,7 @@
 //	char	*s = "-2147483648";
 //	char	*t = "0x12345678";
 //	char	*u = "-0";
-	double	ponto = -13.123456789;
+	double	ponto = -1.3123456789;
 	int value = 319827;
 	int	*ptr;
 
@@ -66,58 +66,58 @@ printf(" --- Return : %d\n", printf("%%\n"));
 
 
 // teste com especificador f
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f = %f\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor f = %f\n", ponto));
 printf(" --- Return : %d\n",printf("valor f = %f\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 0 = %.0f\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor f 0 = %.0f\n", ponto));
 printf(" --- Return : %d\n",printf("valor f 0 = %.0f\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 1 = %.1f\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor f 1 = %.1f\n", ponto));
 printf(" --- Return : %d\n",printf("valor f 1 = %.1f\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 2 = %.2f\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor f 2 = %.2f\n", ponto));
 printf(" --- Return : %d\n",printf("valor f 2 = %.2f\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 3 = %.3f\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor f 3 = %.3f\n", ponto));
 printf(" --- Return : %d\n",printf("valor f 3 = %.3f\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 4 = %.4f\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor f 4 = %.4f\n", ponto));
 printf(" --- Return : %d\n",printf("valor f 4 = %.4f\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 5 = %.5f\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor f 5 = %.5f\n", ponto));
 printf(" --- Return : %d\n",printf("valor f 5 = %.5f\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 10 = %.10f\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor f 10 = %.10f\n", ponto));
 printf(" --- Return : %d\n",printf("valor f 10 = %.10f\n", ponto));
 
 // teste com especificador g
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f = %g\n", ponto));
-printf(" --- Return : %d\n",printf("valor f = %g\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 0 = %.0g\n", ponto));
-printf(" --- Return : %d\n",printf("valor f 0 = %.0g\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 1 = %.1g\n", ponto));
-printf(" --- Return : %d\n",printf("valor f 1 = %.1g\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 2 = %.2g\n", ponto));
-printf(" --- Return : %d\n",printf("valor f 2 = %.2g\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 3 = %.3g\n", ponto));
-printf(" --- Return : %d\n",printf("valor f 3 = %.3g\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 4 = %.4g\n", ponto));
-printf(" --- Return : %d\n",printf("valor f 4 = %.4g\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 5 = %.5g\n", ponto));
-printf(" --- Return : %d\n",printf("valor f 5 = %.5g\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 10 = %.10g\n", ponto));
-printf(" --- Return : %d\n",printf("valor f 10 = %.10g\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor g = %g\n", ponto));
+printf(" --- Return : %d\n",printf("valor g = %g\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor g 0 = %.0g\n", ponto));
+printf(" --- Return : %d\n",printf("valor g 0 = %.0g\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor g 1 = %.1g\n", ponto));
+printf(" --- Return : %d\n",printf("valor g 1 = %.1g\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor g 2 = %.2g\n", ponto));
+printf(" --- Return : %d\n",printf("valor g 2 = %.2g\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor g 3 = %.3g\n", ponto));
+printf(" --- Return : %d\n",printf("valor g 3 = %.3g\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor g 4 = %.4g\n", ponto));
+printf(" --- Return : %d\n",printf("valor g 4 = %.4g\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor g 5 = %.5g\n", ponto));
+printf(" --- Return : %d\n",printf("valor g 5 = %.5g\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor g 10 = %.10g\n", ponto));
+printf(" --- Return : %d\n",printf("valor g 10 = %.10g\n", ponto));
 
 // teste com especificador e
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f = %e\n", ponto));
-printf(" --- Return : %d\n",printf("valor f = %e\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 0 = %.0e\n", ponto));
-printf(" --- Return : %d\n",printf("valor f 0 = %.0e\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 1 = %.1e\n", ponto));
-printf(" --- Return : %d\n",printf("valor f 1 = %.1e\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 2 = %.2e\n", ponto));
-printf(" --- Return : %d\n",printf("valor f 2 = %.2e\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 3 = %.3e\n", ponto));
-printf(" --- Return : %d\n",printf("valor f 3 = %.3e\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 4 = %.4e\n", ponto));
-printf(" --- Return : %d\n",printf("valor f 4 = %.4e\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 5 = %.5e\n", ponto));
-printf(" --- Return : %d\n",printf("valor f 5 = %.5e\n", ponto));
-ft_printf(" --- Return : %d\n",ft_printf("\nvalor f 10 = %.10e\n", ponto));
-printf(" --- Return : %d\n",printf("valor f 10 = %.10e\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor e = %e\n", ponto));
+printf(" --- Return : %d\n",printf("valor e = %e\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor e 0 = %.0e\n", ponto));
+printf(" --- Return : %d\n",printf("valor e 0 = %.0e\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor e 1 = %.1e\n", ponto));
+printf(" --- Return : %d\n",printf("valor e 1 = %.1e\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor e 2 = %.2e\n", ponto));
+printf(" --- Return : %d\n",printf("valor e 2 = %.2e\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor e 3 = %.3e\n", ponto));
+printf(" --- Return : %d\n",printf("valor e 3 = %.3e\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor e 4 = %.4e\n", ponto));
+printf(" --- Return : %d\n",printf("valor e 4 = %.4e\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor e 5 = %.5e\n", ponto));
+printf(" --- Return : %d\n",printf("valor e 5 = %.5e\n", ponto));
+ft_printf(" --- Return : %d\n",ft_printf("valor e 10 = %.10e\n", ponto));
+printf(" --- Return : %d\n",printf("valor e 10 = %.10e\n", ponto));
 	return (0);
 
 }

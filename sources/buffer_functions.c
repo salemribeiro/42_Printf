@@ -15,8 +15,8 @@
 /*
 **  Funcao recebe um caracter c, um ponteiro para uma string e um inteiro
 ** que informa o tamanho da string recebida.
-**  Ela reponsavel por unir o ponteiro de char com o caractere recebido
-** retornando o resultado dessa união.
+**  Ela reponsavel por unir o ponteiro de char com o caractere recebido,
+** retornando o resultado dessa uniao.
 */
 
 char	*add_buffer(char c, char *buffer, int size)
@@ -51,7 +51,7 @@ int		message_buffer(char c)
 	int			total;
 
 	total = 0;
-	if (i == 5 || c == '\0')
+	if (i == (2048 - 1) || c == '\0')
 	{
 		g_opt.text[i] = c;
 		total = ft_printstr(g_opt.text);
@@ -59,7 +59,7 @@ int		message_buffer(char c)
 		g_opt.text[i] = '\0';
 		return(total);
 	}
-	else if (i < 5)
+	else if (i < 2048)
 	{
 		g_opt.text[i] = c;
 	}

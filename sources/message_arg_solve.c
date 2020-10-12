@@ -118,26 +118,3 @@ char	*manager_width(char *source, int total)
 	free(source);
 	return (tmp);
 }
-
-// VER A REAL NECESSIDADE DESSA FUNÇÃO CASO NÃO FOR NECESSÁRIA DEVE SER EXCLUÍDA
-
-char	*resize_result(char *result, char c, int size)
-{
-	int		i;
-	int		t_size;
-	char	*tmp;
-
-	i = 0;
-	t_size = ft_strlen(result);
-	if (t_size < size)
-		return(result);
-	tmp = (char*)calloc(size, t_size);
-	while (i < size)
-	{
-		tmp[i] = c;
-		i++;
-	}
-	ft_strlcpy(&tmp[i], result, t_size);
-	free(result);
-	return (tmp);
-}

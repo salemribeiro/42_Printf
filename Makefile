@@ -12,6 +12,9 @@
 
 NAME	=	libftprintf.a
 
+PATHSRC	=	./sources/
+PATHOBJ =	./objects/
+
 SRCS	=	buffer_functions.c \
 			flag_options.c \
 			ft_printf.c \
@@ -32,13 +35,21 @@ SRCS	=	buffer_functions.c \
 
 OBJ = $(patsubst %.c, %.o, $(SRCS))
 
-#VPATH = sources/
+VPATH = ./
 
 all : libftprintf.a
-	@echo "--> COMPILANDO BIBLIOTECA FT_PRINTF"
+	@echo "--> Sucesso!!!"
 
 libftprintf.a : $(OBJ)
-	ar -rcs $@ ./objects/$^
+	@echo "-->  Linkando arquivos"
+	@ar -rcs $@ $^
 
 %.o: %.c
-	clang -Wall -Wextra -c -o ./objects/$@ ./sources/$< -I lib/ -I sources/
+	@echo "--> Compilando arquivos objeto  FT_PRINTF"
+	clang -Wall -Wextra -c -o $@ $< -I libft/ -I sources/
+
+clean:
+	@echo "--- Removendo arquivos gerados"
+	rm objects/*.o
+	rm libftprintf.a
+

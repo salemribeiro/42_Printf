@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include <limits.h>
 
 static int		ft_spaces(int i, char *str)

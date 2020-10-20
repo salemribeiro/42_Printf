@@ -34,11 +34,11 @@
 # define SPECIFIERS2	"diucspn"
 # define SPECIFIERS3	"cdpn"
 
+# include <stdlib.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdarg.h>
-# include "libft.h"
 
 struct s_opt
 {
@@ -133,4 +133,23 @@ int		solve_expoent(int value);
 int		count_value(long double value, int precision);
 void	store_dgeneric(long double value);
 int		remove_zero(char *value);
+
+/*
+**-----------------------------------------------------------------------------
+**             Funcoes primitivas importadas do projeto libft
+**
+**-----------------------------------------------------------------------------
+*/
+
+long long int	ft_atoi(const char *str);
+void			ft_bzero(void *source, size_t len);
+void			*ft_calloc(size_t count, size_t size);
+int				ft_isdigit(int caracter);
+char			*ft_itoa(long long int);
+char			*ft_strdup(const char *src);
+char			*ft_strjoin(char const *s1, char const *s2);
+size_t			ft_strlcpy(char *dest, const char *src, size_t size);
+size_t			ft_strlen(const char *source);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+int				ft_toupper(int caracter);
 #endif

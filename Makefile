@@ -10,10 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	libftprintf.a
+CC		= clang
+FLAGS	= -Wall -Werror -Wextra -c -o
+NAME	= libftprintf.a
 
-PATHSRC	=	./sources/
-PATHOBJ =	./objects/
+PATHOBJ = ./objects/
+
 
 SRCS	=	buffer_functions.c \
 			flag_options.c \
@@ -45,16 +47,28 @@ SRCS	=	buffer_functions.c \
 OBJ = $(patsubst %.c, $(PATHOBJ)%.o, $(SRCS))
 VPATH = %.c sources
 
-all : libftprintf.a
-	echo "--> Sucesso!!!"
+all : start libftprintf.a
+	@echo "                                     SUCCESS !!!"
 
+start :
+	@echo "------------------------------------------------"
+	@echo "|           START MAKE FT_PRINTF 42SP          |"
+	@echo "|                                              |"
+	@echo "|   by: Salem Freitas (sfreitas)               |"
+	@echo "| mail: sfreitas@student.42sp.org.br           |"
+	@echo "------------------------------------------------"
+	@echo "                            creating objects... "
 libftprintf.a : $(OBJ)
-	ar -rcs $@ $^
+	@echo "+ Criando link libft_printf.h"
+	@ar -rcs $@ $^
 
 $(PATHOBJ)%.o: %.c
-	clang -Wall -Wextra -c -o $@ $< -I headers/
+	@echo "+ Create $@"
+	@clang -Wall -Wextra -c -o $@ $< -I headers/
 
 clean:
-	rm $(PATHOBJ)*.o
-	rm libftprintf.a
+	@echo "                              removing files... "
+	@rm $(PATHOBJ)*.o
+	@rm libftprintf.a
+	@echo "                                       DONE !!! "
 

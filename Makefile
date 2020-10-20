@@ -17,8 +17,6 @@ PATHOBJ =	./objects/
 
 SRCS	=	buffer_functions.c \
 			flag_options.c \
-			ft_printf.c \
-			ft_printf.h \
 			itoa_base.c \
 			message_arg_solve.c \
 			print_funcions.c \
@@ -31,25 +29,32 @@ SRCS	=	buffer_functions.c \
 			type_pointer.c \
 			type_sci.c \
 			uitoa_base.c \
-			wid_pre_len.c
+			wid_pre_len.c \
+			ft_printf.c \
+			ft_bzero.c \
+			ft_calloc.c \
+			ft_isdigit.c \
+			ft_itoa.c \
+			ft_strdup.c \
+			ft_strjoin.c \
+			ft_strlcpy.c \
+			ft_strlen.c \
+			ft_substr.c \
+			ft_toupper.c
 
-OBJ = $(patsubst %.c, %.o, $(SRCS))
-
-VPATH = ./
+OBJ = $(patsubst %.c, $(PATHOBJ)%.o, $(SRCS))
+VPATH = %.c sources
 
 all : libftprintf.a
-	@echo "--> Sucesso!!!"
+	echo "--> Sucesso!!!"
 
 libftprintf.a : $(OBJ)
-	@echo "-->  Linkando arquivos"
-	@ar -rcs $@ $^
+	ar -rcs $@ $^
 
-%.o: %.c
-	@echo "--> Compilando arquivos objeto  FT_PRINTF"
-	clang -Wall -Wextra -c -o $@ $< -I libft/ -I sources/
+$(PATHOBJ)%.o: %.c
+	clang -Wall -Wextra -c -o $@ $< -I headers/
 
 clean:
-	@echo "--- Removendo arquivos gerados"
-	rm objects/*.o
+	rm $(PATHOBJ)*.o
 	rm libftprintf.a
 

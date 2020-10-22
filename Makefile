@@ -42,7 +42,8 @@ SRCS	=	buffer_functions.c \
 			ft_strlcpy.c \
 			ft_strlen.c \
 			ft_substr.c \
-			ft_toupper.c
+			ft_toupper.c \
+			ft_atoi.c
 
 OBJ = $(patsubst %.c, $(PATHOBJ)%.o, $(SRCS))
 VPATH = %.c sources
@@ -66,9 +67,12 @@ $(PATHOBJ)%.o: %.c
 	@echo "+ Create $@"
 	@clang -Wall -Wextra -c -o $@ $< -I headers/
 
-clean:
-	@echo "                              removing files... "
+clean :
+	@echo "                      removing objects files..."
 	@rm $(PATHOBJ)*.o
+	@echo "                                       DONE !!!"
+fclean : clean
+	@echo "                                removing lib..."
 	@rm libftprintf.a
-	@echo "                                       DONE !!! "
-
+	@echo "                                       DONE !!!"
+re : fclean all

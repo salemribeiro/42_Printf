@@ -133,6 +133,9 @@ int		solve_expoent(int value);
 int		count_value(long double value, int precision);
 void	store_dgeneric(long double value);
 int		remove_zero(char *value);
+void	arg_integer(va_list item, char sp);
+void	arg_csp(va_list item, char sp);
+void	arg_double(va_list item, char sp);
 
 /*
 **-----------------------------------------------------------------------------

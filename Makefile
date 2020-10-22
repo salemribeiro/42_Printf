@@ -76,3 +76,7 @@ fclean : clean
 	@rm libftprintf.a
 	@echo "                                       DONE !!!"
 re : fclean all
+test : all
+	clang -I ./headers tests/main.c -lftprintf -L .
+	@clear
+	@./a.out

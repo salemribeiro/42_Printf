@@ -84,7 +84,7 @@ $(INDEXED_TESTS): test_index
 
 .INTERMEDIATE: test_index
 test_index: $(UNIT_TEST_FILE)
-	@php src/create_index.php $(UNIT_TEST_FILE) $(INDEXED_TESTS)
+	php src/create_index.php $(UNIT_TEST_FILE) $(INDEXED_TESTS)
 
 .INTERMEDIATE: check_history_remove
 check_history_remove:

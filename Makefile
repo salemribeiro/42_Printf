@@ -65,7 +65,7 @@ libftprintf.a : $(OBJ)
 
 $(PATHOBJ)%.o: %.c
 	@echo "+ Create $@"
-	@clang -Wall -Wextra -c -o $@ $< -I headers/
+	@clang -g -Werror -Wall -Wextra -c -o $@ $< -I headers/
 
 clean :
 	@echo "                      removing objects files..."
@@ -77,6 +77,6 @@ fclean : clean
 	@echo "                                       DONE !!!"
 re : fclean all
 test : all
-	clang -I ./headers tests/main.c -lftprintf -L .
+	clang -g -I ./headers tests/testemain.c -lftprintf -L .
 	@clear
 	@./a.out

@@ -14,11 +14,8 @@
 #include <stdio.h>
 int main ()
 {
-
-	int		a = 20;
-
-	ft_printf("Teste %*.*d\n",10, 15, a);
-	printf("Teste %*.*d\n",10, 15, a);
+	ft_printf("..%s stuff %s", "a", "b");
+	printf("..%s stuff %s", "a", "b");
 	return (0);
 
 }

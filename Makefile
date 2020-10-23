@@ -77,6 +77,6 @@ fclean : clean
 	@echo "                                       DONE !!!"
 re : fclean all
 test : all
-	clang -g -I ./headers tests/testemain.c -lftprintf -L .
+	clang -g -I ./headers tests/main.c -lftprintf -L .
 	@clear
 	@./a.out

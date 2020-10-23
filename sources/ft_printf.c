@@ -56,7 +56,7 @@ char		search_percent(char *text)
 		else
 		{
 			i += specifier_options((char*)&text[i]);
-			return (text[i]);
+			return (1);
 		}
 		i++;
 	}

@@ -20,6 +20,8 @@ int main ()
 	ft_printf("result: %d\n",ft_printf("%7.3s%7.3s\n","hello", "world"));
 	printf("result: %d\n",printf("%7.3s%3.3s\n","hello", "world"));
 	ft_printf("result: %d\n",ft_printf("%7.3s%3.3s\n","hello", "world"));
+	printf("result: %d\n",printf("%7.3s\n",NULL));
+	ft_printf("result: %d\n",fteprintf("%7.3s\n",NULL));
 	return (0);
 
 }

@@ -126,7 +126,7 @@ int		convert_char(long double value, int precision);
 char	*get_u_base(unsigned long long int value, int b);
 unsigned long long int	store_pointer(void *ptr);
 int		round_number(char *value, int precision);
-int		mount_float(long long int eint, char *dint, int precision);
+int		mount_float(long long int eint, char *dint);
 int		store_sci(long double value);
 int		count_expoent(long double value);
 int		solve_expoent(int value);

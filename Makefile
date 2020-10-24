@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC		= gcc 
+CC		= gcc
 FLAGS	= -Wall -Werror -Wextra -c -o
 NAME	= libftprintf.a
 
@@ -77,6 +77,6 @@ fclean : clean
 	@echo "                                       DONE !!!"
 re : fclean all
 test : all
-	$(CC) -g -I ./headers tests/main.c -lftprintf -L .
+	$(CC) -g -I ./headers tests/testemain.c -lftprintf -L .
 	@clear
 	@./a.out

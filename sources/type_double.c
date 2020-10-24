@@ -37,17 +37,15 @@ int		convert_char(long double value, int precision)
 	}
 	if (round_number(dint, precision))
 		eint++;
-	mount_float(eint, dint, precision);
+	mount_float(eint, dint);
 	free(dint);
 	return (0);
 }
 
-int		mount_float(long long int eint, char *dint, int precision)
+int		mount_float(long long int eint, char *dint)
 {
 	char	*ptr;
-	int		i;
 
-	i = precision - 1;
 	ptr = ft_u_itoa_base((unsigned long long int)eint);
 	send_buffer(ptr);
 	if ((g_opt.specifier == 'g' || g_opt.specifier == 'G') && dint[0])

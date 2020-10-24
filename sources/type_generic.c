@@ -15,9 +15,7 @@ void	store_dgeneric(long double value)
 int		count_value(long double value, int precision)
 {
 	char *ptr;
-	int i;
 
-	i = 0;
 	ptr = ft_u_itoa_base((long long int)value);
 	if ((int)ft_strlen(ptr) > precision && precision > 0)
 	{

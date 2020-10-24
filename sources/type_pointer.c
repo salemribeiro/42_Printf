@@ -8,8 +8,9 @@ void		store_string(char *text, int width, int precision)
 	i = 0;
 	len = 0;
 	if (!text)
-		return ;
-	ptr = ft_strdup(text);
+		ptr = ft_strdup("(null)");
+	else
+		ptr = ft_strdup(text);
 	len = ft_strlen(ptr);
 	if (precision >= 0 && precision <= len)
 	{
@@ -17,7 +18,7 @@ void		store_string(char *text, int width, int precision)
 		{
 			if (i >= precision)
 				ptr[i] = '\0';
-				i++;
+			i++;
 		}
 		len = precision;
 	}

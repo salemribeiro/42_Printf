@@ -25,9 +25,7 @@ void	store_char (char c)
 
 void	store_percent()
 {
-	char *text;
 
-	text = NULL;
 /*	if (g_opt.precision > 0)
 		text = manager_precision(ft_strdup("0"), g_opt.precision);
 	if (g_opt.width > 0)

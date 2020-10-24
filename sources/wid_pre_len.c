@@ -60,17 +60,19 @@ char	*precision_options(char *parameters)
 	precision = -1;
 	while (ft_isdigit(*parameters) || *parameters == '*' || *parameters == '.')
 	{
+		precision  = 0;
 		if (ft_isdigit(*parameters))
 			buffer = add_buffer(*parameters, buffer, i++);
-		parameters++;
+			parameters++;
 	}
 	if (buffer)
 	{
-		if (ft_isdigit(*buffer))
-			precision = ft_atoi(buffer);
+		precision = (ft_isdigit(*buffer)) ? ft_atoi(buffer) : precision;
 		g_opt.precision = precision;
 		free(buffer);
 	}
+	else if (precision == 0)
+		g_opt.precision = 0;
 	else
 		g_opt.precision = -2;
 	return (parameters);

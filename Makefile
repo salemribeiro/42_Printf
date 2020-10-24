@@ -6,11 +6,11 @@
 #    By: salem <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/06 09:08:01 by salem             #+#    #+#              #
-#    Updated: 2020/08/25 20:51:07 by caio             ###   ########.fr        #
+#    Updated: 2020/10/24 16:35:47 by sfreitas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		= clang
+CC		= gcc 
 FLAGS	= -Wall -Werror -Wextra -c -o
 NAME	= libftprintf.a
 
@@ -65,7 +65,7 @@ libftprintf.a : $(OBJ)
 
 $(PATHOBJ)%.o: %.c
 	@echo "+ Create $@"
-	@clang -g -Werror -Wall -Wextra -c -o $@ $< -I headers/
+	@$(CC) -g -Werror -Wall -Wextra -c -o $@ $< -I headers/
 
 clean :
 	@echo "                      removing objects files..."
@@ -77,6 +77,6 @@ fclean : clean
 	@echo "                                       DONE !!!"
 re : fclean all
 test : all
-	clang -g -I ./headers tests/main.c -lftprintf -L .
+	$(CC) -g -I ./headers tests/main.c -lftprintf -L .
 	@clear
 	@./a.out

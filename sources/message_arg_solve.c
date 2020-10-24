@@ -66,7 +66,7 @@ void	arg_csp(va_list item, char sp)
 	if (sp == 'c')
 		store_char(va_arg(item, int));
 	else if (sp == 's')
-		store_string(va_arg(item, char*));
+		store_string(va_arg(item, char*), g_opt.width, g_opt.precision);
 	else if (sp == 'p')
 		store_u_int(store_pointer(va_arg(item, void*)));
 }

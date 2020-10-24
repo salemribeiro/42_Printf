@@ -22,3 +22,18 @@ void	store_char (char c)
 	value[1] = '\0';
 	send_buffer(value);
 }
+
+void	store_percent()
+{
+	char *text;
+
+	text = NULL;
+	if (g_opt.precision > 0)
+		text = manager_precision(ft_strdup(""), g_opt.precision);
+	if (g_opt.width > 0)
+		text = manager_width(ft_strdup(""), g_opt.width);
+	if (text)
+		send_buffer(text);
+		message_buffer('%');
+}
+

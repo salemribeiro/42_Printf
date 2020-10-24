@@ -22,17 +22,17 @@ void	message_arg_solve(va_list item)
 	char sp;
 
 	sp = g_opt.specifier;
-	if (sp == 'd' || sp == 'i' || sp == 'u' ||
-		sp == 'x' || sp == 'X' || sp == 'o')
+	if (sp == 'd' || sp == 'i' || sp == 'u' || sp == 'x' || sp == 'X' || 
+	sp == 'o')
 		arg_integer(item, sp);
 	else if (sp == 'c' || sp == 's' || sp == 'p')
 		arg_csp(item, sp);
 	else if (sp == 'f' || sp == 'F' || sp == 'e' ||
 			sp == 'E' || sp == 'g' || sp == 'G')
 		arg_double(item, sp);
-	else if (g_opt.specifier == '%')
+	else if (sp == '%')
 	{
-		message_buffer('%');
+		store_percent();
 	}
 }
 

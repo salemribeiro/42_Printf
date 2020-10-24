@@ -14,8 +14,9 @@
 #include <stdio.h>
 int main ()
 {
-	ft_printf("..%s stuff %s\n", "a", "b");
-	printf("..%s stuff %s\n", "a", "b");
+	printf("%5%\n");
+	ft_printf("%5%\n");
+
 	return (0);
 
 }

@@ -63,7 +63,7 @@ char	*precision_options(char *parameters)
 		precision  = 0;
 		if (ft_isdigit(*parameters))
 			buffer = add_buffer(*parameters, buffer, i++);
-			parameters++;
+		parameters++;
 	}
 	if (buffer)
 	{

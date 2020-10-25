@@ -16,12 +16,16 @@ int main ()
 {
 	printf("%-5%\n");
 	ft_printf("%-5%\n");
+	printf("result: %d\n",printf("%-7.3s\n",""));
+	ft_printf("result: %d\n",ft_printf("%-7.3s\n",""));
 	printf("result: %d\n",printf("%7.3s%7.3s\n","hello", "world"));
 	ft_printf("result: %d\n",ft_printf("%7.3s%7.3s\n","hello", "world"));
+	printf("result: %d\n",printf("%-7.3s%3.3s\n","hello", "world"));
+	ft_printf("result: %d\n",ft_printf("%-7.3s%3.3s\n","hello", "world"));
 	printf("result: %d\n",printf("%7.3s%3.3s\n","hello", "world"));
 	ft_printf("result: %d\n",ft_printf("%7.3s%3.3s\n","hello", "world"));
-	printf("result: %d\n",printf("%3.s\n",NULL));
-	ft_printf("result: %d\n",ft_printf("%3.s\n",NULL));
+	printf("result: %d\n",printf("%6.6s\n",""));
+	ft_printf("result: %d\n",ft_printf("%6.6s\n",""));
 	return (0);
 
 }

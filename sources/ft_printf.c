@@ -26,6 +26,11 @@ int			ft_printf(const char *format, ...)
 	len = 0;
 	while(search_percent((char*)format))
 	{
+		if (g_opt.specifier == '\0')
+		{
+			g_opt.count = -1;
+			break;
+		}
 		if (g_opt.width == -1)
 			g_opt.width = va_arg(item, int);
 		if (g_opt.precision == -1)

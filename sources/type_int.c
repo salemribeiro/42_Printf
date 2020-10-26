@@ -24,7 +24,12 @@ void	store_int(long long int value)
 	if ((g_opt.flags & PLUS) == PLUS && value >= 0)
 		text = ft_strjoin("+", text);
 	if (g_opt.width > 0 && len)
-		text = manager_value(text, g_opt.width, ' ');
+	{
+		if ((g_opt.flags & SPACE) == SPACE)
+			text = manager_value(text, g_opt.width, ' ');
+		else if ((g_opt.flags & ZERO) == ZERO)
+			text = manager_value(text, g_opt.width, '0');
+	}
 	send_buffer(text);
 	free(text);
 }
@@ -41,7 +46,12 @@ void	store_u_int(long long int value)
 	if ((g_opt.flags & PLUS) == PLUS)
 		text = ft_strjoin("+", text);
 	if (g_opt.width > 0 && len)
-		text = manager_value(text, g_opt.width, ' ');
+	{
+		if ((g_opt.flags & SPACE) == SPACE)
+			text = manager_value(text, g_opt.width, ' ');
+		else if ((g_opt.flags & ZERO) == ZERO)
+			text = manager_value(text, g_opt.width, '0');
+	}
 	send_buffer(text);
 	free (text);
 }

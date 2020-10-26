@@ -26,8 +26,8 @@ int		ft_printstr(char *text)
 	{
 		if (text[i] == -1)
 		{
-			write(1, &text[j], k);
-			write(1,&c, 1);
+			g_opt.count += (int)write(1, &text[j], k);
+			g_opt.count += (int)write(1,&c, 1);
 			j = i + 1;
 			k = -1;
 		}

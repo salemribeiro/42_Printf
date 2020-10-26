@@ -14,7 +14,8 @@
 
 void	store_char (char c)
 {
-	char value[2];
+	char	value[2];
+
 	if (c == '\0')
 		value[0] = -1;
 	else
@@ -25,18 +26,22 @@ void	store_char (char c)
 
 void	store_percent(int width, char flags)
 {
+	char	*tmp;
+
+	tmp = NULL;
 	if (width > 0)
 	{
+		if ((flags & ZERO) != ZERO)
+			tmp = manager_value(ft_strdup(""), width - 1, ' ');
+		else
+			tmp = manager_value(ft_strdup(""), width - 1, '0');
 		if ((flags & MINUS) != MINUS)
-		{
-			if ((flags & ZERO) != ZERO)
-				send_buffer(manager_value(ft_strdup(""), width - 1, ' '));
-			else
-				send_buffer(manager_value(ft_strdup(""), width - 1, '0'));
-		}
+			send_buffer(tmp);
 		message_buffer('%');
 		if ((flags & MINUS) == MINUS)
-				send_buffer(manager_value(ft_strdup(""), width - 1, ' '));
+				send_buffer(tmp);
+		if (tmp)
+			free(tmp);
 	}
 	else
 		message_buffer('%');

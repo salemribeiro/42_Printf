@@ -14,7 +14,7 @@
 #include <stdio.h>
 int main ()
 {
-	printf("%d\n", printf("%"));
+/*	printf("%d\n", printf("%"));
 	ft_printf("%d\n", ft_printf("%"));
 	printf("%d\n", printf("%5%\n"));
 	ft_printf("%d\n", ft_printf("%5%\n"));
@@ -35,7 +35,12 @@ int main ()
 	printf("result: %d\n",printf("%6.6s\n",""));
 	ft_printf("result: %d\n",ft_printf("%6.6s\n",""));
 	printf("result: %d\n",printf("%07.3s%3.3s\n","hello", "world"));
-	ft_printf("result: %d\n",ft_printf("%07.3s%3.3s\n","hello", "world"));
+	ft_printf("result: %d\n",ft_printf("%07.3s%3.3s\n","hello", "world"));*/
+	printf("result: %d\n",printf("%c",0));
+	ft_printf("result: %d\n",ft_printf("%c",0));
+	printf("result: %d\n",printf("%%04i 42 == |%04i\x0a\n",42));
+	ft_printf("result: %d\n",ft_printf("%%04i 42 == |%04i\x0a\n",42));
+
 	return (0);
 
 }

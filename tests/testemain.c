@@ -14,8 +14,14 @@
 #include <stdio.h>
 int main ()
 {
-	printf("%-5%\n");
-	ft_printf("%-5%\n");
+	printf("%d\n", printf("%5%\n"));
+	ft_printf("%d\n", ft_printf("%5%\n"));
+	printf("%d\n", printf("%-5%\n"));
+	ft_printf("%d\n", ft_printf("%-5%\n"));
+	printf("%d\n", printf("%05%\n"));
+	ft_printf("%d\n", ft_printf("%05%\n"));
+	printf("%d\n", printf("%-05%\n"));
+	ft_printf("%d\n", ft_printf("%-05%\n"));
 	printf("result: %d\n",printf("%-7.3s\n",""));
 	ft_printf("result: %d\n",ft_printf("%-7.3s\n",""));
 	printf("result: %d\n",printf("%7.3s%7.3s\n","hello", "world"));

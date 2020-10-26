@@ -31,9 +31,7 @@ void	message_arg_solve(va_list item)
 			sp == 'E' || sp == 'g' || sp == 'G')
 		arg_double(item, sp);
 	else if (sp == '%')
-	{
-		store_percent();
-	}
+		store_percent(g_opt.width, g_opt.flags);
 }
 
 void	arg_integer(va_list item, char sp)

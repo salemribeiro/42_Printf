@@ -32,7 +32,12 @@ void		store_string(char *text, int width, int precision, char flags)
 		ptr = ft_strdup(text);
 	len = cut_string(ptr, precision);
 	if ((flags & MINUS) != MINUS && width > len)
-		send_buffer(manager_width(ft_strdup(" "), width - len));
+	{
+		if ((flags & ZERO) != ZERO)
+			send_buffer(manager_width(ft_strdup(" "), width - len));
+		else
+			send_buffer(manager_precision(ft_strdup("0"), width - len));
+	}
 	send_buffer(ptr);
 	if ((flags & MINUS) == MINUS && width > len)
 		send_buffer(manager_width(ft_strdup(" "), width - len));

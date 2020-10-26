@@ -96,8 +96,7 @@ void		store_int (long long int value);
 void		store_float (long double value);
 void		store_char (char c);
 void		store_string(char *text, int width, int precision, char flags);
-char		*manager_precision(char *source, int total);
-char	    *manager_width(char *source, int total);
+char	    *manager_value(char *source, int total, char c);
 char		*resize_result(char *result, char c, int size);
 
 /*

@@ -24,23 +24,26 @@ void		store_string(char *text, int width, int precision, char flags)
 {
 	int		len;
 	char	*ptr;
+	char	*tmp;
 
 	len = 0;
+	tmp = NULL;
 	if (!text)
 		ptr = ft_strdup("(null)");
 	else
 		ptr = ft_strdup(text);
 	len = cut_string(ptr, precision);
+	if ((flags & ZERO) != ZERO)
+		tmp = manager_value(ft_strdup(""), width - len, ' ');
+	else
+		tmp = manager_value(ft_strdup(""), width - len, '0');
 	if ((flags & MINUS) != MINUS && width > len)
-	{
-		if ((flags & ZERO) != ZERO)
-			send_buffer(manager_width(ft_strdup(" "), width - len));
-		else
-			send_buffer(manager_precision(ft_strdup("0"), width - len));
-	}
+		send_buffer(tmp);
 	send_buffer(ptr);
 	if ((flags & MINUS) == MINUS && width > len)
-		send_buffer(manager_width(ft_strdup(" "), width - len));
+		send_buffer(tmp);
+	if (tmp)
+		free (tmp);
 	free(ptr);
 }
 

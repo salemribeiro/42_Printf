@@ -30,13 +30,13 @@ void	store_percent(int width, char flags)
 		if ((flags & MINUS) != MINUS)
 		{
 			if ((flags & ZERO) != ZERO)
-				send_buffer(manager_width(ft_strdup(""), width - 1));
+				send_buffer(manager_value(ft_strdup(""), width - 1, ' '));
 			else
-				send_buffer(manager_precision(ft_strdup(""), width - 1));
+				send_buffer(manager_value(ft_strdup(""), width - 1, '0'));
 		}
 		message_buffer('%');
 		if ((flags & MINUS) == MINUS)
-				send_buffer(manager_width(ft_strdup(""), width - 1));
+				send_buffer(manager_value(ft_strdup(""), width - 1, ' '));
 	}
 	else
 		message_buffer('%');

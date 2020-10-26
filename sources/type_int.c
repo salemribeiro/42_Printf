@@ -20,11 +20,11 @@ void	store_int(long long int value)
 	text = ft_itoa_base(convert_int(value));
 	len = ft_strlen(text);
 	if (g_opt.precision > 0 && len)
-		text = manager_precision(text, g_opt.precision);
+		text = manager_value(text, g_opt.precision, '0');
 	if ((g_opt.flags & PLUS) == PLUS && value >= 0)
 		text = ft_strjoin("+", text);
 	if (g_opt.width > 0 && len)
-		text = manager_width(text, g_opt.width);
+		text = manager_value(text, g_opt.width, ' ');
 	send_buffer(text);
 	free(text);
 }
@@ -37,11 +37,11 @@ void	store_u_int(long long int value)
 	text = ft_u_itoa_base(convert_u_int(value));
 	len = ft_strlen(text);
 	if (g_opt.precision > 0 && ft_strlen(text))
-		text = manager_precision(text, g_opt.precision);
+		text = manager_value(text, g_opt.precision, '0');
 	if ((g_opt.flags & PLUS) == PLUS)
 		text = ft_strjoin("+", text);
 	if (g_opt.width > 0 && len)
-		text = manager_width(text, g_opt.width);
+		text = manager_value(text, g_opt.width, ' ');
 	send_buffer(text);
 	free (text);
 }

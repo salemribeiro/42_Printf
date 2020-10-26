@@ -34,6 +34,8 @@ int main ()
 	ft_printf("result: %d\n",ft_printf("%7.3s%3.3s\n","hello", "world"));
 	printf("result: %d\n",printf("%6.6s\n",""));
 	ft_printf("result: %d\n",ft_printf("%6.6s\n",""));
+	printf("result: %d\n",printf("%07.3s%3.3s\n","hello", "world"));
+	ft_printf("result: %d\n",ft_printf("%07.3s%3.3s\n","hello", "world"));
 	return (0);
 
 }

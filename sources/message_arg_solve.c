@@ -102,7 +102,7 @@ void	arg_double(va_list item, char sp)
 ** valores de "*source" completados com "c".
 */
 
-char	*manager_precision(char *source, int total)
+char	*manager_value(char *source, int total, char c)
 {
 	int		i;
 	int		size;
@@ -115,28 +115,7 @@ char	*manager_precision(char *source, int total)
 		return (source);
 	text = ft_calloc(size + 1, sizeof(char));
 	while (i < size)
-		text[i++] = '0';
-	text[i] = '\0';
-	tmp = ft_strjoin(text, source);
-	free(text);
-	free(source);
-	return (tmp);
-}
-
-char	*manager_width(char *source, int total)
-{
-	int		i;
-	int		size;
-	char	*tmp;
-	char	*text;
-
-	i = 0;
-	size = total - ft_strlen(source);
-	if (size <= 0)
-		return (source);
-	text = ft_calloc(size + 1, sizeof(char));
-	while (i < size)
-		text[i++] = ' ';
+		text[i++] = c;
 	text[i] = '\0';
 	tmp = ft_strjoin(text, source);
 	free(text);

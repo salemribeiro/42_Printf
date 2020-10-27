@@ -25,9 +25,9 @@ void	store_int(long long int value)
 		text = ft_strjoin("+", text);
 	if (g_opt.width > 0 && len)
 	{
-		if ((g_opt.flags & SPACE) == SPACE)
+		if ((g_opt.flags & ZERO) != ZERO)
 			text = manager_value(text, g_opt.width, ' ');
-		else if ((g_opt.flags & ZERO) == ZERO)
+		else
 			text = manager_value(text, g_opt.width, '0');
 	}
 	send_buffer(text);

@@ -40,7 +40,12 @@ int main ()
 	ft_printf("result: %d\n",ft_printf("%c",0));
 	printf("result: %d\n",printf("%%04i 42 == |%04i\x0a\n",42));
 	ft_printf("result: %d\n",ft_printf("%%04i 42 == |%04i\x0a\n",42));
-
+	printf("result: %d\n",printf("%7i\n", -14));
+	ft_printf("result: %d\n",ft_printf("%7i\n", -14));
+	printf("result: %d\n",printf("teste %+10d\n", -44));
+	ft_printf("result: %d\n",ft_printf("teste %+10d\n", -44));
+	printf("result: %d\n",printf("teste %.10d\n", -44));
+	ft_printf("result: %d\n",ft_printf("teste %.10d\n", -44));
 	return (0);
 
 }

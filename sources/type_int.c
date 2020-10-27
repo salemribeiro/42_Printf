@@ -16,7 +16,6 @@ void	store_int(long long int value)
 {
 	char	*text;
 	int		len;
-
 	text = ft_itoa_base(convert_int(value));
 	len = ft_strlen(text);
 	if (g_opt.precision > 0 && len)
@@ -70,7 +69,6 @@ long long int	convert_int(long long int value)
 	{
 		value = value * (-1);
 		send_buffer("-");
-		g_opt.width = 0;
 	}
 	return (value);
 }

@@ -14,6 +14,51 @@
 
 void	store_int(long long int value)
 {
+	char	*ptr;
+	char	*tmp;
+	int 	len;
+	int		signal;
+	char	caractere;
+
+	signal = value < 0 ? -1 : 1;
+	value = value * signal;
+	ptr = ft_itoa(value);
+	len = ft_strlen(ptr);
+	caractere = ' ';
+	if (g_opt.precision && g_opt.precision >= len)
+	{
+		ptr = manager_value(ptr, g_opt.precision, '0');
+		if ((g_opt.flags & ZERO) == ZERO)
+			g_opt.flags = g_opt.flags ^ ZERO;
+	}
+	if (signal == -1)
+	{
+		tmp = ptr;
+		ptr = ft_strjoin("-", ptr);
+		free(tmp);
+	}
+	len = ft_strlen(ptr);
+	if (g_opt.width > len && g_opt.width)
+	{
+		if ((g_opt.flags & MINUS) == MINUS)
+		{
+			tmp = ptr;
+			ptr = ft_strjoin(manager_value(ft_strdup(""), g_opt.width - len,
+			caractere), ptr);
+			free(tmp);
+		}
+		else
+		{
+			caractere = (g_opt.flags & ZERO) == ZERO ? '0' : ' ';
+			ptr = manager_value(ptr, g_opt.width, caractere);
+		}
+	}
+	send_buffer(ptr);
+	free (ptr);
+}
+
+/*void	store_int(long long int value)
+{
 	char	*text;
 	int		len;
 	text = ft_itoa_base(convert_int(value));
@@ -31,7 +76,7 @@ void	store_int(long long int value)
 	}
 	send_buffer(text);
 	free(text);
-}
+}*/
 
 void	store_u_int(long long int value)
 {

@@ -18,7 +18,7 @@
 **  Ela reponsavel por unir o ponteiro de char com o caractere recebido,
 ** retornando o resultado dessa uniao.
 */
-
+/* VERIFICAR A REAL NECESSIDADE DESSA FUNCAO*/
 char	*add_buffer(char c, char *buffer, int size)
 {
 	int i;

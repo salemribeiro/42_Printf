@@ -43,8 +43,8 @@ void	store_int(long long int value)
 		if ((g_opt.flags & MINUS) == MINUS)
 		{
 			tmp = ptr;
-			ptr = ft_strjoin(manager_value(ft_strdup(""), g_opt.width - len,
-			caractere), ptr);
+			ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
+			g_opt.width - len, caractere));
 			free(tmp);
 		}
 		else
@@ -110,11 +110,6 @@ long long int	convert_int(long long int value)
 		value = (long long int)(short int)value;
 	else if (g_opt.length == HH)
 		value = (long long int)(char)value;
-	if (value < 0)
-	{
-		value = value * (-1);
-		send_buffer("-");
-	}
 	return (value);
 }
 

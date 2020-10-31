@@ -56,13 +56,13 @@ char		search_percent(char *text)
 
 	while (text[i])
 	{
-		if (text[i] != '%')
-			message_buffer(text[i]);
-		else
+		if (text[i] == '%')
 		{
 			i += specifier_options((char*)&text[i]);
 			return (1);
 		}
+		else
+			message_buffer(text[i]);
 		i++;
 	}
 	i = 0;

@@ -32,7 +32,7 @@
 # define SPECIFIERS		"diuoxXfFeEgGaAcspn%"
 # define SPECIFIERS1	"uoxXcspn"
 # define SPECIFIERS2	"diucspn"
-# define SPECIFIERS3	"cdpn"
+# define SPECIFIERS3	"cpn"
 
 # include <stdlib.h>
 # include <unistd.h>

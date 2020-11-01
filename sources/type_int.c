@@ -62,7 +62,7 @@ void	store_int(long long int value)
 	{
 		if ((g_opt.flags & ZERO) == ZERO)
 		{
-			ptr = manager_value(ptr, g_opt.width - 1, '0');
+			ptr = manager_value(ptr, g_opt.width, '0');
 			if (signal == -1)
 			{
 				tmp = ptr;

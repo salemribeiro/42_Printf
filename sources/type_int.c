@@ -30,28 +30,46 @@ void	store_int(long long int value)
 		ptr = manager_value(ptr, g_opt.precision, '0');
 		if ((g_opt.flags & ZERO) == ZERO)
 			g_opt.flags = g_opt.flags ^ ZERO;
-	}
-	if (signal == -1)
-	{
-		tmp = ptr;
-		ptr = ft_strjoin("-", ptr);
-		free(tmp);
+		if (signal == -1)
+		{
+			tmp = ptr;
+			ptr = ft_strjoin("-", ptr);
+			signal = 1;
+			free(tmp);
+		}
 	}
 	len = ft_strlen(ptr);
 	if (g_opt.width > len && g_opt.width)
 	{
+		tmp = ptr;
 		if ((g_opt.flags & MINUS) == MINUS)
 		{
-			tmp = ptr;
-			ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
-			g_opt.width - len, caractere));
-			free(tmp);
+			if (signal == 1)
+				ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
+				g_opt.width - len, caractere));
+			else
+			{
+				ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
+				g_opt.width - len - 1, caractere));
+				free(tmp);
+				tmp = ptr;
+				ptr = ft_strjoin("-", ptr);
+			}
 		}
 		else
 		{
-			caractere = (g_opt.flags & ZERO) == ZERO ? '0' : ' ';
-			ptr = manager_value(ptr, g_opt.width, caractere);
+			if ((g_opt.flags & ZERO) == ZERO)
+			{
+				ptr = manager_value(ptr, g_opt.width - 1, '0');
+				ptr = ft_strjoin("-", ptr);
+			}
+			else
+			{
+				ptr = ft_strjoin("-", ptr);
+				ptr = manager_value(ptr, g_opt.width - 1, ' ');
+			}
 		}
+		free(tmp);
 	}
 	send_buffer(ptr);
 	free (ptr);

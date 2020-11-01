@@ -44,8 +44,8 @@ int main ()
 	ft_printf("result: %d\n",ft_printf("%7i\n", -14));
 	printf("result: %d\n",printf("teste %+10d\n", -44));
 	ft_printf("result: %d\n",ft_printf("teste %+10d\n", -44));*/
-	printf("result: %d\n",printf("teste %7ifim\n", -33));
-	ft_printf("result: %d\n",ft_printf("teste %7ifim\n", -33));
+	printf("result: %d\n",printf("teste %-19.20ifim\n", -33));
+	ft_printf("result: %d\n",ft_printf("teste %-19.20ifim\n", -33));
 	/*printf("result: %d\n",printf("teste %5p\n", 0));
 	ft_printf("result: %d\n",ft_printf("teste %5p\n", 0));*/
 	return (0);

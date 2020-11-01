@@ -61,12 +61,14 @@ void	store_int(long long int value)
 			if ((g_opt.flags & ZERO) == ZERO)
 			{
 				ptr = manager_value(ptr, g_opt.width - 1, '0');
+				tmp = ptr;
 				ptr = ft_strjoin("-", ptr);
 			}
 			else
 			{
-				ptr = ft_strjoin("-", ptr);
-				ptr = manager_value(ptr, g_opt.width - 1, ' ');
+				if(ptr[0] != '-' && signal == -1)
+					ptr = ft_strjoin("-", ptr);
+				ptr = manager_value(ptr, g_opt.width, ' ');
 			}
 		}
 		free(tmp);

@@ -36,6 +36,11 @@ void	store_int(long long int value)
 			free(tmp);
 		}
 	}
+	else if (g_opt.precision == 0  && value == 0)
+	{
+		free (ptr);
+		ptr = ft_strdup("");
+	}
 	if ((g_opt.flags & ZERO) == ZERO && g_opt.precision > 0)
 		g_opt.flags = g_opt.flags ^ ZERO;
 	len = ft_strlen(ptr);

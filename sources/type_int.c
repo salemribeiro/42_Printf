@@ -28,8 +28,6 @@ void	store_int(long long int value)
 	if (g_opt.precision && g_opt.precision >= len)
 	{
 		ptr = manager_value(ptr, g_opt.precision, '0');
-		if ((g_opt.flags & ZERO) == ZERO)
-			g_opt.flags = g_opt.flags ^ ZERO;
 		if (signal == -1)
 		{
 			tmp = ptr;
@@ -38,6 +36,8 @@ void	store_int(long long int value)
 			free(tmp);
 		}
 	}
+	if ((g_opt.flags & ZERO) == ZERO && g_opt.precision > 0)
+		g_opt.flags = g_opt.flags ^ ZERO;
 	len = ft_strlen(ptr);
 	tmp = NULL;
 	if ((g_opt.flags & MINUS) == MINUS)
@@ -58,8 +58,11 @@ void	store_int(long long int value)
 		if ((g_opt.flags & ZERO) == ZERO)
 		{
 			ptr = manager_value(ptr, g_opt.width - 1, '0');
-			tmp = ptr;
-			ptr = ft_strjoin("-", ptr);
+			if (signal == -1)
+			{
+				tmp = ptr;
+				ptr = ft_strjoin("-", ptr);
+			}
 		}
 		else
 		{

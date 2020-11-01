@@ -39,40 +39,40 @@ void	store_int(long long int value)
 		}
 	}
 	len = ft_strlen(ptr);
-	if (g_opt.width > len && g_opt.width)
+	tmp = NULL;
+	if ((g_opt.flags & MINUS) == MINUS)
 	{
-		tmp = ptr;
-		if ((g_opt.flags & MINUS) == MINUS)
+		if (signal == 1)
+			ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
+			g_opt.width - len, caractere));
+		else
 		{
-			if (signal == 1)
-				ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
-				g_opt.width - len, caractere));
-			else
-			{
-				ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
-				g_opt.width - len - 1, caractere));
-				free(tmp);
-				tmp = ptr;
-				ptr = ft_strjoin("-", ptr);
-			}
+			ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
+			g_opt.width - len - 1, caractere));
+			tmp = ptr;
+			ptr = ft_strjoin("-", ptr);
+		}
+	}
+	else
+	{
+		if ((g_opt.flags & ZERO) == ZERO)
+		{
+			ptr = manager_value(ptr, g_opt.width - 1, '0');
+			tmp = ptr;
+			ptr = ft_strjoin("-", ptr);
 		}
 		else
 		{
-			if ((g_opt.flags & ZERO) == ZERO)
+			if(ptr[0] != '-' && signal == -1)
 			{
-				ptr = manager_value(ptr, g_opt.width - 1, '0');
 				tmp = ptr;
 				ptr = ft_strjoin("-", ptr);
 			}
-			else
-			{
-				if(ptr[0] != '-' && signal == -1)
-					ptr = ft_strjoin("-", ptr);
-				ptr = manager_value(ptr, g_opt.width, ' ');
-			}
+			ptr = manager_value(ptr, g_opt.width, ' ');
 		}
-		free(tmp);
 	}
+	if (tmp)
+		free(tmp);
 	send_buffer(ptr);
 	free (ptr);
 }

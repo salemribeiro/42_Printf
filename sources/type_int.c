@@ -62,6 +62,8 @@ void	store_int(long long int value)
 	{
 		if ((g_opt.flags & ZERO) == ZERO)
 		{
+			g_opt.width = g_opt.specifier == 'i' && g_opt.width > 0 ?
+			g_opt.width -1 : g_opt.width;
 			ptr = manager_value(ptr, g_opt.width, '0');
 			if (signal == -1)
 			{

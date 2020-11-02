@@ -95,7 +95,7 @@ void	store_u_int(long long int value)
 	ptr = ft_itoa(value);
 	len = ft_strlen(ptr);
 	if (g_opt.precision > 0 && g_opt.precision > len)
-		ptr = manager_value(ptr, g_opt.width, '0');
+		ptr = manager_value(ptr, g_opt.precision, '0');
 	else if (g_opt.precision == 0  && value == 0)
 	{
 		free (ptr);
@@ -111,6 +111,8 @@ void	store_u_int(long long int value)
 	{
 		if ((g_opt.flags & ZERO) == ZERO)
 			ptr = manager_value(ptr, g_opt.width, '0');
+		else
+			ptr = manager_value(ptr, g_opt.width, ' ');
 	}
 	send_buffer(ptr);
 	free (ptr);

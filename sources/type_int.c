@@ -92,7 +92,7 @@ void	store_u_int(long long int value)
 	int		len;
 
 	value = convert_u_int(value);
-	ptr = ft_itoa(value);
+	ptr = ft_u_itoa_base(value);
 	len = ft_strlen(ptr);
 	if (g_opt.precision > 0 && g_opt.precision > len)
 		ptr = manager_value(ptr, g_opt.precision, '0');

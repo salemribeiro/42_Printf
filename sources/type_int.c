@@ -21,7 +21,7 @@ void	store_int(long long int value)
 	char	caractere;
 
 	signal = value < 0 ? -1 : 1;
-	value = conver_int(value) * signal;
+	value = convert_int(value) * signal;
 	ptr = ft_itoa(value);
 	len = ft_strlen(ptr);
 	caractere = ' ';
@@ -91,11 +91,11 @@ void	store_u_int(long long int value)
 	char	*ptr;
 	int		len;
 
-	value = conver_u_int(value);
+	value = convert_u_int(value);
 	ptr = ft_itoa(value);
-	len = ft_len(ptr);
+	len = ft_strlen(ptr);
 	if (g_opt.precision > 0 && g_opt.precision > len)
-		ptr = manager_value(ptr, g_opt.width, '0);
+		ptr = manager_value(ptr, g_opt.width, '0');
 	else if (g_opt.precision == 0  && value == 0)
 	{
 		free (ptr);
@@ -110,11 +110,7 @@ void	store_u_int(long long int value)
 	else
 	{
 		if ((g_opt.flags & ZERO) == ZERO)
-		{
-			g_opt.width = (signal == -1 && g_opt.width > 0) ?
-			g_opt.width -1 : g_opt.width;
 			ptr = manager_value(ptr, g_opt.width, '0');
-		}
 	}
 	send_buffer(ptr);
 	free (ptr);

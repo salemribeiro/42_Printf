@@ -21,7 +21,7 @@ void	store_int(long long int value)
 	char	caractere;
 
 	signal = value < 0 ? -1 : 1;
-	value = value * signal;
+	value = conver_int(value) * signal;
 	ptr = ft_itoa(value);
 	len = ft_strlen(ptr);
 	caractere = ' ';
@@ -86,29 +86,49 @@ void	store_int(long long int value)
 	send_buffer(ptr);
 	free (ptr);
 }
-
-/*void	store_int(long long int value)
-{
-	char	*text;
-	int		len;
-	text = ft_itoa_base(convert_int(value));
-	len = ft_strlen(text);
-	if (g_opt.precision > 0 && len)
-		text = manager_value(text, g_opt.precision, '0');
-	if ((g_opt.flags & PLUS) == PLUS && value >= 0)
-		text = ft_strjoin("+", text);
-	if (g_opt.width > 0 && len)
-	{
-		if ((g_opt.flags & ZERO) != ZERO)
-			text = manager_value(text, g_opt.width, ' ');
-		else
-			text = manager_value(text, g_opt.width, '0');
-	}
-	send_buffer(text);
-	free(text);
-}*/
-
 void	store_u_int(long long int value)
+{
+	char	*ptr;
+	int		len;
+
+	value = conver_u_int(value);
+	ptr = ft_itoa(value);
+	len = ft_len(ptr);
+	if (g_opt.precision > 0 && g_opt.precision > len)
+		ptr = manager_value(ptr, g_opt.width, '0);
+	else if (g_opt.precision == 0  && value == 0)
+	{
+		free (ptr);
+		ptr = ft_strdup("");
+	}
+	if ((g_opt.flags & ZERO) == ZERO && g_opt.precision > 0)
+		g_opt.flags = g_opt.flags ^ ZERO;
+	len = ft_strlen(ptr);
+	if ((g_opt.flags & MINUS) == MINUS)
+			ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
+			g_opt.width - len, ' '));
+	else
+	{
+		if ((g_opt.flags & ZERO) == ZERO)
+		{
+			g_opt.width = (signal == -1 && g_opt.width > 0) ?
+			g_opt.width -1 : g_opt.width;
+			ptr = manager_value(ptr, g_opt.width, '0');
+		}
+	}
+	send_buffer(ptr);
+	free (ptr);
+}
+
+
+
+
+
+
+
+
+
+/*void	store_u_int(long long int value)
 {
 	char	*text;
 	int		len;
@@ -128,7 +148,7 @@ void	store_u_int(long long int value)
 	}
 	send_buffer(text);
 	free (text);
-}
+}*/
 
 long long int	convert_int(long long int value)
 {

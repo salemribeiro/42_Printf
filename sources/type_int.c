@@ -131,8 +131,12 @@ void	store_u_int(long long int value)
 		g_opt.flags = g_opt.flags ^ ZERO;
 	len = ft_strlen(ptr);
 	if ((g_opt.flags & MINUS) == MINUS)
-			ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
-			g_opt.width - len, ' '));
+	{
+		ptr = (g_opt.flags & HASH) == HASH ? put_hex(ptr) : ptr;
+		len = ft_strlen(ptr);
+		ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
+		g_opt.width - len, ' '));
+	}
 	else
 	{
 		if ((g_opt.flags & ZERO) == ZERO)

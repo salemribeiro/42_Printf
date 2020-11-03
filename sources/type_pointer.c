@@ -26,6 +26,8 @@ void		store_string(char *text, int width, int precision, char flags)
 	char	*ptr;
 	char	*tmp;
 
+	if (precision == -2)
+		return ;
 	len = 0;
 	tmp = NULL;
 	if (!text)

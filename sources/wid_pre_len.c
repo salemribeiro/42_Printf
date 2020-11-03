@@ -56,9 +56,10 @@ char	*precision_options(char *parameters)
 
 	i = 0;
 	buffer = NULL;
-	precision = -2;
+	precision = 0;
 	if (*parameters == '.')
 	{
+		precision = -2;
 		parameters++;
 		if (ft_isdigit(*parameters))
 		{

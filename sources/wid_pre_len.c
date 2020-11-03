@@ -60,7 +60,8 @@ char	*precision_options(char *parameters)
 	precision = -1;
 	while (ft_isdigit(*parameters) || *parameters == '*' || *parameters == '.')
 	{
-		buffer = add_buffer(*parameters, buffer, i++);
+		if (*parameters != '.')
+			buffer = add_buffer(*parameters, buffer, i++);
 		parameters++;
 	}
 	if (buffer)

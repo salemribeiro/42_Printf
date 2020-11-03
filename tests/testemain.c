@@ -51,8 +51,8 @@ int main ()
 	ft_printf("result: %d\n",ft_printf("teste %-17ofim\n",10733));
 	printf("result: %d\n",printf("teste %-5p fim\n",i));
 	ft_printf("result: %d\n",ft_printf("teste %-5p fim\n", 10, i));*/
-	printf("result: %d\n",printf("teste %.*d fim\n", 10, i));
-	ft_printf("result: %d\n",ft_printf("teste %.*d fim\n", 10, i));
+	printf("result: %d\n",printf("teste %.d fim\n", 10, i));
+	ft_printf("result: %d\n",ft_printf("teste %.d fim\n", 10, i));
 	/*printf("result: %d\n",printf("teste %5p\n", 0));
 	ft_printf("result: %d\n",ft_printf("teste %5p\n", 0));*/
 	return (0);

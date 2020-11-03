@@ -48,7 +48,45 @@ char	*width_options(char *parameters)
 ** avanca o ponteiro para posicao final de indicacao de precision e retorna o
 ** mesmo.
 */
+char	*precision_options(char *parameters)
+{
+	int		i;
+	char	*buffer;
+	int		precision;
 
+	i = 0;
+	buffer = NULL;
+	precision = -2;
+	if (*parameters == '.')
+	{
+		parameters++;
+		if (ft_isdigit(*parameters))
+		{
+			while (ft_isdigit(*parameters))
+			{
+				buffer = add_buffer(*parameters, buffer, i++);
+				parameters++;
+			}
+		}
+		else if (*parameters == '*')
+			precision = -1;
+	}
+	if (buffer)
+	{
+		precision = ft_atoi(buffer);
+		free(buffer);
+	}
+	g_opt.precision = precision;
+	return (parameters);
+}
+
+
+
+
+
+
+
+/*
 char	*precision_options(char *parameters)
 {
 	int		i;
@@ -80,7 +118,7 @@ char	*precision_options(char *parameters)
 	else if (precision == -1)
 		g_opt.precision = -1;
 	return (parameters);
-}
+}*/
 
 /*
 **  Funcao recebe um ponteiro de char "*parameters" busca por informacoes do

@@ -14,6 +14,9 @@
 #include <stdio.h>
 int main ()
 {
+	int		i;
+
+	i = 20;
 	/*printf("%d\n", printf("%"));
 	ft_printf("%d\n", ft_printf("%"));
 	printf("%d\n", printf("%5%\n"));
@@ -44,8 +47,10 @@ int main ()
 	ft_printf("result: %d\n",ft_printf("%7i\n", -14));
 	printf("result: %d\n",printf("teste %+10d\n", -44));
 	ft_printf("result: %d\n",ft_printf("teste %+10d\n", -44));*/
-	printf("result: %d\n",printf("teste %-20.7ufim\n",33));
-	ft_printf("result: %d\n",ft_printf("teste %-20.7ufim\n",33));
+	printf("result: %d\n",printf("teste %-17ofim\n",10733));
+	ft_printf("result: %d\n",ft_printf("teste %-17ofim\n",10733));
+	printf("result: %d\n",printf("teste %10p fim\n",i));
+	ft_printf("result: %d\n",ft_printf("teste %10p fim\n",i));
 	/*printf("result: %d\n",printf("teste %5p\n", 0));
 	ft_printf("result: %d\n",ft_printf("teste %5p\n", 0));*/
 	return (0);

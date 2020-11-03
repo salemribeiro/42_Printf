@@ -86,6 +86,32 @@ void	store_int(long long int value)
 	send_buffer(ptr);
 	free (ptr);
 }
+
+char	*put_hex(char *ptr)
+{
+	char *tmp;
+
+	tmp = NULL;
+	if (g_opt.specifier == 'x')
+	{
+		tmp = ptr;
+		ptr = ft_strjoin("0x", ptr);
+	}
+	else if (g_opt.specifier == 'X')
+	{
+		tmp = ptr;
+		ptr = ft_strjoin("0X", ptr);
+	}
+	else if (g_opt.specifier == 'o')
+	{
+		tmp = ptr;
+		ptr = ft_strjoin("0", ptr);
+	}
+	if (tmp)
+		free(tmp);
+	return (ptr);
+}
+
 void	store_u_int(long long int value)
 {
 	char	*ptr;
@@ -110,9 +136,15 @@ void	store_u_int(long long int value)
 	else
 	{
 		if ((g_opt.flags & ZERO) == ZERO)
+		{
 			ptr = manager_value(ptr, g_opt.width, '0');
+			ptr = (g_opt.flags & HASH) == HASH ? put_hex(ptr) : ptr;
+		}
 		else
+		{
+			ptr = (g_opt.flags & HASH) == HASH ? put_hex(ptr) : ptr;
 			ptr = manager_value(ptr, g_opt.width, ' ');
+		}
 	}
 	send_buffer(ptr);
 	free (ptr);
@@ -175,11 +207,5 @@ unsigned long long int	convert_u_int(long long int value)
 		g_opt.flags = g_opt.flags ^ SPACE;
 	if ((g_opt.flags & PLUS) == PLUS)
 		g_opt.flags = g_opt.flags ^ PLUS;
-	if ((g_opt.flags & HASH ) == HASH && g_opt.specifier == 'x')
-		send_buffer("0x");
-	if ((g_opt.flags & HASH ) == HASH && g_opt.specifier == 'X')
-		send_buffer("0X");
-	if ((g_opt.flags & HASH ) == HASH && g_opt.specifier == 'o')
-		send_buffer("0");
 	return (value);
 }

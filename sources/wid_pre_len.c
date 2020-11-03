@@ -57,23 +57,28 @@ char	*precision_options(char *parameters)
 
 	i = 0;
 	buffer = NULL;
-	precision = -1;
+	precision = 0;
 	while (ft_isdigit(*parameters) || *parameters == '*' || *parameters == '.')
 	{
-		if (*parameters != '.')
+		if (ft_isdigit(*parameters))
 			buffer = add_buffer(*parameters, buffer, i++);
+		else if (*parameters == '.')
+			precision = 0;
+		else if (*parameters == '*')
+			precision = -1;
 		parameters++;
 	}
 	if (buffer)
 	{
-		precision = (ft_isdigit(*buffer)) ? ft_atoi(buffer) : precision;
+		if (ft_isdigit(*buffer))
+			precision = ft_atoi(buffer);
 		g_opt.precision = precision;
 		free(buffer);
 	}
 	else if (precision == 0)
 		g_opt.precision = 0;
-	else
-		g_opt.precision = -2;
+	else if (precision == -1)
+		g_opt.precision = -1;
 	return (parameters);
 }
 

@@ -82,46 +82,6 @@ char	*precision_options(char *parameters)
 	return (parameters);
 }
 
-
-
-
-
-
-
-/*
-char	*precision_options(char *parameters)
-{
-	int		i;
-	char	*buffer;
-	int		precision;
-
-	i = 0;
-	buffer = NULL;
-	precision = 0;
-	while (ft_isdigit(*parameters) || *parameters == '*' || *parameters == '.')
-	{
-		if (ft_isdigit(*parameters))
-			buffer = add_buffer(*parameters, buffer, i++);
-		else if (*parameters == '.')
-			precision = 0;
-		else if (*parameters == '*')
-			precision = -1;
-		parameters++;
-	}
-	if (buffer)
-	{
-		if (ft_isdigit(*buffer))
-			precision = ft_atoi(buffer);
-		g_opt.precision = precision;
-		free(buffer);
-	}
-	else if (precision == 0)
-		g_opt.precision = 0;
-	else if (precision == -1)
-		g_opt.precision = -1;
-	return (parameters);
-}*/
-
 /*
 **  Funcao recebe um ponteiro de char "*parameters" busca por informacoes do
 ** length envia essas informacoes para a estrutura global "opt.length" e

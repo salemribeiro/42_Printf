@@ -12,10 +12,12 @@
 
 #include "ft_printf.h"
 
-int			resolve_negative(int value)
+int			resolve_negative(int value, char option)
 {
-	if (value < 0)
+	if (valuei < 0 && option == 0)
 		value = value * (-1);
+	else if (value < 0 && option == 1)
+		value = -2;
 	return(value);
 }
 
@@ -40,9 +42,9 @@ int			ft_printf(const char *format, ...)
 			break;
 		}
 		if (g_opt.width == -1)
-			g_opt.width = resolve_negative(va_arg(item, int));
+			g_opt.width = resolve_negative(va_arg(item, int), 0);
 		if (g_opt.precision == -1)
-			g_opt.precision = resolve_negative(va_arg(item, int));
+			g_opt.precision = resolve_negative(va_arg(item, int), 1);
 		message_arg_solve(item);
 	}
 	message_buffer('\0');

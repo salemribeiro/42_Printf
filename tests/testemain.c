@@ -59,9 +59,11 @@ int main ()
 	ft_printf("result: %d\n",ft_printf("teste %5c fim\n", INT8_MAX));
 	ft_printf("result: %d\n",ft_printf("teste %-5p fim\n", 10, i));
 	printf("result: %d\n",printf("teste %.d fim\n", 10, i));
-	ft_printf("result: %d\n",ft_printf("teste %.d fim\n", 10, i));*/
+	ft_printf("result: %d\n",ft_printf("teste %.d fim\n", 10, i));
 	printf("result: %d\n",printf("%-*.*s\n", -7, -3, "yolo"));
-	ft_printf("result: %d\n",ft_printf("%-*.*s\n", -7, -3, "yolo"));
+	ft_printf("result: %d\n",ft_printf("%-*.*s\n", -7, -3, "yolo"));*/
+	printf("result: %d\n",printf("%c %#x\n", 65290, 65290));
+	ft_printf("result: %d\n",ft_printf("%c %#x\n", 65290, 65290));
 
 	/*printf("result: %d\n",printf("teste %5p\n", 0));
 	ft_printf("result: %d\n",ft_printf("teste %5p\n", 0));*/

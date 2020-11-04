@@ -23,7 +23,7 @@ void	store_char (long int  c)
 	if (c == '\0')
 		value[0] = -1;
 	else
-		value[0] = c;
+		value[0] = (long int)(char)c;
 	value[1] = '\0';
 	len = ft_strlen(value);
 	width = g_opt.width;

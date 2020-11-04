@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	store_char (char c)
+void	store_char (long int  c)
 {
 	char	value[2];
 	int		len;

@@ -54,17 +54,15 @@ int main ()
 <<<<<<< HEAD
 	ft_printf("result: %d\n",ft_printf("teste %-5p fim\n",i));
 	printf("result: %d\n",printf("teste %.*ifim\n", 10, -3));
-	ft_printf("result: %d\n",ft_printf("teste %.*i fim\n",10, -3));*/
+	ft_printf("result: %d\n",ft_printf("teste %.*i fim\n",10, -3));
 	printf("result: %d\n",printf("teste %5c fim\n", INT8_MAX));
 	ft_printf("result: %d\n",ft_printf("teste %5c fim\n", INT8_MAX));
-=======
 	ft_printf("result: %d\n",ft_printf("teste %-5p fim\n", 10, i));
 	printf("result: %d\n",printf("teste %.d fim\n", 10, i));
 	ft_printf("result: %d\n",ft_printf("teste %.d fim\n", 10, i));*/
 	printf("result: %d\n",printf("hello %s fim\n", "gavin"));
 	ft_printf("result: %d\n",ft_printf("hello %s fim\n", "gavin"));
 
->>>>>>> c988d32178c0951574fbfd6cfea56b0f27b2f6f2
 	/*printf("result: %d\n",printf("teste %5p\n", 0));
 	ft_printf("result: %d\n",ft_printf("teste %5p\n", 0));*/
 	return (0);

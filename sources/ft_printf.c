@@ -12,6 +12,16 @@
 
 #include "ft_printf.h"
 
+int			resolve_negative(int value, char option)
+{
+	if (value < 0 && option == 0)
+		value = 0;
+	else if (value < 0 && option == 1)
+		value = -2;
+	return(value);
+}
+
+
 /*
 ** Funcao responsavel por imprimir em tela tipos de dados diferentes dando a
 ** eles uma grande gama de opcoes de formatacao.
@@ -32,9 +42,9 @@ int			ft_printf(const char *format, ...)
 			break;
 		}
 		if (g_opt.width == -1)
-			g_opt.width = va_arg(item, int);
+			g_opt.width = resolve_negative(va_arg(item, int), 0);
 		if (g_opt.precision == -1)
-			g_opt.precision = va_arg(item, int);
+			g_opt.precision = resolve_negative(va_arg(item, int), 1);
 		message_arg_solve(item);
 	}
 	message_buffer('\0');

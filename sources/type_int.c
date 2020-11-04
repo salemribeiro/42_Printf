@@ -60,7 +60,7 @@ void	store_int(long long int value)
 	}
 	else
 	{
-		if ((g_opt.flags & ZERO) == ZERO)
+		if ((g_opt.flags & ZERO) == ZERO && g_opt.precision > 0)
 		{
 			g_opt.width = (signal == -1 && g_opt.width > 0) ?
 			g_opt.width -1 : g_opt.width;

@@ -139,7 +139,7 @@ void	store_u_int(long long int value)
 	}
 	else
 	{
-		if ((g_opt.flags & ZERO) == ZERO)
+		if ((g_opt.flags & ZERO) == ZERO && g_opt.precision != 0)
 		{
 			ptr = manager_value(ptr, g_opt.width, '0');
 			ptr = (g_opt.flags & HASH) == HASH ? put_hex(ptr) : ptr;
@@ -153,11 +153,6 @@ void	store_u_int(long long int value)
 	send_buffer(ptr);
 	free (ptr);
 }
-
-
-
-
-
 
 
 

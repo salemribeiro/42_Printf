@@ -62,8 +62,8 @@ int main ()
 	ft_printf("result: %d\n",ft_printf("teste %.d fim\n", 10, i));
 	printf("result: %d\n",printf("%-*.*s\n", -7, -3, "yolo"));
 	ft_printf("result: %d\n",ft_printf("%-*.*s\n", -7, -3, "yolo"));*/
-	printf("result: %d\n",printf("%0*.*d\n", 1, 0, 0));
-	ft_printf("result: %d\n",ft_printf("%0*.*d\n", 1, 0, 0));
+	printf("result: %d\n",printf("%0*.*x\n", 1, 0, 0));
+	ft_printf("result: %d\n",ft_printf("%0*.*x\n", 1, 0, 0));
 
 	/*printf("result: %d\n",printf("teste %5p\n", 0));
 	ft_printf("result: %d\n",ft_printf("teste %5p\n", 0));*/

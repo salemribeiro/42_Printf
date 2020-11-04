@@ -14,8 +14,12 @@
 
 int			resolve_negative(int value, char option)
 {
-	if (valuei < 0 && option == 0)
+	if (value < 0 && option == 0)
+	{
 		value = value * (-1);
+		if ((g_opt.flags & MINUS) != MINUS)
+			g_opt.flags = g_opt.flags ^ MINUS;
+	}
 	else if (value < 0 && option == 1)
 		value = -2;
 	return(value);

@@ -15,13 +15,38 @@
 void	store_char (char c)
 {
 	char	value[2];
+	int		len;
+	char	*tmp;
+	int		width;
 
+	tmp = NULL;
 	if (c == '\0')
 		value[0] = -1;
 	else
 		value[0] = c;
 	value[1] = '\0';
-	send_buffer(value);
+	len = ft_strlen(value);
+	width = g_opt.width;
+	if (width > 0 && width > len)
+	{
+		tmp = manager_value(ft_strdup(""), width - len, ' ');
+		if ((g_opt.flags & MINUS) == MINUS)
+		{
+			send_buffer(value);
+			send_buffer(tmp);
+		}
+		else
+		{
+			send_buffer(tmp);
+			send_buffer(value);
+		}
+	}
+	else
+	{
+		send_buffer(value);
+	}
+	if (tmp)
+		free(tmp);
 }
 
 void	store_percent(int width, char flags)

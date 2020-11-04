@@ -23,10 +23,12 @@ char	*width_options(char *parameters)
 	int		i;
 	int		width;
 	char	*buffer;
+	int		valid;
 
 	i = 0;
 	width = -1;
 	buffer = NULL;
+	valid = (*parameters == '-') ? -1 : 0;
 	while (ft_isdigit(*parameters) || *parameters == '*')
 	{
 		buffer = add_buffer(*parameters, buffer, i++);
@@ -39,6 +41,8 @@ char	*width_options(char *parameters)
 		g_opt.width = width;
 		free(buffer);
 	}
+	if (valid)
+		g_opt.width = -1;
 	return (parameters);
 }
 

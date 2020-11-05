@@ -47,9 +47,9 @@ int main ()
 	printf("result: %d\n",printf("%7i\n", -14));
 	ft_printf("result: %d\n",ft_printf("%7i\n", -14));
 	printf("result: %d\n",printf("teste %+10d\n", -44));
-	ft_printf("result: %d\n",ft_printf("teste %+10d\n", -44));*/
+	ft_printf("result: %d\n",ft_printf("teste %+10d\n", -44));
 	printf("result: %d\n",printf("teste %-17ofim\n",10733));
-	ft_printf("result: %d\n",ft_printf("teste %-17ofim\n",10733));/*
+	ft_printf("result: %d\n",ft_printf("teste %-17ofim\n",10733));
 	printf("result: %d\n",printf("teste %-5p fim\n",i));
 	ft_printf("result: %d\n",ft_printf("teste %-5p fim\n",i));
 	printf("result: %d\n",printf("teste %.*ifim\n", 10, -3));
@@ -62,11 +62,13 @@ int main ()
 	printf("result: %d\n",printf("%-*.*s\n", -7, -3, "yolo"));
 	ft_printf("result: %d\n",ft_printf("%-*.*s\n", -7, -3, "yolo"));
 	printf("result: %d\n",printf("%0*.*x\n", 1, 0, 0));
-	ft_printf("result: %d\n",ft_printf("%0*.*x\n", 1, 0, 0));
-	printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL);
-	ft_printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL);
-
-	/*printf("result: %d\n",printf("teste %5p\n", 0));
+	ft_printf("result: %d\n",ft_printf("%0*.*x\n", 1, 0, 0));*/
+	printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s\n", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL);
+	ft_printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s\n", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL);
+	printf("%.s\n", NULL);
+	ft_printf("%.s\n", NULL);
+/*
+	printf("result: %d\n",printf("teste %5p\n", 0));
 	ft_printf("result: %d\n",ft_printf("teste %5p\n", 0));*/
 	return (0);
 

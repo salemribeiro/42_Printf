@@ -87,7 +87,7 @@ void	send_buffer(char *text)
 **  Funcao tem por finalidade limpar a estrutra da variavel global (g_opt)
 */
 
-void	clear_struct()
+void	clear_struct(char initial)
 {
 	int i;
 
@@ -97,7 +97,10 @@ void	clear_struct()
 	g_opt.precision = 0;
 	g_opt.length = 0;
 	g_opt.specifier = 0;
-	while(i < 2048)
-		g_opt.text[i++] = '\0';
-	g_opt.count = 0;
+	if (initial)
+	{
+		while(i < 2048)
+			g_opt.text[i++] = '\0';
+		g_opt.count = 0;
+	}
 }

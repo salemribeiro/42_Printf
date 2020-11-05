@@ -35,7 +35,7 @@ int			ft_printf(const char *format, ...)
 {
 	va_list		item;
 	int			len;
-	clear_struct();
+	clear_struct(1);
 	va_start(item, format);
 	len = 0;
 	while(search_percent((char*)format))
@@ -50,6 +50,7 @@ int			ft_printf(const char *format, ...)
 		if (g_opt.precision == -1)
 			g_opt.precision = resolve_negative(va_arg(item, int), 1);
 		message_arg_solve(item);
+		clear_struct(0);
 	}
 	message_buffer('\0');
 	len = g_opt.count;

@@ -14,4 +14,4 @@ jobs:
     - name: move
       run: cd ./42TESTERS-PRINTF
     - name: 42_test
-      run: ./runtest.sh
+      run: ./runtest.sh ../

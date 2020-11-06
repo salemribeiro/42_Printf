@@ -12,7 +12,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: make
-      run: make
     - name: 42_test
       run: ./42TESTERS-PRINTF/runtest.sh

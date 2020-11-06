@@ -8,7 +8,7 @@ int main()
 	unsigned char b;
 	char c;
 
-	a = -25;
+	a = 255;
 	b = 25;
 	c = (char)(unsigned char)a;
 	printf("%c%c%c\n\n", a, b, c);

@@ -6,13 +6,13 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 13:18:40 by salem             #+#    #+#             */
-/*   Updated: 2020/07/19 13:18:42 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/05 22:02:05 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	store_char (long int  c)
+void	store_char (char c)
 {
 	char	value[2];
 	int		len;
@@ -23,7 +23,7 @@ void	store_char (long int  c)
 	if (c == '\0')
 		value[0] = -1;
 	else
-		value[0] = (char)(unsigned char)c;
+		value[0] = c;
 	value[1] = '\0';
 	len = ft_strlen(value);
 	width = g_opt.width;

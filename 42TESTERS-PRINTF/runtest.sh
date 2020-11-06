@@ -96,5 +96,5 @@ else
 	echo
 	echo
 fi
-rm -rf results printf.txt ft.txt test.txt printf.out srcs/main_test_list.c srcs/main_test_list.c-e &> /dev/null
+#rm -rf results printf.txt ft.txt test.txt printf.out srcs/main_test_list.c srcs/main_test_list.c-e &> /dev/null
 make -C srcs/ fclean &> /dev/null

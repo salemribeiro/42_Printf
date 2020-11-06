@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/09/01 00:18:41 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/11/05 22:01:12 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	arg_integer(va_list item, char sp)
 void	arg_csp(va_list item, char sp)
 {
 	if (sp == 'c')
-		store_char((char)(unsigned char)va_arg(item, int));
+		store_char((char)va_arg(item, int));
 	else if (sp == 's')
 		store_string(va_arg(item, char*), g_opt.width, g_opt.precision, g_opt.flags);
 	else if (sp == 'p')

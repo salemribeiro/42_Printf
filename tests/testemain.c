@@ -20,7 +20,7 @@ int main ()
 
 	i = 20;
 	a = 12;
-	/*printf("%d\n", printf("%"));
+	printf("%d\n", printf("%"));
 	ft_printf("%d\n", ft_printf("%"));
 	printf("%d\n", printf("%5%\n"));
 	ft_printf("%d\n", ft_printf("%5%\n"));
@@ -68,7 +68,7 @@ int main ()
 	printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s\n", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL);
 	ft_printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s\n", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL);
 	printf("%.s\n", NULL);
-	ft_printf("%.s\n", NULL);i*/
+	ft_printf("%.s\n", NULL);
 	ft_printf(" --- Return : %d\n", ft_printf("%c,  %-c, %1c, %*c,  %-*c,  %*c", -12, -1, -255, a, -12,     a, -1, a, -255));
 
 /*

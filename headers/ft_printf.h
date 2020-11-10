@@ -33,6 +33,7 @@
 # define SPECIFIERS1	"uoxXcspn"
 # define SPECIFIERS2	"diucspn"
 # define SPECIFIERS3	"cpn"
+# define END_TEXT		256
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -60,7 +61,7 @@ struct s_opt
 
 int		ft_printf(const char *format, ...);
 char	search_percent(char *text);
-int		message_buffer(char c);
+int		message_buffer(int c);
 char	*add_buffer(char c, char *buffer, int size);
 void	send_buffer(char *text);
 void	clear_struct(char initial);
@@ -105,7 +106,7 @@ char		*resize_result(char *result, char c, int size);
 **                 Functions for print on screen
 **-----------------------------------------------------------------------------
 */
-int			ft_printstr(char *text);
+int			ft_printstr(char *text, int size);
 
 /*
 **-----------------------------------------------------------------------------

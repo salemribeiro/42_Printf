@@ -11,32 +11,10 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-int		ft_printstr(char *text)
+int		ft_printstr(char *text, int size)
 {
-	int i;
-	int j;
-	int k;
-	char c;
-
-	i = 0;
-	j = 0;
-	k = 0;
-	c = '\0';
-	while (text[i])
-	{
-		if (text[i] == -1)
-		{
-			g_opt.count += (int)write(1, &text[j], k);
-			g_opt.count += (int)write(1,&c, 1);
-			j = i + 1;
-			k = -1;
-		}
-		i++;
-		k++;
-	}
-	if (i > 0)
-		g_opt.count += (int)write(1, &text[j], k);
-	return (i);
+	g_opt.count += (int)write(1, &text[0], size);
+	return (size);
 }
 
 void	create_buffer()

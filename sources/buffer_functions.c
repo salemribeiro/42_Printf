@@ -18,25 +18,25 @@
 **  Ela reponsavel por unir o ponteiro de char com o caractere recebido,
 ** retornando o resultado dessa uniao.
 */
-/* VERIFICAR A REAL NECESSIDADE DESSA FUNCAO*/
+
 char	*add_buffer(char c, char *buffer, int size)
 {
 	int i;
-	char *temp;
+	char *tmp;
 
 	i = 0;
-	temp = ft_calloc(size + 2, sizeof(c));
+	tmp = ft_calloc(size + 2, sizeof(c));
 	if (buffer)
 	{
 		while (buffer[i])
 		{
-			temp[i] = buffer[i];
+			tmp[i] = buffer[i];
 			i++;
 		}
 		free(buffer);
 	}
-	temp[i] = c;
-	return (temp);
+	tmp[i] = c;
+	return (tmp);
 }
 
 /*
@@ -45,24 +45,22 @@ char	*add_buffer(char c, char *buffer, int size)
 ** de caracteres impressos.
 */
 
-int		message_buffer(char c)
+int		message_buffer(int c)
 {
 	static int	i;
 	int			total;
 
 	total = 0;
-	if (i == (2048 - 1) || c == '\0')
+	if (i == (2048 - 1) || c == END_TEXT)
 	{
 		g_opt.text[i] = c;
-		total = ft_printstr(g_opt.text);
+		total = ft_printstr(g_opt.text, i);
 		i = 0;
 		g_opt.text[i] = '\0';
 		return(total);
 	}
 	else if (i < 2048)
-	{
 		g_opt.text[i] = c;
-	}
 	i++;
 	return(0);
 }
@@ -78,7 +76,7 @@ void	send_buffer(char *text)
 	i = 0;
 	while (text[i])
 	{
-		message_buffer(text[i]);
+		message_buffer((int)text[i]);
 		i++;
 	}
 }

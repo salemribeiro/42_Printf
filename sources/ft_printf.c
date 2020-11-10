@@ -52,7 +52,7 @@ int			ft_printf(const char *format, ...)
 		message_arg_solve(item);
 		clear_struct(0);
 	}
-	message_buffer('\0');
+	message_buffer(END_TEXT);
 	len = g_opt.count;
 	g_opt.count = 0;
 	va_end(item);

@@ -17,10 +17,17 @@ int main ()
 {
 	int		i;
 	int		a;
+	char valor[4];
+	valor[0] = 0xc5;
+	valor[1] = 0x93;
+	valor[2] = 0xc3;
+	valor[3] = '\0';
+	
+	
 
 	i = 20;
 	a = 12;
-	printf("%d\n", printf("%"));
+/*	printf("%d\n", printf("%"));
 	ft_printf("%d\n", ft_printf("%"));
 	printf("%d\n", printf("%5%\n"));
 	ft_printf("%d\n", ft_printf("%5%\n"));
@@ -71,9 +78,9 @@ int main ()
 	ft_printf("%.s\n", NULL);
 	ft_printf(" --- Return : %d\n", ft_printf("%c,  %-c, %1c, %*c,  %-*c,  %*c", -12, -1, -255, a, -12,     a, -1, a, -255));
 
-/*
-	printf("result: %d\n",printf("teste %5p\n", 0));
-	ft_printf("result: %d\n",ft_printf("teste %5p\n", 0));*/
+*/
+	printf("result: %d\n",printf("teste %s\n", valor));
+	ft_printf("result: %d\n",ft_printf("teste %s\n", valor));
 	return (0);
 
 }

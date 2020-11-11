@@ -48,16 +48,14 @@ char	*add_buffer(char c, char *buffer, int size)
 int		message_buffer(int c)
 {
 	static int	i;
-	int			total;
 
-	total = 0;
 	if (i == (2048 - 1) || c == END_TEXT)
 	{
 		g_opt.text[i] = (char)c;
-		total = ft_printstr(g_opt.text, i);
+		ft_printstr(g_opt.text, i);
 		i = 0;
 		g_opt.text[i] = '\0';
-		return(total);
+		return(0);
 	}
 	else if (i < 2048)
 		g_opt.text[i] = (char)c;

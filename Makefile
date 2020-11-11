@@ -59,6 +59,7 @@ start :
 	@echo "| mail: sfreitas@student.42sp.org.br           |"
 	@echo "------------------------------------------------"
 	@echo "                            creating objects... "
+
 libftprintf.a : $(OBJ)
 	@echo "+ Criando link libft_printf.h"
 	@ar -rcs $@ $^
@@ -71,12 +72,15 @@ clean :
 	@echo "                      removing objects files..."
 	@rm $(PATHOBJ)*.o
 	@echo "                                       DONE !!!"
+
 fclean : clean
 	@echo "                                removing lib..."
 	@rm libftprintf.a
 	@echo "                                       DONE !!!"
+
 re : fclean all
+
 test : all
-	$(CC) -g -I ./headers tests/testemain.c -lftprintf -L .
+	$(CC) -g -I ./headers tests/main.c -lftprintf -L .
 	@clear
 	@./a.out

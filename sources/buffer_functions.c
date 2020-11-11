@@ -53,14 +53,14 @@ int		message_buffer(int c)
 	total = 0;
 	if (i == (2048 - 1) || c == END_TEXT)
 	{
-		g_opt.text[i] = c;
+		g_opt.text[i] = (char)c;
 		total = ft_printstr(g_opt.text, i);
 		i = 0;
 		g_opt.text[i] = '\0';
 		return(total);
 	}
 	else if (i < 2048)
-		g_opt.text[i] = c;
+		g_opt.text[i] = (char)c;
 	i++;
 	return(0);
 }

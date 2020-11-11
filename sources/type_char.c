@@ -14,37 +14,27 @@
 
 void	store_char (char c)
 {
-	char	value[2];
-	int		len;
 	char	*tmp;
 	int		width;
 
 	tmp = NULL;
-	if (c == '\0')
-		value[0] = -1;
-	else
-		value[0] = c;
-	value[1] = '\0';
-	len = ft_strlen(value);
 	width = g_opt.width;
-	if (width > 0 && width > len)
+	if (width > 1)
 	{
-		tmp = manager_value(ft_strdup(""), width - len, ' ');
+		tmp = manager_value(ft_strdup(""), width - 1, ' ');
 		if ((g_opt.flags & MINUS) == MINUS)
 		{
-			send_buffer(value);
+			message_buffer(c);
 			send_buffer(tmp);
 		}
 		else
 		{
 			send_buffer(tmp);
-			send_buffer(value);
+			message_buffer(c);
 		}
 	}
 	else
-	{
-		send_buffer(value);
-	}
+		message_buffer(c);
 	if (tmp)
 		free(tmp);
 }

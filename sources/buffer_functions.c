@@ -48,17 +48,24 @@ char	*add_buffer(char c, char *buffer, int size)
 int		message_buffer(int c)
 {
 	static int	i;
+	char carac;
 
-	if (i >= 5 || c == END_TEXT)
+	carac = (char)c;
+	if (i >= 2048 || c == END_TEXT)
 	{
 		if (c != END_TEXT)
-			g_opt.text[i] = (char)c;
-		ft_printstr(g_opt.text, i);
+		{
+			g_opt.text[i] = carac;
+			ft_printstr(g_opt.text, ++i);
+		}
+		else
+			ft_printstr(g_opt.text, i);
+			
 		i = 0;
 		return(0);
 	}
-	else if (i < 5)
-		g_opt.text[i] = (char)c;
+	else if (i < 2048)
+		g_opt.text[i] = carac;
 	i++;
 	return(0);
 }

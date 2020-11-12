@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:47:21 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/09/02 00:29:01 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/11/11 22:14:56 by sfreitas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ int		message_buffer(int c)
 {
 	static int	i;
 
-	if (i == (2048 - 1) || c == END_TEXT)
+	if (i >= 5 || c == END_TEXT)
 	{
-		g_opt.text[i] = (char)c;
+		if (c != END_TEXT)
+			g_opt.text[i] = (char)c;
 		ft_printstr(g_opt.text, i);
 		i = 0;
-		g_opt.text[i] = '\0';
 		return(0);
 	}
-	else if (i < 2048)
+	else if (i < 5)
 		g_opt.text[i] = (char)c;
 	i++;
 	return(0);

@@ -6,7 +6,7 @@
 #    By: salem <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/06 09:08:01 by salem             #+#    #+#              #
-#    Updated: 2020/10/24 16:35:47 by sfreitas         ###   ########.fr        #
+#    Updated: 2020/11/11 22:09:25 by sfreitas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,6 @@ fclean : clean
 re : fclean all
 
 test : all
-	$(CC) -g -I ./headers tests/testemain.c -lftprintf -L .
+	$(CC) -g -I ./headers tests/main.c -lftprintf -L .
 	@clear
 	@./a.out

@@ -81,6 +81,6 @@ fclean : clean
 re : fclean all
 
 test : all
-	$(CC) -g -I ./headers tests/main.c -lftprintf -L .
+	$(CC) -g -I ./headers tests/oldmain.c -lftprintf -L .
 	@clear
 	@./a.out

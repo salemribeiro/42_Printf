@@ -42,7 +42,7 @@ char	*flag_options(char *parameters, char specifier)
 **  Recebe um inteiro char "flags" e executa uma série de verificacoes
 ** corrigindo suas incompatibilidades por ordem de importancia, retornando um
 ** inteiro char com as correcoes aplicadas.
-**  Foi desenhado dessa forma para os tratamentos poderem ser chamados em
+**  Foi desenhado dessa forma para que os tratamentos poderem ser chamados em
 ** qualquer parte do codigo
 */
 

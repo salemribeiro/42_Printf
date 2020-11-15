@@ -154,31 +154,6 @@ void	store_u_int(long long int value)
 	free (ptr);
 }
 
-
-
-
-/*void	store_u_int(long long int value)
-{
-	char	*text;
-	int		len;
-
-	text = ft_u_itoa_base(convert_u_int(value));
-	len = ft_strlen(text);
-	if (g_opt.precision > 0 && ft_strlen(text))
-		text = manager_value(text, g_opt.precision, '0');
-	if ((g_opt.flags & PLUS) == PLUS)
-		text = ft_strjoin("+", text);
-	if (g_opt.width > 0 && len)
-	{
-		if ((g_opt.flags & ZERO) != ZERO)
-			text = manager_value(text, g_opt.width, ' ');
-		else
-			text = manager_value(text, g_opt.width, '0');
-	}
-	send_buffer(text);
-	free (text);
-}*/
-
 long long int	convert_int(long long int value)
 {
 	if (g_opt.length == LONG)

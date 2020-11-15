@@ -48,14 +48,12 @@ char	*add_buffer(char c, char *buffer, int size)
 int		message_buffer(int c)
 {
 	static int	i;
-	char carac;
 
-	carac = (char)c;
 	if (i >= 2048 || c == END_TEXT)
 	{
 		if (c != END_TEXT)
 		{
-			g_opt.text[i] = carac;
+			g_opt.text[i] = (char)c;
 			ft_printstr(g_opt.text, ++i);
 		}
 		else
@@ -65,7 +63,7 @@ int		message_buffer(int c)
 		return(0);
 	}
 	else if (i < 2048)
-		g_opt.text[i] = carac;
+		g_opt.text[i] = (char)c;
 	i++;
 	return(0);
 }
@@ -80,17 +78,14 @@ void	send_buffer(char *text)
 
 	i = 0;
 	while (text[i])
-	{
-		message_buffer((int)text[i]);
-		i++;
-	}
+		message_buffer((int)text[i++]);
 }
 
 /*
 **  Funcao tem por finalidade limpar a estrutra da variavel global (g_opt)
 */
 
-void	clear_struct(char initial)
+void	clear_struct(char print)
 {
 	int i;
 
@@ -100,7 +95,7 @@ void	clear_struct(char initial)
 	g_opt.precision = 0;
 	g_opt.length = 0;
 	g_opt.specifier = 0;
-	if (initial)
+	if (print)
 	{
 		while(i < 2048)
 			g_opt.text[i++] = '\0';

@@ -43,7 +43,10 @@ void	store_int(long long int value)
 		ptr = ft_strdup("");
 	}
 	else if (g_opt.precision && value)
-		*ptr= '\0';
+	{
+		free (ptr);	
+		ptr = ft_strdup("");
+	}
 
 	if ((g_opt.flags & ZERO) == ZERO && g_opt.precision > 0)
 		g_opt.flags = g_opt.flags ^ ZERO;

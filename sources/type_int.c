@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 13:19:01 by salem             #+#    #+#             */
-/*   Updated: 2020/11/26 23:57:47 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/27 00:06:41 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,11 @@ void	store_int(long long int value)
 		free (ptr);	
 		ptr = ft_strdup("");
 	}
-<<<<<<< HEAD
 	else if (g_opt.precision && value)
 	{
 		free (ptr);	
 		ptr = ft_strdup("");
 	}
-=======
->>>>>>> 9d30f67df9246db6f67d5b7411441b2fb53aef2d
 
 	if ((g_opt.flags & ZERO) == ZERO && g_opt.precision > 0)
 		g_opt.flags = g_opt.flags ^ ZERO;

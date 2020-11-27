@@ -6,11 +6,14 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 13:19:01 by salem             #+#    #+#             */
-/*   Updated: 2020/08/22 11:52:55 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/11/26 23:41:26 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+
+char	*zero_flag
 
 void	store_int(long long int value)
 {
@@ -36,7 +39,7 @@ void	store_int(long long int value)
 			free(tmp);
 		}
 	}
-	else if (g_opt.precision == 0  && value == 0)
+	else if (g_opt.precision && value)
 	{
 		free (ptr);
 		ptr = ft_strdup("");

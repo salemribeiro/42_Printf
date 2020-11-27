@@ -12,6 +12,11 @@
 
 #include "ft_printf.h"
 
+
+char	*put_signal(char *ptr, char *signal);
+
+
+
 void	store_int(long long int value)
 {
 	char	*ptr;
@@ -29,24 +34,22 @@ void	store_int(long long int value)
 	if (g_opt.precision && g_opt.precision >= len)
 	{
 		ptr = manager_value(ptr, g_opt.precision, '0');
-		if (signal == -1)
-		{
-			tmp = ptr;
-			ptr = ft_strjoin("-", ptr);
-			signal = 1;
-			free(tmp);
-		}
-	}
-	else if (g_opt.precision && value)
-	{
-		free (ptr);
-		ptr = ft_strdup("");
+		ptr = (signal == -1) ? put_signal(ptr, "-") : ptr;
+		signal = 1;
 	}
 	else if (g_opt.precision && value)
 	{
 		free (ptr);	
 		ptr = ft_strdup("");
 	}
+<<<<<<< HEAD
+	else if (g_opt.precision && value)
+	{
+		free (ptr);	
+		ptr = ft_strdup("");
+	}
+=======
+>>>>>>> 9d30f67df9246db6f67d5b7411441b2fb53aef2d
 
 	if ((g_opt.flags & ZERO) == ZERO && g_opt.precision > 0)
 		g_opt.flags = g_opt.flags ^ ZERO;

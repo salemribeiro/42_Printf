@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:47:21 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/11/11 22:14:56 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/11/27 20:55:36 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 char	*add_buffer(char c, char *buffer, int size)
 {
-	int i;
-	char *tmp;
+	int		i;
+	char	*tmp;
 
 	i = 0;
 	tmp = ft_calloc(size + 2, sizeof(c));
@@ -58,14 +58,13 @@ int		message_buffer(int c)
 		}
 		else
 			ft_printstr(g_opt.text, i);
-			
 		i = 0;
-		return(0);
+		return (0);
 	}
 	else if (i < 2048)
 		g_opt.text[i] = (char)c;
 	i++;
-	return(0);
+	return (0);
 }
 
 /*
@@ -97,7 +96,7 @@ void	clear_struct(char print)
 	g_opt.specifier = 0;
 	if (print)
 	{
-		while(i < 2048)
+		while (i < 2048)
 			g_opt.text[i++] = '\0';
 		g_opt.count = 0;
 	}

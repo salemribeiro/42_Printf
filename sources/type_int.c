@@ -6,7 +6,7 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 13:19:01 by salem             #+#    #+#             */
-/*   Updated: 2020/11/28 18:19:56 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/28 19:09:35 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,53 @@ char	*manager_precision(char *ptr, long long int value, int *signal, int len)
 	return (ptr);
 }
 
+char	*manager_width(char *ptr, char **tmp, int *signal)
+{
+		if ((g_opt.flags & ZERO) == ZERO && g_opt.precision != 0)
+		{
+			g_opt.width = (*signal == -1 && g_opt.width > 0) ?
+			g_opt.width -1 : g_opt.width;
+			ptr = manager_value(ptr, g_opt.width, '0');
+			if (*signal == -1)
+			{
+				*tmp = ptr;
+				ptr = ft_strjoin("-", ptr);
+			}
+		}
+		else
+		{
+			if(ptr[0] != '-' && *signal == -1)
+			{
+				*tmp = ptr;
+				ptr = ft_strjoin("-", ptr);
+			}
+			ptr = manager_value(ptr, g_opt.width, ' ');
+		}
+	return (ptr);
+}
 
+char	*manager_minus(char *ptr, char **tmp, int *signal, char *caractere)
+{
+	int len;
+
+	len = ft_strlen(ptr);
+	if ((g_opt.flags & MINUS) == MINUS)
+	{
+		if (*signal == 1)
+			ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
+			g_opt.width - len, *caractere));
+		else
+		{
+			ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
+			g_opt.width - len - 1, *caractere));
+			*tmp = ptr;
+			ptr = ft_strjoin("-", ptr);
+		}
+	}
+	else
+		ptr = manager_width(ptr, tmp, signal);
+	return (ptr);
+}
 
 void	store_int(long long int value)
 {
@@ -50,53 +96,12 @@ void	store_int(long long int value)
 	ptr = ft_itoa(value);
 	len = ft_strlen(ptr);
 	caractere = ' ';
-	
 	ptr = manager_precision(ptr, value, &signal, len);
-	
 	if ((g_opt.flags & ZERO) == ZERO && g_opt.precision > 0)
 		g_opt.flags = g_opt.flags ^ ZERO;
-	
 	len = ft_strlen(ptr);
 	tmp = NULL;
-	
-	
-	
-	if ((g_opt.flags & MINUS) == MINUS)
-	{
-		if (signal == 1)
-			ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
-			g_opt.width - len, caractere));
-		else
-		{
-			ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
-			g_opt.width - len - 1, caractere));
-			tmp = ptr;
-			ptr = ft_strjoin("-", ptr);
-		}
-	}
-	else
-	{
-		if ((g_opt.flags & ZERO) == ZERO && g_opt.precision != 0)
-		{
-			g_opt.width = (signal == -1 && g_opt.width > 0) ?
-			g_opt.width -1 : g_opt.width;
-			ptr = manager_value(ptr, g_opt.width, '0');
-			if (signal == -1)
-			{
-				tmp = ptr;
-				ptr = ft_strjoin("-", ptr);
-			}
-		}
-		else
-		{
-			if(ptr[0] != '-' && signal == -1)
-			{
-				tmp = ptr;
-				ptr = ft_strjoin("-", ptr);
-			}
-			ptr = manager_value(ptr, g_opt.width, ' ');
-		}
-	}
+	ptr = manager_minus(ptr, &tmp, &signal, &caractere);
 	if (tmp)
 		free(tmp);
 	send_buffer(ptr);

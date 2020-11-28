@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   testemain.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 09:16:50 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/24 22:19:00 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/11/28 11:03:21 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main ()
 
 	i = 20;
 	a = 12;
-/*	printf("%d\n", printf("%"));
+	printf("%d\n", printf("%"));
 	ft_printf("%d\n", ft_printf("%"));
 	printf("%d\n", printf("%5%\n"));
 	ft_printf("%d\n", ft_printf("%5%\n"));
@@ -78,7 +78,7 @@ int main ()
 	ft_printf("%.s\n", NULL);
 	ft_printf(" --- Return : %d\n", ft_printf("%c,  %-c, %1c, %*c,  %-*c,  %*c", -12, -1, -255, a, -12,     a, -1, a, -255));
 
-*/
+
 	printf("result: %d\n",printf("teste %s\n", valor));
 	ft_printf("result: %d\n",ft_printf("teste %s\n", valor));
 	return (0);

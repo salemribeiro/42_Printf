@@ -6,13 +6,13 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 13:19:01 by salem             #+#    #+#             */
-/*   Updated: 2020/11/28 10:35:56 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/28 10:48:41 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*manager_precision(char *ptr, long long int value, int signal, int len)
+int		manager_precision(char *ptr, long long int value, int signal, int len)
 {
 	char	*tmp;
 
@@ -32,7 +32,7 @@ char	*manager_precision(char *ptr, long long int value, int signal, int len)
 		free (ptr);
 		ptr = ft_strdup("");
 	}
-	return (ptr);
+	return (signal);
 }
 
 
@@ -51,7 +51,7 @@ void	store_int(long long int value)
 	len = ft_strlen(ptr);
 	caractere = ' ';
 	
-	ptr = manager_precision(ptr, value, signal, len);
+	signal = manager_precision(ptr, value, signal, len);
 	
 	if ((g_opt.flags & ZERO) == ZERO && g_opt.precision > 0)
 		g_opt.flags = g_opt.flags ^ ZERO;

@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 12:19:07 by salem             #+#    #+#             */
-/*   Updated: 2020/11/29 15:23:42 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/29 19:17:21 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,34 @@ char	*put_hex(char *ptr)
 	return (ptr);
 }
 
+char	*manager_minus_hash(char *ptr, char **tmp, char **val, int len)
+{
+	if ((g_opt.flags & MINUS) == MINUS)
+	{
+		ptr = (g_opt.flags & HASH) == HASH ? put_hex(ptr) : ptr;
+		*tmp = ptr;
+		len = ft_strlen(ptr);
+		*val = manager_value(ft_strdup(""), g_opt.width - len, ' ');
+		ptr = ft_strjoin(ptr, *val);
+		free(*val);
+		free(*tmp);
+	}
+	else
+	{
+		if ((g_opt.flags & ZERO) == ZERO && g_opt.precision != 0)
+		{
+			ptr = manager_value(ptr, g_opt.width, '0');
+			ptr = (g_opt.flags & HASH) == HASH ? put_hex(ptr) : ptr;
+		}
+		else
+		{
+			ptr = (g_opt.flags & HASH) == HASH ? put_hex(ptr) : ptr;
+			ptr = manager_value(ptr, g_opt.width, ' ');
+		}
+	}
+	return (ptr);
+}
+
 void	store_u_int(long long int value)
 {
 	char	*ptr;
@@ -57,29 +85,7 @@ void	store_u_int(long long int value)
 	if ((g_opt.flags & ZERO) == ZERO && g_opt.precision > 0)
 		g_opt.flags = g_opt.flags ^ ZERO;
 	len = ft_strlen(ptr);
-	if ((g_opt.flags & MINUS) == MINUS)
-	{
-		ptr = (g_opt.flags & HASH) == HASH ? put_hex(ptr) : ptr;
-		tmp = ptr;
-		len = ft_strlen(ptr);
-		val = manager_value(ft_strdup(""), g_opt.width - len, ' ');
-		ptr = ft_strjoin(ptr, val);
-		free (val);
-		free (tmp);
-	}
-	else
-	{
-		if ((g_opt.flags & ZERO) == ZERO && g_opt.precision != 0)
-		{
-			ptr = manager_value(ptr, g_opt.width, '0');
-			ptr = (g_opt.flags & HASH) == HASH ? put_hex(ptr) : ptr;
-		}
-		else
-		{
-			ptr = (g_opt.flags & HASH) == HASH ? put_hex(ptr) : ptr;
-			ptr = manager_value(ptr, g_opt.width, ' ');
-		}
-	}
+	ptr = manager_minus_hash(ptr, &tmp, &val, len);
 	send_buffer(ptr);
 	free(ptr);
 }

@@ -6,11 +6,11 @@
 #    By: salem <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/06 09:08:01 by salem             #+#    #+#              #
-#    Updated: 2020/11/29 12:44:53 by salem            ###   ########.fr        #
+#    Updated: 2020/11/29 15:42:44 by salem            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		= gcc
+CC		= gcc 
 FLAGS	= -Wall -Werror -Wextra -c -o
 NAME	= libftprintf.a
 

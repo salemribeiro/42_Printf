@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   width_and_precision_options.c                      :+:      :+:    :+:   */
+/*   wid_pre_len.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/17 20:33:47 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/11/29 13:04:53 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,23 @@ char	*width_options(char *parameters)
 	return (parameters);
 }
 
+int		clear_precision_buffer(char **buffer, int precision)
+{
+	if (*buffer)
+	{
+		precision = ft_atoi(*buffer);
+		free(*buffer);
+	}
+	return (precision);
+}
+
 /*
 **  Funcao recebe um ponteiro de char "*parameters" busca por informacoes do
 ** precision envia essas informacoes para a estrutura global "opt.precision" e
 ** avanca o ponteiro para posicao final de indicacao de precision e retorna o
 ** mesmo.
 */
+
 char	*precision_options(char *parameters)
 {
 	int		i;
@@ -75,14 +86,8 @@ char	*precision_options(char *parameters)
 		}
 		else if (*parameters == '*')
 			precision = -1;
-		
 	}
-	if (buffer)
-	{
-		precision = ft_atoi(buffer);
-		free(buffer);
-	}
-	g_opt.precision = precision;
+	g_opt.precision = clear_precision_buffer(&buffer, precision);
 	return (parameters);
 }
 
@@ -105,7 +110,7 @@ char	*length_options(char *parameters)
 	if (*parameters)
 	{
 		while (*parameters == 'h' || *parameters == 'l' || *parameters == 'j' ||
-			*parameters == 'z' || *parameters == 't' || *parameters =='L')
+			*parameters == 'z' || *parameters == 't' || *parameters == 'L')
 		{
 			buffer = add_buffer(*parameters, buffer, i);
 			length = (int)*((short int*)buffer);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   type_double.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/28 21:40:52 by salem             #+#    #+#             */
+/*   Updated: 2020/11/28 21:50:15 by salem            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 /*
@@ -6,7 +18,7 @@
 **   o arredondamento.
 */
 
-void	 store_float(long double value)
+void	store_float(long double value)
 {
 	if (value < 0)
 	{
@@ -14,7 +26,7 @@ void	 store_float(long double value)
 		value = value * (-1);
 	}
 	if (g_opt.precision == -2)
-			g_opt.precision = 6;
+		g_opt.precision = 6;
 	convert_char(value, g_opt.precision);
 }
 
@@ -74,7 +86,7 @@ int		round_number(char *value, int precision)
 		{
 			value[i - 1]++;
 			value[precision] = '\0';
-			return(0);
+			return (0);
 		}
 		else if (value[i - 1] == '9')
 			value[i - 1] = -1;
@@ -91,7 +103,7 @@ int		remove_zero(char *value)
 	int i;
 
 	i = ft_strlen(value) - 1;
-	while(value[i] == '0')
+	while (value[i] == '0')
 		value[i--] = '\0';
 	return (0);
 }

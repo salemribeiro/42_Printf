@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   type_sci.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/28 21:59:36 by salem             #+#    #+#             */
+/*   Updated: 2020/11/28 23:02:57 by salem            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int		store_sci(long double value)
@@ -21,7 +33,7 @@ int		count_expoent(long double value)
 	int i;
 
 	i = 0;
-	while (value > 0  && (value < 1 || value >= 10))
+	while (value > 0 && (value < 1 || value >= 10))
 	{
 		if (value < 1)
 		{
@@ -47,7 +59,6 @@ int		solve_expoent(int value)
 		message_buffer('e');
 	else if (g_opt.specifier == 'E' || g_opt.specifier == 'G')
 		message_buffer('E');
-
 	if (value < 0)
 	{
 		message_buffer('-');
@@ -59,6 +70,6 @@ int		solve_expoent(int value)
 		message_buffer('0');
 	ptr = ft_itoa(value);
 	send_buffer(ptr);
-	free (ptr);
-	return(0);
+	free(ptr);
+	return (0);
 }

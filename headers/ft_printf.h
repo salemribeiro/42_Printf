@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/04/29 22:58:33 by sfreitas         ###   ########.fr       */
+/*   Created: 2020/11/29 10:27:40 by salem             #+#    #+#             */
+/*   Updated: 2020/11/29 13:21:15 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
-# define PLUS	1
-# define MINUS	2
-# define HASH	4
-# define ZERO	8
-# define SPACE	16
-
-# define LLONG	0x4C
-# define LL 	0x6C6C
-# define LONG	0x6C
-# define HH		0x6868
-# define H		0x68
-# define J		0x6A
-# define T		0x74
-# define Z		0x7A
-
+# define PLUS			1
+# define MINUS			2
+# define HASH			4
+# define ZERO			8
+# define SPACE			16
+# define LLONG			0x4C
+# define LL 			0x6C6C
+# define LONG			0x6C
+# define HH				0x6868
+# define H				0x68
+# define J				0x6A
+# define T				0x74
+# define Z				0x7A
 # define SPECIFIERS		"diuoxXfFeEgGaAcspn%"
 # define SPECIFIERS1	"uoxXcspn"
 # define SPECIFIERS2	"diucspn"
@@ -41,7 +37,9 @@
 # include <fcntl.h>
 # include <stdarg.h>
 
-struct s_opt
+typedef long long int			t_lli;
+typedef unsigned long long int	t_ulli;
+struct	s_opt
 {
 	char	flags;
 	int		width;
@@ -50,7 +48,7 @@ struct s_opt
 	char	specifier;
 	char	text[2048];
 	int		count;
-} g_opt;
+}g_opt;
 
 /*
 ** ----------------------------------------------------------------------------
@@ -59,10 +57,10 @@ struct s_opt
 **-----------------------------------------------------------------------------
 */
 
-int		ft_printf(const char *format, ...);
 char	search_percent(char *text);
-int		message_buffer(int c);
 char	*add_buffer(char c, char *buffer, int size);
+int		ft_printf(const char *format, ...);
+int		message_buffer(int c);
 void	send_buffer(char *text);
 void	clear_struct(char initial);
 
@@ -73,17 +71,17 @@ void	clear_struct(char initial);
 **-----------------------------------------------------------------------------
 */
 
-int			specifier_options(char *subtext);
-char		*flag_options(char *parameters, char specifier);
-char		solve_incompatible(char flags, char specifier);
-char		solve_plus(char flags, char specifier);
-char		solve_minus(char flags, char specifier);
-char		solve_hash(char flags, char specifier);
-char		solve_zero(char flags, char specifier);
-char		solve_space(char flags, char specifier);
-char		*width_options(char *parameters);
-char		*precision_options(char *parameters);
-char		*length_options(char *parameters);
+char	solve_incompatible(char flags, char specifier);
+char	solve_plus(char flags, char specifier);
+char	solve_minus(char flags, char specifier);
+char	solve_hash(char flags, char specifier);
+char	solve_zero(char flags, char specifier);
+char	solve_space(char flags, char specifier);
+char	*width_options(char *parameters);
+char	*precision_options(char *parameters);
+char	*length_options(char *parameters);
+char	*flag_options(char *parameters, char specifier);
+int		specifier_options(char *subtext);
 
 /*
 **-----------------------------------------------------------------------------
@@ -92,13 +90,13 @@ char		*length_options(char *parameters);
 **-----------------------------------------------------------------------------
 */
 
-void		message_arg_solve(va_list list);
-void		store_int (long long int value);
-void		store_float (long double value);
-void		store_char (char c);
-void		store_string(char *text, int width, int precision, char flags);
-char	    *manager_value(char *source, int total, char c);
-char		*resize_result(char *result, char c, int size);
+char	*manager_value(char *source, int total, char c);
+char	*resize_result(char *result, char c, int size);
+void	message_arg_solve(va_list list);
+void	store_int (t_lli value);
+void	store_float (long double value);
+void	store_char (char c);
+void	store_string(char *text, int width, int precision, char flags);
 
 /*
 **-----------------------------------------------------------------------------
@@ -106,7 +104,7 @@ char		*resize_result(char *result, char c, int size);
 **                 Functions for print on screen
 **-----------------------------------------------------------------------------
 */
-int			ft_printstr(char *text, int size);
+int		ft_printstr(char *text, int size);
 
 /*
 **-----------------------------------------------------------------------------
@@ -114,28 +112,28 @@ int			ft_printstr(char *text, int size);
 **         Functions to convert base and convert int for string
 **-----------------------------------------------------------------------------
 */
-char	*ft_itoa_base(long long int n);
-char	*get_base(long long int value, int b);
+char	*ft_itoa_base(t_lli n);
+char	*get_base(t_lli value, int b);
 char	*str_toupper(char *source);
-long long int	convert_int(long long int value);
-void	create_buffer();
-void	store_u_int(long long int value);
-unsigned long long int	convert_u_int(long long int value);
-char	*ft_u_itoa_base(unsigned long long int n);
+char	*ft_u_itoa_base(t_ulli n);
+char	*get_u_base(t_ulli value, int b);
 int		convert_char(long double value, int precision);
-char	*get_u_base(unsigned long long int value, int b);
-unsigned long long int	store_pointer(void *ptr);
 int		round_number(char *value, int precision);
-int		mount_float(long long int eint, char *dint);
+int		mount_float(t_lli eint, char *dint);
 int		store_sci(long double value);
 int		count_expoent(long double value);
 int		solve_expoent(int value);
 int		count_value(long double value, int precision);
-void	store_dgeneric(long double value);
 int		remove_zero(char *value);
+int		create_buffer();
+void	store_u_int(t_lli value);
+void	store_dgeneric(long double value);
 void	arg_integer(va_list item, char sp);
 void	arg_csp(va_list item, char sp);
 void	arg_double(va_list item, char sp);
+t_lli	convert_int(t_lli value);
+t_ulli	convert_u_int(t_lli value);
+t_ulli	store_pointer(void *ptr);
 
 /*
 **-----------------------------------------------------------------------------
@@ -144,16 +142,17 @@ void	arg_double(va_list item, char sp);
 **-----------------------------------------------------------------------------
 */
 
-long long int	ft_atoi(const char *str);
-void			ft_bzero(void *source, size_t len);
-void			*ft_calloc(size_t count, size_t size);
-int				ft_isdigit(int caracter);
-char			*ft_itoa(long long int);
-char			*ft_strdup(const char *src);
-char			*ft_strjoin(char const *s1, char const *s2);
-size_t			ft_strlcpy(char *dest, const char *src, size_t size);
-size_t			ft_strlen(const char *source);
-char			*ft_substr(char const *s, unsigned int start, size_t len);
-int				ft_toupper(int caracter);
-void			store_percent(int width, char flags);
+char	*ft_itoa(t_lli value);
+char	*ft_strdup(const char *src);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+int		ft_isdigit(int caracter);
+int		ft_toupper(int caracter);
+void	store_percent(int width, char flags);
+void	ft_bzero(void *source, size_t len);
+void	*ft_calloc(size_t count, size_t size);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+size_t	ft_strlen(const char *source);
+t_lli	ft_atoi(const char *str);
+
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   itoa_base.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:45:19 by salem             #+#    #+#             */
-/*   Updated: 2020/08/17 21:14:47 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/11/28 21:24:21 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_itoa_base(long long int n)
 	ptr = NULL;
 	if (g_opt.specifier == 'd' || g_opt.specifier == 'i')
 		ptr = get_base(n, 10);
-	return(ptr);
+	return (ptr);
 }
 
 char	*get_base(long long int value, int b)
@@ -36,7 +36,7 @@ char	*get_base(long long int value, int b)
 		tmp /= b;
 		d++;
 	}
-	ptr = (char*)ft_calloc(sizeof(char),d + 1);
+	ptr = (char*)ft_calloc(sizeof(char), d + 1);
 	d = value > 0 ? (d - 2) : (d - 1);
 	while (d >= 0 && ptr)
 	{

@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 17:57:20 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/02/27 10:52:44 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/11/28 21:20:25 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ char		*createstring(char *ptr, unsigned int value, char signal, int d)
 char		*ft_itoa(long long int n)
 {
 	long long unsigned int	value;
-	int				digits;
-	int				signal;
-	char			*ptr;
+	int						digits;
+	int						signal;
+	char					*ptr;
 
 	signal = 0;
 	if (n < 0)

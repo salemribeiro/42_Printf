@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 20:47:11 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/07/19 14:39:00 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/28 21:19:40 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int		ft_spaces(int i, char *str)
 	return (i);
 }
 
-long long int				ft_atoi(const char *str)
+long long int	ft_atoi(const char *str)
 {
 	char						*atstr;
 	unsigned long long int		ans;

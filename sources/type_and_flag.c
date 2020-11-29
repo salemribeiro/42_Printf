@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/09/06 01:04:08 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/11/28 21:48:04 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	solve_plus(char flags, char specifier)
 
 /*
 **  Recebe como parametro o inteiro do tipo char "flags", verifica se a flag
-** pode ser utilizada com o especificador "n" e retorna o inteiro do tipo char 
+** pode ser utilizada com o especificador "n" e retorna o inteiro do tipo char
 ** "flags" com seus bits tratados.
 */
 

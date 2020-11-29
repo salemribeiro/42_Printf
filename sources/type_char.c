@@ -6,13 +6,13 @@
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 13:18:40 by salem             #+#    #+#             */
-/*   Updated: 2020/11/05 22:02:05 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/11/28 21:32:01 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	store_char (char c)
+void	store_char(char c)
 {
 	char	*tmp;
 	int		width;
@@ -54,7 +54,7 @@ void	store_percent(int width, char flags)
 			send_buffer(tmp);
 		message_buffer('%');
 		if ((flags & MINUS) == MINUS)
-				send_buffer(tmp);
+			send_buffer(tmp);
 		if (tmp)
 			free(tmp);
 	}

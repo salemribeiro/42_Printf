@@ -6,7 +6,7 @@
 #    By: salem <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/06 09:08:01 by salem             #+#    #+#              #
-#    Updated: 2020/11/28 11:02:56 by salem            ###   ########.fr        #
+#    Updated: 2020/11/29 12:44:53 by salem            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS	=	buffer_functions.c \
 			type_double.c \
 			type_generic.c \
 			type_int.c \
+			type_u_int.c \
 			type_pointer.c \
 			type_sci.c \
 			uitoa_base.c \

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   type_generic.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/28 21:50:36 by salem             #+#    #+#             */
+/*   Updated: 2020/11/29 13:07:33 by salem            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	store_dgeneric(long double value)
@@ -8,7 +20,7 @@ void	store_dgeneric(long double value)
 		value = value * (-1);
 	}
 	if (g_opt.precision == -2)
-			g_opt.precision = 6;
+		g_opt.precision = 6;
 	count_value(value, g_opt.precision);
 }
 
@@ -19,7 +31,7 @@ int		count_value(long double value, int precision)
 	ptr = ft_u_itoa_base((long long int)value);
 	if ((int)ft_strlen(ptr) > precision && precision > 0)
 	{
-		g_opt.precision --;
+		g_opt.precision--;
 		store_sci(value);
 	}
 	else
@@ -31,5 +43,5 @@ int		count_value(long double value, int precision)
 		store_float(value);
 	}
 	free(ptr);
-	return(0);
+	return (0);
 }

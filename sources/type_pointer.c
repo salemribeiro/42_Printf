@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   type_pointer.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/28 21:59:10 by salem             #+#    #+#             */
+/*   Updated: 2020/11/29 11:29:50 by salem            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int cut_string(char *ptr, int precision)
+int			cut_string(char *ptr, int precision)
 {
 	int len;
 	int i;
@@ -43,16 +55,17 @@ void		store_string(char *text, int width, int precision, char flags)
 	if ((flags & MINUS) == MINUS && width > len)
 		send_buffer(tmp);
 	if (tmp)
-		free (tmp);
+		free(tmp);
 	free(ptr);
 }
 
-unsigned long long int	store_pointer(void *ptr)
+t_ulli		store_pointer(void *ptr)
 {
-	unsigned long long int value; value = (unsigned long long int)ptr;
+	t_ulli		value;
+
+	value = (t_ulli)ptr;
 	g_opt.specifier = 'x';
 	if ((g_opt.flags & HASH) != HASH)
 		g_opt.flags = solve_incompatible((g_opt.flags ^ HASH), g_opt.specifier);
 	return (value);
 }
-

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_u_itoa_base.c                                   :+:      :+:    :+:   */
+/*   uitoa_base.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salem <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 21:45:19 by salem             #+#    #+#             */
-/*   Updated: 2020/08/18 20:27:55 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/11/29 11:30:37 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ char	*ft_u_itoa_base(unsigned long long int n)
 		ptr = get_u_base(n, 2);
 	else
 		ptr = get_u_base(n, 10);
-	return(ptr);
+	return (ptr);
 }
 
-char	*get_u_base(unsigned long long int value, int b)
+char	*get_u_base(t_ulli value, int b)
 {
 	unsigned long long int	tmp;
 	char					*ptr;
@@ -62,7 +62,7 @@ char	*get_u_base(unsigned long long int value, int b)
 
 char	*str_toupper(char *source)
 {
-	int		 i;
+	int		i;
 
 	i = 0;
 	while (source[i])

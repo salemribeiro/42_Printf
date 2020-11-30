@@ -6,7 +6,7 @@
 #    By: salem <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/06 09:08:01 by salem             #+#    #+#              #
-#    Updated: 2020/11/29 15:42:44 by salem            ###   ########.fr        #
+#    Updated: 2020/11/29 22:31:37 by salem            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS	=	buffer_functions.c \
 			type_sci.c \
 			uitoa_base.c \
 			wid_pre_len.c \
+			solve_signals.c \
 			ft_printf.c \
 			ft_bzero.c \
 			ft_calloc.c \
@@ -82,6 +83,6 @@ fclean : clean
 re : fclean all
 
 test : all
-	$(CC) -g -I ./headers tests/testemain.c -lftprintf -L .
+	$(CC) -g -I ./headers tests/main_signals.c -lftprintf -L .
 	@clear
 	@./a.out

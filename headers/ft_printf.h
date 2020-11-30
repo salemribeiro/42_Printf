@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 10:27:40 by salem             #+#    #+#             */
-/*   Updated: 2020/11/29 13:21:15 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/29 23:25:37 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ char	*width_options(char *parameters);
 char	*precision_options(char *parameters);
 char	*length_options(char *parameters);
 char	*flag_options(char *parameters, char specifier);
+char	*solve_signal(char *ptr);
 int		specifier_options(char *subtext);
 
 /*

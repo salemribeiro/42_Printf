@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 21:55:10 by salem             #+#    #+#             */
-/*   Updated: 2020/11/29 15:34:17 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/29 23:26:03 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static char	*manager_precision(char *ptr, t_lli value, int *signal, int len)
 {
 	char	*tmp;
+	
 
 	if (g_opt.precision && g_opt.precision >= len)
 	{
@@ -26,6 +27,8 @@ static char	*manager_precision(char *ptr, t_lli value, int *signal, int len)
 			*signal = 1;
 			free(tmp);
 		}
+		else
+			ptr = solve_signal(ptr);
 	}
 	else if (g_opt.precision == 0 && value == 0)
 	{

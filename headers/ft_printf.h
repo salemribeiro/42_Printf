@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 10:27:40 by salem             #+#    #+#             */
-/*   Updated: 2020/11/30 02:14:43 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/30 19:17:06 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ struct	s_opt
 	char	specifier;
 	char	text[2048];
 	int		count;
+	int		nprint;
 }g_opt;
 
 /*

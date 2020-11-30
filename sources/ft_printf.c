@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 21:21:10 by salem             #+#    #+#             */
-/*   Updated: 2020/11/28 21:22:55 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/30 19:35:38 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int			ft_printf(const char *format, ...)
 	}
 	message_buffer(END_TEXT);
 	len = g_opt.count;
-	g_opt.count = 0;
 	va_end(item);
 	return (len);
 }

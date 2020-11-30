@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/11/29 13:08:41 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/30 19:08:02 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	message_arg_solve(va_list item)
 		arg_double(item, sp);
 	else if (sp == '%')
 		store_percent(g_opt.width, g_opt.flags);
+	else if (sp == 'n')
+		store_n(item);
 }
 
 void	arg_integer(va_list item, char sp)

@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:47:21 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/11/27 20:55:36 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/30 19:40:56 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int		message_buffer(int c)
 	}
 	else if (i < 2048)
 		g_opt.text[i] = (char)c;
+	g_opt.nprint = i + 1;
 	i++;
 	return (0);
 }
@@ -94,6 +95,7 @@ void	clear_struct(char print)
 	g_opt.precision = 0;
 	g_opt.length = 0;
 	g_opt.specifier = 0;
+	g_opt.nprint = 0;
 	if (print)
 	{
 		while (i < 2048)

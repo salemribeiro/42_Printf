@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 21:59:10 by salem             #+#    #+#             */
-/*   Updated: 2020/11/29 11:29:50 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/30 02:46:51 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,3 +69,18 @@ t_ulli		store_pointer(void *ptr)
 		g_opt.flags = solve_incompatible((g_opt.flags ^ HASH), g_opt.specifier);
 	return (value);
 }
+/*
+void	store_n(va_list item)
+{
+	if (g_opt.length == H)
+		va_arg(item, char*) 
+	else if (g_opt.length == HH)
+	else if (g_opt.length == LONG)
+	else if (g_opt.length == LL)
+	else
+
+}
+*/
+
+
+

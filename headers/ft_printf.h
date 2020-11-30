@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 10:27:40 by salem             #+#    #+#             */
-/*   Updated: 2020/11/29 23:25:37 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/30 02:14:43 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	*width_options(char *parameters);
 char	*precision_options(char *parameters);
 char	*length_options(char *parameters);
 char	*flag_options(char *parameters, char specifier);
-char	*solve_signal(char *ptr);
+char	*solve_signal(char *ptr, int signal);
 int		specifier_options(char *subtext);
 
 /*
@@ -98,6 +98,9 @@ void	store_int (t_lli value);
 void	store_float (long double value);
 void	store_char (char c);
 void	store_string(char *text, int width, int precision, char flags);
+void	store_u_int(t_lli value);
+void	store_percent(int width, char flags);
+void	store_n(va_list item);
 
 /*
 **-----------------------------------------------------------------------------
@@ -127,7 +130,6 @@ int		solve_expoent(int value);
 int		count_value(long double value, int precision);
 int		remove_zero(char *value);
 int		create_buffer();
-void	store_u_int(t_lli value);
 void	store_dgeneric(long double value);
 void	arg_integer(va_list item, char sp);
 void	arg_csp(va_list item, char sp);
@@ -149,7 +151,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_isdigit(int caracter);
 int		ft_toupper(int caracter);
-void	store_percent(int width, char flags);
 void	ft_bzero(void *source, size_t len);
 void	*ft_calloc(size_t count, size_t size);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);

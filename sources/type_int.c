@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 21:55:10 by salem             #+#    #+#             */
-/*   Updated: 2020/11/29 23:26:03 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/30 02:17:04 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static char	*manager_precision(char *ptr, t_lli value, int *signal, int len)
 {
 	char	*tmp;
-	
 
 	if (g_opt.precision && g_opt.precision >= len)
 	{
@@ -28,7 +27,7 @@ static char	*manager_precision(char *ptr, t_lli value, int *signal, int len)
 			free(tmp);
 		}
 		else
-			ptr = solve_signal(ptr);
+			ptr = solve_signal(ptr, *signal);
 	}
 	else if (g_opt.precision == 0 && value == 0)
 	{
@@ -38,26 +37,22 @@ static char	*manager_precision(char *ptr, t_lli value, int *signal, int len)
 	return (ptr);
 }
 
-static char	*manager_width(char *ptr, char **tmp, int *signal)
+static char	*manager_width(char *ptr, int *signal)
 {
 	if ((g_opt.flags & ZERO) == ZERO && g_opt.precision != 0)
 	{
-		g_opt.width = (*signal == -1 && g_opt.width > 0) ?
+		g_opt.width = ((*signal == -1 || (g_opt.flags & PLUS) == PLUS ||
+		(g_opt.flags & SPACE) == SPACE) && g_opt.width > 0) ?
 		g_opt.width - 1 : g_opt.width;
 		ptr = manager_value(ptr, g_opt.width, '0');
-		if (*signal == -1)
-		{
-			*tmp = ptr;
-			ptr = ft_strjoin("-", ptr);
-		}
+		ptr = solve_signal(ptr, *signal);
 	}
 	else
 	{
 		if (ptr[0] != '-' && *signal == -1)
-		{
-			*tmp = ptr;
-			ptr = ft_strjoin("-", ptr);
-		}
+			ptr = solve_signal(ptr, *signal);
+		else if (ptr[0] != '-')
+			ptr = solve_signal(ptr, *signal);
 		ptr = manager_value(ptr, g_opt.width, ' ');
 	}
 	return (ptr);
@@ -82,7 +77,7 @@ static char	*manager_minus(char *ptr, char **tmp, int *signal, char *caractere)
 		}
 	}
 	else
-		ptr = manager_width(ptr, tmp, signal);
+		ptr = manager_width(ptr, signal);
 	return (ptr);
 }
 

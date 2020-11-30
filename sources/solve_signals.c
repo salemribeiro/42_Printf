@@ -6,23 +6,28 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 22:17:18 by salem             #+#    #+#             */
-/*   Updated: 2020/11/29 23:26:17 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/30 02:16:06 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*solve_signal(char *ptr)
+char	*solve_signal(char *ptr, int signal)
 {
 	char *tmp;
 
 	tmp = ptr;
-	if ((g_opt.flags & PLUS) == PLUS)
+	if (signal == -1)
+	{
+		ptr = ft_strjoin("-", ptr);
+		free(tmp);
+	}
+	else if ((g_opt.flags & PLUS) == PLUS && ptr[0] != '+' && ptr[0] != ' ')
 	{
 		ptr = ft_strjoin("+", ptr);
 		free(tmp);
 	}
-	else if ((g_opt.flags & SPACE) == SPACE)
+	else if ((g_opt.flags & SPACE) == SPACE && ptr[0] != '+' && ptr[0] != ' ')
 	{
 		ptr = ft_strjoin(" ", ptr);
 		free(tmp);

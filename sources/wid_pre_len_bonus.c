@@ -6,17 +6,11 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 22:38:36 by salem             #+#    #+#             */
-/*   Updated: 2020/11/30 22:38:53 by salem            ###   ########.fr       */
+/*   Updated: 2020/12/01 09:13:19 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
-
-/*
-**  Funcao recebe um ponteiro de char "*parameters" busca por informacoes do
-** width envia essas informacoes para a estrutura global "opt.width" e avanca
-** o ponteiro para posicao final de indicacao de width e retorna o mesmo.
-*/
 
 char	*width_options(char *parameters)
 {
@@ -56,13 +50,6 @@ int		clear_precision_buffer(char **buffer, int precision)
 	return (precision);
 }
 
-/*
-**  Funcao recebe um ponteiro de char "*parameters" busca por informacoes do
-** precision envia essas informacoes para a estrutura global "opt.precision" e
-** avanca o ponteiro para posicao final de indicacao de precision e retorna o
-** mesmo.
-*/
-
 char	*precision_options(char *parameters)
 {
 	int		i;
@@ -90,13 +77,6 @@ char	*precision_options(char *parameters)
 	g_opt.precision = clear_precision_buffer(&buffer, precision);
 	return (parameters);
 }
-
-/*
-**  Funcao recebe um ponteiro de char "*parameters" busca por informacoes do
-** length envia essas informacoes para a estrutura global "opt.length" e
-** avanca o ponteiro para posicao final de indicacao de length e retorna o
-** mesmo.
-*/
 
 char	*length_options(char *parameters)
 {

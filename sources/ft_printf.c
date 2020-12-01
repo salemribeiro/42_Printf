@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 21:21:10 by salem             #+#    #+#             */
-/*   Updated: 2020/11/30 19:35:38 by salem            ###   ########.fr       */
+/*   Updated: 2020/12/01 09:08:05 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ int			resolve_negative(int value, char option)
 		value = -2;
 	return (value);
 }
-
-/*
-** Funcao responsavel por imprimir em tela tipos de dados diferentes dando a
-** eles uma grande gama de opcoes de formatacao.
-*/
 
 int			ft_printf(const char *format, ...)
 {
@@ -57,12 +52,6 @@ int			ft_printf(const char *format, ...)
 	va_end(item);
 	return (len);
 }
-
-/*
-** Funcao responsavel por encontrar um valor inserido na string, faz isso
-** buscando o caractere percent e depois desencadeando toda uma cadeia de
-** funcoes que permitem tratar todos as opcoes para impressao dos valores
-*/
 
 char		search_percent(char *text)
 {

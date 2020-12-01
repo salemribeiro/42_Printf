@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 22:30:59 by salem             #+#    #+#             */
-/*   Updated: 2020/11/30 22:31:16 by salem            ###   ########.fr       */
+/*   Updated: 2020/12/01 09:07:04 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,6 @@ char	*get_parameters(char specifier, char *jmp, char *tmp)
 	g_opt.specifier = specifier;
 	return (jmp);
 }
-
-/*
-**   Funcao responsavel por localizar os parametros de tratamento dos dados
-** a funcao recebe como parametro um ponteiro para uma substring do texto
-** original que contem trecho dos parametros a serem tratados (Ex: %+0.2d)
-** tendo como ordem [flag], [width], [precision], [length] e [specifier].
-**   Retorna um inteiro para confirmacao da execucao correta.
-*/
 
 int		specifier_options(char *subtext)
 {

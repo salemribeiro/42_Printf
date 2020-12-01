@@ -6,18 +6,11 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:47:21 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/11/30 19:40:56 by salem            ###   ########.fr       */
+/*   Updated: 2020/12/01 09:02:36 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*
-**  Funcao recebe um caracter c, um ponteiro para uma string e um inteiro
-** que informa o tamanho da string recebida.
-**  Ela reponsavel por unir o ponteiro de char com o caractere recebido,
-** retornando o resultado dessa uniao.
-*/
 
 char	*add_buffer(char c, char *buffer, int size)
 {
@@ -38,12 +31,6 @@ char	*add_buffer(char c, char *buffer, int size)
 	tmp[i] = c;
 	return (tmp);
 }
-
-/*
-**  Funcao recebe um caracter e armazena em um buffer com o tamanho de 2048
-** bits, retorna 0 caso nao seja realizada a chamada de impressao ou o numero
-** de caracteres impressos.
-*/
 
 int		message_buffer(int c)
 {
@@ -68,10 +55,6 @@ int		message_buffer(int c)
 	return (0);
 }
 
-/*
-** Envio de valores para o buffer de messagem
-*/
-
 void	send_buffer(char *text)
 {
 	int i;
@@ -80,10 +63,6 @@ void	send_buffer(char *text)
 	while (text[i])
 		message_buffer((int)text[i++]);
 }
-
-/*
-**  Funcao tem por finalidade limpar a estrutra da variavel global (g_opt)
-*/
 
 void	clear_struct(char print)
 {

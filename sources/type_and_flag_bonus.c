@@ -6,17 +6,11 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 22:31:26 by salem             #+#    #+#             */
-/*   Updated: 2020/11/30 22:31:54 by salem            ###   ########.fr       */
+/*   Updated: 2020/12/01 09:15:47 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
-
-/*
-**  Recebe como parametro o inteiro do tipo char "flags", verifica se a flag
-** pode ser utilizada com lista de especificadores "SPECIFIERS1" e retorna o
-** inteiro do tipo char "flags" com seus bits tratados.
-*/
 
 char	solve_plus(char flags, char specifier)
 {
@@ -38,12 +32,6 @@ char	solve_plus(char flags, char specifier)
 	return (flags);
 }
 
-/*
-**  Recebe como parametro o inteiro do tipo char "flags", verifica se a flag
-** pode ser utilizada com o especificador "n" e retorna o inteiro do tipo char
-** "flags" com seus bits tratados.
-*/
-
 char	solve_minus(char flags, char specifier)
 {
 	int tmp;
@@ -53,12 +41,6 @@ char	solve_minus(char flags, char specifier)
 		flags = flags ^ MINUS;
 	return (flags);
 }
-
-/*
-**  Recebe como parametro o inteiro do tipo char "flags", verifica se a flag
-** pode ser utilizada com lista de especificadores "SPECIFIERS2" e retorna o
-** inteiro do tipo char "flags" com seus bits tratados.
-*/
 
 char	solve_hash(char flags, char specifier)
 {
@@ -80,12 +62,6 @@ char	solve_hash(char flags, char specifier)
 	return (flags);
 }
 
-/*
-**  Recebe como parametro o inteiro do tipo char "flags", verifica se a flag
-** pode ser utilizada com lista de especificadores "SPECIFIERS3" e retorna o
-** inteiro do tipo char "flags" com seus bits tratados.
-*/
-
 char	solve_zero(char flags, char specifier)
 {
 	int		i;
@@ -105,12 +81,6 @@ char	solve_zero(char flags, char specifier)
 		flags = flags ^ ZERO;
 	return (flags);
 }
-
-/*
-**  Recebe como parametro o inteiro do tipo char "flags", verifica se a flag
-** pode ser utilizada com lista de especificadores "SPECIFIERS1" e retorna o
-** inteiro do tipo char "flags" com seus bits tratados.
-*/
 
 char	solve_space(char flags, char specifier)
 {

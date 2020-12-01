@@ -6,18 +6,11 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:57:57 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/08/18 00:27:27 by sfreitas         ###   ########.fr       */
+/*   Updated: 2020/12/01 09:19:30 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*
-**  Recebe um conjunto de caracters em um ponteiro de char "*parameters",
-** percorre todo ponteiro em busca de valores que representam flags, envia
-** essas flags para o campo da estrutura global "g_opt.flags" e avanca o
-** ponteiro para posicao final de indicacao de flags e retorna o mesmo.
-*/
 
 char	*flag_options(char *parameters, char specifier)
 {
@@ -37,14 +30,6 @@ char	*flag_options(char *parameters, char specifier)
 	g_opt.flags = solve_incompatible(flags, specifier);
 	return (parameters);
 }
-
-/*
-**  Recebe um inteiro char "flags" e executa uma série de verificacoes
-** corrigindo suas incompatibilidades por ordem de importancia, retornando um
-** inteiro char com as correcoes aplicadas.
-**  Foi desenhado dessa forma para que os tratamentos poderem ser chamados em
-** qualquer parte do codigo
-*/
 
 char	solve_incompatible(char flags, char specifier)
 {

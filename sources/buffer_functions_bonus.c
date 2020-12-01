@@ -6,18 +6,11 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 22:19:19 by salem             #+#    #+#             */
-/*   Updated: 2020/11/30 22:19:37 by salem            ###   ########.fr       */
+/*   Updated: 2020/12/01 09:02:56 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
-
-/*
-**  Funcao recebe um caracter c, um ponteiro para uma string e um inteiro
-** que informa o tamanho da string recebida.
-**  Ela reponsavel por unir o ponteiro de char com o caractere recebido,
-** retornando o resultado dessa uniao.
-*/
 
 char	*add_buffer(char c, char *buffer, int size)
 {
@@ -38,12 +31,6 @@ char	*add_buffer(char c, char *buffer, int size)
 	tmp[i] = c;
 	return (tmp);
 }
-
-/*
-**  Funcao recebe um caracter e armazena em um buffer com o tamanho de 2048
-** bits, retorna 0 caso nao seja realizada a chamada de impressao ou o numero
-** de caracteres impressos.
-*/
 
 int		message_buffer(int c)
 {

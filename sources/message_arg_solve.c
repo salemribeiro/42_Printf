@@ -6,16 +6,11 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 23:09:08 by sfreitas          #+#    #+#             */
-/*   Updated: 2020/11/30 19:08:02 by salem            ###   ########.fr       */
+/*   Updated: 2020/12/01 09:13:41 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*
-** Funcao responsavel por verificar e enviar os dados recebidos via args
-** para sua função de tratamento correspondente
-*/
 
 void	message_arg_solve(va_list item)
 {
@@ -97,13 +92,6 @@ void	arg_double(va_list item, char sp)
 			store_dgeneric(va_arg(item, double));
 	}
 }
-
-/*
-** Funcao recebe como parametro um ponteiro "*source", um caracter "c" e
-** um inteiro "total".
-** E responsavel por criar um novo ponteiro de tamanho "total", contendo os
-** valores de "*source" completados com "c".
-*/
 
 char	*manager_value(char *source, int total, char c)
 {

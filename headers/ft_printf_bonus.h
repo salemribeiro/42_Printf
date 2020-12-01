@@ -6,12 +6,12 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 10:27:40 by salem             #+#    #+#             */
-/*   Updated: 2020/11/30 21:47:29 by salem            ###   ########.fr       */
+/*   Updated: 2020/11/30 19:17:06 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_BONUS_H
-# define FT_PRINTF_BONUS_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # define PLUS			1
 # define MINUS			2
 # define HASH			4

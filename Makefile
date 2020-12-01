@@ -6,11 +6,11 @@
 #    By: salem <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/06 09:08:01 by salem             #+#    #+#              #
-#    Updated: 2020/11/29 22:31:37 by salem            ###   ########.fr        #
+#    Updated: 2020/11/30 23:12:42 by salem            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		= gcc 
+CC		= gcc
 FLAGS	= -Wall -Werror -Wextra -c -o
 NAME	= libftprintf.a
 
@@ -47,42 +47,60 @@ SRCS	=	buffer_functions.c \
 			ft_toupper.c \
 			ft_atoi.c
 
-OBJ = $(patsubst %.c, $(PATHOBJ)%.o, $(SRCS))
+BSRCS	=	buffer_functions_bonus.c \
+			flag_options_bonus.c \
+			itoa_base_bonus.c \
+			message_arg_solve_bonus.c \
+			print_funcions_bonus.c \
+			specifier_options_bonus.c \
+			type_and_flag_bonus.c \
+			type_char_bonus.c \
+			type_double_bonus.c \
+			type_generic_bonus.c \
+			type_int_bonus.c \
+			type_u_int_bonus.c \
+			type_pointer_bonus.c \
+			type_sci_bonus.c \
+			uitoa_base_bonus.c \
+			wid_pre_len_bonus.c \
+			solve_signals_bonus.c \
+			ft_printf_bonus.c \
+			ft_bzero_bonus.c \
+			ft_calloc_bonus.c \
+			ft_isdigit_bonus.c \
+			ft_itoa_bonus.c \
+			ft_strdup_bonus.c \
+			ft_strjoin_bonus.c \
+			ft_strlcpy_bonus.c \
+			ft_strlen_bonus.c \
+			ft_substr_bonus.c \
+			ft_toupper_bonus.c \
+			ft_atoi_bonus.c
+
+OBJ = $(patsubst %.c, %.o, $(SRCS))
+BOBJ = $(patsubst %.c, %.o, $(BSRCS))
+
 VPATH = %.c sources
 
-all : start libftprintf.a
-	@echo "                                     SUCCESS !!!"
+ifdef BONUS
+	OBJ = $(BOBJ)
+endif
 
-start :
-	@echo "------------------------------------------------"
-	@echo "|           START MAKE FT_PRINTF 42SP          |"
-	@echo "|                                              |"
-	@echo "|   by: Salem Freitas (sfreitas)               |"
-	@echo "| mail: sfreitas@student.42sp.org.br           |"
-	@echo "------------------------------------------------"
-	@echo "                            creating objects... "
+all : $(NAME)
 
-libftprintf.a : $(OBJ)
-	@echo "+ Criando link libft_printf.h"
-	@ar -rcs $@ $^
+bonus:
+	$(MAKE) BONUS=1 all
 
-$(PATHOBJ)%.o: %.c
-	@echo "+ Create $@"
-	@$(CC) -g -Werror -Wall -Wextra -c -o $@ $< -I headers/
+$(NAME) : $(OBJ)
+	ar -rcs $@ $^
+
+%.o: %.c
+	$(CC) -g -Werror -Wall -Wextra -c -o $@ $< -I headers/
 
 clean :
-	@echo "                      removing objects files..."
-	@rm $(PATHOBJ)*.o
-	@echo "                                       DONE !!!"
+	rm *.o
 
 fclean : clean
-	@echo "                                removing lib..."
-	@rm libftprintf.a
-	@echo "                                       DONE !!!"
+	rm libftprintf.a
 
 re : fclean all
-
-test : all
-	$(CC) -g -I ./headers tests/main_signals.c -lftprintf -L .
-	@clear
-	@./a.out

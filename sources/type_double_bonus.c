@@ -5,18 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 22:32:53 by salem             #+#    #+#             */
-/*   Updated: 2020/11/30 22:33:16 by salem            ###   ########.fr       */
+/*   Created: 2020/12/03 20:08:18 by salem             #+#    #+#             */
+/*   Updated: 2020/12/03 20:08:38 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
-
-/*
-** Funcao recebe com parametro um long double, faz o tratamento do sinal e
-**   precisao padrao e envia para as funcoes resposaveis por tratar
-**   o arredondamento.
-*/
 
 void	store_float(long double value)
 {

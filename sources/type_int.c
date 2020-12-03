@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 21:55:10 by salem             #+#    #+#             */
-/*   Updated: 2020/12/03 17:25:25 by salem            ###   ########.fr       */
+/*   Updated: 2020/12/03 17:30:41 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,6 @@ void		store_int(long long int value)
 		g_opt.flags = g_opt.flags ^ ZERO;
 	len = ft_strlen(ptr);
 	ptr = manager_minus(ptr, &signal, &caractere);
-	//if (tmp)
-	//	free(tmp);
 	send_buffer(ptr);
 	free(ptr);
 }

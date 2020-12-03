@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 22:19:19 by salem             #+#    #+#             */
-/*   Updated: 2020/12/01 09:02:56 by salem            ###   ########.fr       */
+/*   Created: 2020/12/03 17:32:36 by salem             #+#    #+#             */
+/*   Updated: 2020/12/03 20:00:31 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,6 @@ int		message_buffer(int c)
 	return (0);
 }
 
-/*
-** Envio de valores para o buffer de messagem
-*/
-
 void	send_buffer(char *text)
 {
 	int i;
@@ -67,10 +63,6 @@ void	send_buffer(char *text)
 	while (text[i])
 		message_buffer((int)text[i++]);
 }
-
-/*
-**  Funcao tem por finalidade limpar a estrutra da variavel global (g_opt)
-*/
 
 void	clear_struct(char print)
 {

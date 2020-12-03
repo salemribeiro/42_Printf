@@ -6,7 +6,7 @@
 /*   By: sfreitas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 21:55:10 by salem             #+#    #+#             */
-/*   Updated: 2020/11/30 02:17:04 by salem            ###   ########.fr       */
+/*   Updated: 2020/12/03 17:25:25 by salem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,23 +58,24 @@ static char	*manager_width(char *ptr, int *signal)
 	return (ptr);
 }
 
-static char	*manager_minus(char *ptr, char **tmp, int *signal, char *caractere)
+static char	*manager_minus(char *ptr, int *signal, char *caractere)
 {
-	int len;
+	int		len;
+	char	*tmp;
+	char	*man;
 
 	len = ft_strlen(ptr);
 	if ((g_opt.flags & MINUS) == MINUS)
 	{
-		if (*signal == 1)
-			ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
-			g_opt.width - len, *caractere));
-		else
-		{
-			ptr = ft_strjoin(ptr, manager_value(ft_strdup(""),
-			g_opt.width - len - 1, *caractere));
-			*tmp = ptr;
-			ptr = ft_strjoin("-", ptr);
-		}
+		tmp = ptr;
+		if (*signal == -1 || (g_opt.flags & PLUS) == PLUS ||
+			(g_opt.flags & SPACE) == SPACE)
+			len++;
+		man = manager_value(ft_strdup(""), g_opt.width - len, *caractere);
+		ptr = ft_strjoin(ptr, man);
+		ptr = solve_signal(ptr, *signal);
+		free(tmp);
+		free(man);
 	}
 	else
 		ptr = manager_width(ptr, signal);
@@ -84,7 +85,6 @@ static char	*manager_minus(char *ptr, char **tmp, int *signal, char *caractere)
 void		store_int(long long int value)
 {
 	char	*ptr;
-	char	*tmp;
 	int		len;
 	int		signal;
 	char	caractere;
@@ -98,10 +98,9 @@ void		store_int(long long int value)
 	if ((g_opt.flags & ZERO) == ZERO && g_opt.precision > 0)
 		g_opt.flags = g_opt.flags ^ ZERO;
 	len = ft_strlen(ptr);
-	tmp = NULL;
-	ptr = manager_minus(ptr, &tmp, &signal, &caractere);
-	if (tmp)
-		free(tmp);
+	ptr = manager_minus(ptr, &signal, &caractere);
+	//if (tmp)
+	//	free(tmp);
 	send_buffer(ptr);
 	free(ptr);
 }

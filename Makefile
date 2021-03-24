@@ -50,36 +50,21 @@ SRCS	=	buffer_functions.c \
 OBJ = $(patsubst %.c, $(PATHOBJ)%.o, $(SRCS))
 VPATH = %.c sources
 
-all : start libftprintf.a
+all : libftprintf.a
 	@echo "                                     SUCCESS !!!"
 
-start :
-	@echo "------------------------------------------------"
-	@echo "|           START MAKE FT_PRINTF 42SP          |"
-	@echo "|                                              |"
-	@echo "|   by: Salem Freitas (sfreitas)               |"
-	@echo "| mail: sfreitas@student.42sp.org.br           |"
-	@echo "------------------------------------------------"
-	@echo "                            creating objects... "
-
 libftprintf.a : $(OBJ)
-	@echo "+ Criando link libft_printf.h"
-	@ar -rcs $@ $^
+	ar -rcs $@ $^
 
 $(PATHOBJ)%.o: %.c
-	@echo "+ Create $@"
-	@$(CC) -g -Werror -Wall -Wextra -c -o $@ $< -I headers/
+	$(CC) -g -Werror -Wall -Wextra -c -o $@ $< -I headers/
 
 clean :
-	@echo "                      removing objects files..."
 	@rm $(PATHOBJ)*.o
-	@echo "                                       DONE !!!"
-
+	
 fclean : clean
-	@echo "                                removing lib..."
 	@rm libftprintf.a
-	@echo "                                       DONE !!!"
-
+	
 re : fclean all
 
 test : all

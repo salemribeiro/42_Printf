@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: salem <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: salem <salem@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/06 09:08:01 by salem             #+#    #+#              #
-#    Updated: 2020/12/07 20:29:00 by salem            ###   ########.fr        #
+#    Updated: 2021/03/27 14:39:52 by salem            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC		= clang
 FLAGS	= -Wall -Werror -Wextra -c -o
 NAME	= libftprintf.a
 
-PATHOBJ = ./objects/
+PATHOBJ = objects/
 
 
 SRCS	=	buffer_functions.c \
